@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
         // SoundManager.PlaySound("playerShoot");
         audioSource.PlayOneShot(shootingAudioClip);
         theAnimator.SetBool("Shoot", true); 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.7f);
         theAnimator.SetBool("Shoot", false);
     }
 }

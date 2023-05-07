@@ -8,9 +8,8 @@ public class GameManager : MonoBehaviour
     public string mainMenu;
 
 	public PlayerController thePlayer;
-    public Pumkin thePumpkin;
-    public Spider theSpider; 
-	private Vector2 playerStart;
+	public Pumkin thePumpkin;
+    private Vector2 playerStart;
 
 	public GameObject victoryScreen;
 	public GameObject gameOverScreen;
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
     		victoryScreen.SetActive(true);
     		thePlayer.gameObject.SetActive(false);
             thePumpkin.gameObject.SetActive(false);
-            theSpider.gameObject.SetActive(false);
+            
     }
 
     public void GameOver() 
@@ -45,7 +44,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
         thePlayer.gameObject.SetActive(true);
         thePumpkin.gameObject.SetActive(true);
-        theSpider.gameObject.SetActive(true);
 
     }
 

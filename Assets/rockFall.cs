@@ -20,18 +20,20 @@ public class rockFall : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-        	StartCoroutine(respawn());
-        	ass.Play();
-            rb.constraints = RigidbodyConstraints2D.None; // release the rigidbody constraints
-            rb.AddForce(Vector2.down * 1.2f, ForceMode2D.Impulse); // add downward force to simulate dropping
+            StartCoroutine(respawn());
+            
         }
     }
 
     IEnumerator respawn()
     {
-    	yield return new WaitForSeconds(3f);
-    	
-    	Instantiate(rock, spawnPosition, Quaternion.identity);
+        //Wait for 2 seconds, then rock falls
+    	yield return new WaitForSeconds(1f);
+        ass.Play();
+        rb.constraints = RigidbodyConstraints2D.None; // release the rigidbody constraints
+        rb.AddForce(Vector2.down * 1.2f, ForceMode2D.Impulse); // add downward force to simulate dropping
+        yield return new WaitForSeconds(3f);
+        Instantiate(rock, spawnPosition, Quaternion.identity);
     	Destroy(gameObject);
     }
 

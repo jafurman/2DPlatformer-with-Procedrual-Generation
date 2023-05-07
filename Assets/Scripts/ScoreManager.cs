@@ -35,10 +35,12 @@ public class ScoreManager : MonoBehaviour
     
     public void ChangeScore(int soulValue)
     {
-	    if (Weapon.shotsLeft == 5)
+	    if (Weapon.shotsLeft >= 5)
 	    {
 		    canChange = false;
+		    Weapon.shotsLeft = 5; //tie back to five total in case of overflow
 	    }
+	    
 	    if (canChange)
 	    {
 		    Weapon.shotsLeft += soulValue;
@@ -55,11 +57,19 @@ public class ScoreManager : MonoBehaviour
 	    {
 		    Weapon.shotsLeft = 0;
 	    }
+	    if (Weapon.shotsLeft >= 5)
+	    {
+		    
+		    Weapon.shotsLeft = 5; //tie back to five total in case of overflow
+	    }
+	    
 	    
 	    Weapon.shotsLeft -= soulReduction;
         PlayerPrefs.SetInt("CurrentScore", Weapon.shotsLeft);
         scoreText.text = "" + Weapon.shotsLeft.ToString();
-        
+        //change score is true when souk is taken away
+        canChange = true;
+
     }
 
     public void Update()

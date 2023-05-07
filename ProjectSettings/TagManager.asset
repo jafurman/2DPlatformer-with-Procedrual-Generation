@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - bullet
   - sliders
+  - ambiance
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - onBackgroundWall
-  - 
+  - EnemyLayer
   - Ground
   - 
   - 

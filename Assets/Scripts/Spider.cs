@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Spider : MonoBehaviour
 {
-    public GameManager gm;
-    public LivesManager lm;
 
     private float dirY;
     private float moveSpeed;
@@ -26,11 +24,23 @@ public class Spider : MonoBehaviour
     public AudioSource playSound;
 
     public GameObject healthBar;
+    
+    public float knockbackDuration = 0.1f;
+    public float knockbackForce = 10f;
+    
+    [SerializeField]
+    public bool isOnBackground;
+
+    //Can make changeable through inspector tab later but for now 5
+    public int TopBGSpiderLenght = 5;
+    public int BottomBGSpiderLength = -5;
+
+    public static bool useForBackground;
 
         void Start()
     {
 
-        theAnim = transform.parent.GetComponent<Animator>();
+        //theAnim = transform.parent.GetComponent<Animator>();
         localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         dirY = 1f;
@@ -39,29 +49,52 @@ public class Spider : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-    	if (collision.gameObject.tag == "Player")
-    	{
-            playSound.Play();
-            gm.Reset();
-    		lm.TakeLife();
-        
-        }
-
-        if (collision.GetComponent<Wall>())
+        public void OnTriggerEnter2D(Collider2D col)
         {
+            if (col.gameObject.tag == "Player" && !isOnBackground)
+            {
+                useForBackground = true;
+                playSound.Play();
+                
+                ScoreManager.instance.TakeScore(1);
+                
+                
+            }
 
-            dirY *= -1f;
-            Flip();
+            useForBackground = false;
+
+            if (col.GetComponent<Wall>())
+            {
+                dirY *= -1f;
+                Flip();
+            }
         }
-    }
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector2( rb.velocity.x, dirY * moveSpeed);
+        rb.velocity = new Vector2(rb.velocity.x, dirY * moveSpeed);
+        if (isOnBackground)
+        {
+            if (transform.position.y >= TopBGSpiderLenght)
+            {
+                Flip();
+                dirY = -1f;
+            }
+            else if (transform.position.y <= BottomBGSpiderLength)
+            {
+                Flip();
+                dirY = 1f;
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, dirY * moveSpeed);
+            }
+        }
     }
+
     private void Flip()
     {
 
@@ -69,16 +102,7 @@ public class Spider : MonoBehaviour
 
         transform.Rotate(180f, 0f, 0f);
     }
-
-    public void fakeDamageForHealtBar( float damage2 )
-     {
-
-        Debug.Log(health);
-        healthBar.transform.localScale += new Vector3(-.33f, 0f, 0f );
-     	damage2 = .2f;
-    health -= damage2;
-
-     }
+    
 
     
 

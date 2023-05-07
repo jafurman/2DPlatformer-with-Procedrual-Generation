@@ -4,39 +4,48 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-public GameObject theBullet;
+    public GameObject theBullet;
     public float speed = 20f;
     public Rigidbody2D rb;
-    public float damage = .2f; 
+    public float damage = 3f;
     public GameObject impactEffect;
 
     public GameObject player; //for the player's info
 
     public AudioSource playSound;
 
+    private float scaleDecreaseRate = 0.05f; // rate at which to decrease the scale of the game object
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(timeStop());
-
-          //rigidbody, please move right accordinfg to our speed
     }
 
     void Update()
     {
         rb.velocity = transform.right * speed;
 
-        if(player != null)
+        if (player != null)
+        {
+            if (PlayerController.FacingRight == true)
             {
-                if (PlayerController.FacingRight == true)
-                {
-                    player.transform.position += new Vector3(1.5f * Time.deltaTime,0,0);
-                    } else if (PlayerController.FacingRight == false)
-                    {
-                    player.transform.position -= new Vector3(1.5f * Time.deltaTime,0,0);
-                    }
-                
+                player.transform.position += new Vector3(1.5f * Time.deltaTime, 0, 0);
             }
+            else if (PlayerController.FacingRight == false)
+            {
+                player.transform.position -= new Vector3(1.5f * Time.deltaTime, 0, 0);
+            }
+        }
+
+        // decrease the X scale of the game object
+        transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
+
+        // destroy the game object once the X scale reaches zero
+        if (transform.localScale.x <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D hitInfo)  //when anything happens when bullet hits
@@ -52,13 +61,11 @@ public GameObject theBullet;
 
         playSound.Play();
         Instantiate(impactEffect, transform.position, transform.rotation);
-
-        
     }
 
     public void OnCollisionEnter2D(Collision2D hitInfo)
     {
-        if(hitInfo.gameObject.tag == "Player")
+        if (hitInfo.gameObject.tag == "Player")
         {
             PlayerController.canMove = false;
             Debug.Log("Connected Player");
@@ -66,8 +73,9 @@ public GameObject theBullet;
         }
     }
 
-    public void OnCollisionExit2D(Collision2D coal){
-        if(coal.gameObject.tag == "Player")
+    public void OnCollisionExit2D(Collision2D coal)
+    {
+        if (coal.gameObject.tag == "Player")
         {
             PlayerController.canMove = true;
             player = null;
@@ -75,9 +83,9 @@ public GameObject theBullet;
     }
 
     IEnumerator timeStop()
-    {   
-        yield return new WaitForSeconds(2.5f);
+    {
+        yield return new WaitForSeconds(4f);
 
-        Destroy(gameObject);  
+        Destroy(gameObject);
     }
 }

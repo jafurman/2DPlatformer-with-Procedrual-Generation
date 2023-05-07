@@ -1,112 +1,129 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-
-    public static float health = .3f;
-
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
     public GameObject deathEffect;
-
-    public AudioSource playSound;
-
     public GameObject healthBar;
-
     public AudioSource deathSound;
-
     public int soulValue;
-
     private Animator theAnim;
-
     private bool isDead;
-
-    public Rigidbody2D rb;
-
-    private Vector2 localScale;
-
-
-public void TakeDamage (float damage)
-{
-    healthBar.transform.localScale += new Vector3(-.33f, 0f, 0f );
-    damage = .3f;
-    health -= damage;
-
-    
-
-    if (health <= 0) 
+    public static bool isInvincible = false;
+    private void Start()
     {
-        // isDead = true; 
+        theAnim = GetComponent<Animator>();
+        currentHealth = maxHealth;
 
-        //disable movement and collider
-        Collider2D hitBox;
-         hitBox = GetComponent<Collider2D>();
-         hitBox.enabled = false;
-         deathSound.enabled = true;
-         SinusoidalMove sinMov = GetComponent<SinusoidalMove>();
-         if (sinMov != null)
-         {
+        if ( healthBar != null)
+        {
+            // Set the initial health bar size
+            healthBar.transform.localScale = new Vector3(1f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        }
+
+        
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+
+        if (gameObject.tag != "Enemy" || gameObject.tag != "Spooder")
+        {
+            theAnim.SetTrigger("takeDamage");
+        }
+        StartCoroutine(flashSprite());
+
+
+        if (healthBar != null)
+        {
+            // Calculate and set the new health bar size
+            float proportionalDamage = damage / maxHealth;
+            float newHealthSize = healthBar.transform.localScale.x - proportionalDamage;
+            healthBar.transform.localScale = new Vector3(newHealthSize, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        }
+
+        if (currentHealth <= 0)
+        {
+            isDead = true;
+
+            // Disable movement and collider
+            Collider2D hitBox = GetComponent<Collider2D>();
+            hitBox.enabled = false;
+
+            SinusoidalMove sinMov = GetComponent<SinusoidalMove>();
+            if (sinMov != null)
+            {
+                sinMov.enabled = false;
+            }
+
+            Spider spider = GetComponent<Spider>();
+            if (spider != null)
+            {
+                spider.enabled = false;
+            }
+
+            ScoreManager.instance.ChangeScore(soulValue);
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        deathSound.Play();
+        isDead = true;
+
+        // Disable movement and collider
+        Collider2D hitBox = GetComponent<Collider2D>();
+        hitBox.enabled = false;
+
+        SinusoidalMove sinMov = GetComponent<SinusoidalMove>();
+        if (sinMov != null)
+        {
             sinMov.enabled = false;
-         }
-         Spider spider = GetComponent<Spider>();
-         if (spider != null)
-         {
-            spider.enabled = false; 
-         }
-         
-         StartCoroutine(stopSound());
-         
-        //theAnim.SetBool("Dead", isDead);
+        }
+
+        Spider spider = GetComponent<Spider>();
+        if (spider != null)
+        {
+            spider.enabled = false;
+        }
+
         ScoreManager.instance.ChangeScore(soulValue);
-        Die();
-        
-    } 
-}
-
-    IEnumerator stopSound()
-    {
-        
-        yield return new WaitForSeconds(0.45f);
-        Debug.Log("Called");
-        deathSound.enabled = false;
-        Destroy(gameObject);
-
-
+        theAnim.SetTrigger("die"); // Set the die trigger in the Animator component
+        StartCoroutine(DestroyEnemy());
     }
 
-void Die()
-{
-   StartCoroutine(stopAnim());
-    
-}
-
-
-    IEnumerator stopAnim()
+    private IEnumerator DestroyEnemy()
     {
-       Instantiate(deathEffect, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(.5f);
-        isDead = false; 
+        yield return new WaitForSeconds(theAnim.GetCurrentAnimatorStateInfo(0).length); // Wait for the length of the die animation state
+        Destroy(gameObject); // Destroy the enemy game object
+    }
+
+    private IEnumerator StopAnim()
+    {
+        yield return new WaitForSeconds(0.05f);
         theAnim.SetBool("Dead", isDead);
-
-        
+        Destroy(gameObject);
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator flashSprite()
     {
-        
-        theAnim = transform.parent.GetComponent<Animator>();
-        localScale = transform.localScale;
-        rb = GetComponent<Rigidbody2D>();
-
-        
+        isInvincible = true;
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        sprite.enabled = true;
+        isInvincible = false;
     }
-
-
-
 }
-
- 

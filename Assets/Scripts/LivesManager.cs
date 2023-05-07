@@ -43,9 +43,14 @@ public class LivesManager : MonoBehaviour
 
     public void TakeLife()
     {
-    	livesCounter--;
-    	PlayerPrefs.SetInt("CurrentLives", livesCounter);
-        ScoreManager.instance.TakeScore(soulReduction);
+	    if (PlayerController.isInvincible == false)
+	    {
+		    livesCounter--;
+		    PlayerPrefs.SetInt("CurrentLives", livesCounter);
+		    ScoreManager.instance.TakeScore(soulReduction);
+	    }
+	    
+    	
     }
 
        public void AddLife()
