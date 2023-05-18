@@ -13,7 +13,7 @@ public class LivesManager : MonoBehaviour
 
 	private GameManager theGM;
 
-    public int soulReduction = 200;
+    public int soulReduction = 0;
 
     public static LivesManager instance;
     // Start is called before the first frame update
@@ -43,17 +43,18 @@ public class LivesManager : MonoBehaviour
 
     public void TakeLife()
     {
-	    if (PlayerController.isInvincible == false)
-	    {
-		    livesCounter--;
-		    PlayerPrefs.SetInt("CurrentLives", livesCounter);
-		    ScoreManager.instance.TakeScore(soulReduction);
-	    }
-	    
-    	
+        if (PlayerController.isInvincible == false)
+        {
+            livesCounter--;
+            PlayerPrefs.SetInt("CurrentLives", livesCounter);
+            if (Weapon.shotsLeft > 0)
+            {
+                ScoreManager.instance.TakeScore(soulReduction);
+            }
+        }
     }
 
-       public void AddLife()
+    public void AddLife()
     {
     	livesCounter++;
     	PlayerPrefs.SetInt("CurrentLives", livesCounter);

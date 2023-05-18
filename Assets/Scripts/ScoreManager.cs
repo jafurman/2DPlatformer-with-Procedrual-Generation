@@ -51,28 +51,24 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    public void TakeScore(int soulReduction) 
-    {
-	    if (Weapon.shotsLeft <= 0)
-	    {
-		    Weapon.shotsLeft = 0;
-	    }
-	    if (Weapon.shotsLeft >= 5)
-	    {
-		    
-		    Weapon.shotsLeft = 5; //tie back to five total in case of overflow
-	    }
-	    
-	    
-	    Weapon.shotsLeft -= soulReduction;
-        PlayerPrefs.SetInt("CurrentScore", Weapon.shotsLeft);
-        scoreText.text = "" + Weapon.shotsLeft.ToString();
-        //change score is true when souk is taken away
-        canChange = true;
+	public void TakeScore(int soulReduction)
+	{
+		if (Weapon.shotsLeft <= 0)
+		{
+			LivesManager.instance.TakeLife();
+			Weapon.shotsLeft = 0;
+		}
+		else
+		{
+			Weapon.shotsLeft -= soulReduction;
+		}
+		PlayerPrefs.SetInt("CurrentScore", Weapon.shotsLeft);
+		scoreText.text = Weapon.shotsLeft.ToString();
+		canChange = true;
+	}
 
-    }
 
-    public void Update()
+	public void Update()
     {
 	    switch (Weapon.shotsLeft)
 	    {

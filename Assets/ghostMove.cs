@@ -7,7 +7,6 @@ public class ghostMove : StateMachineBehaviour
     public float speed = 2.5f;
     Transform player;
     Rigidbody2D rb;
-    private SpriteRenderer sprite;
     public float attackRange;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -15,7 +14,6 @@ public class ghostMove : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
-        sprite = animator.GetComponent<SpriteRenderer>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,13 +23,12 @@ public class ghostMove : StateMachineBehaviour
 
         if (direction.x < 0) // moving left
         {
-            sprite.flipX = true; // flip the sprite
+            animator.transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (direction.x > 0) // moving right
         {
-            sprite.flipX = false; // do not flip the sprite
+            animator.transform.localScale = new Vector3(1, 1, 1);
         }
-        // no need to flip if the velocity is zero
 
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
@@ -39,10 +36,9 @@ public class ghostMove : StateMachineBehaviour
         }
     }
 
-
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-            animator.ResetTrigger("Attack");
+        animator.ResetTrigger("Attack");
     }
 }

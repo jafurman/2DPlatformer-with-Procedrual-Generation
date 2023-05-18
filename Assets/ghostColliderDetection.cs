@@ -43,6 +43,7 @@ public class ghostColliderDetection : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
+              
                 ScoreManager.instance.TakeScore(1);
                 pc.StartCoroutine(pc.flashSprite());
                 break;

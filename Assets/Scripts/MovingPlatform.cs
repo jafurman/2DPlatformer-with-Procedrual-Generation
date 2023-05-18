@@ -11,6 +11,7 @@ public class MovingPlatform : MonoBehaviour
     private bool canMove = true;
     public bool isOnBackground;
     public BoxCollider2D col;
+    public AudioSource ad;
 
     public void Start()
     {
@@ -20,6 +21,8 @@ public class MovingPlatform : MonoBehaviour
         {
             col.enabled = false;
         }
+
+        ad.enabled = true;
     }
 
     private void Update()
@@ -55,16 +58,20 @@ public class MovingPlatform : MonoBehaviour
     IEnumerator PauseUp()
     {
         canMove = false;
+        ad.enabled = false;
         //freeze the gameobject's position for 1.3 seconds
         transform.position = new Vector2(transform.position.x, transform.position.y);
         yield return new WaitForSeconds(1.3f);
         //then send down
         canMove = true;
         movingUp = false;
+        ad.enabled = true;
+
     }
 
     IEnumerator PauseDown()
     {
+        ad.enabled = false;
         canMove = false;
         //freeze the gameobject's position for 1.3 seconds
         transform.position = new Vector2(transform.position.x, transform.position.y);
@@ -72,7 +79,10 @@ public class MovingPlatform : MonoBehaviour
         //then send up
         canMove = true;
         movingUp = true;
+        ad.enabled = true;
     }
+
+
 
 }
 

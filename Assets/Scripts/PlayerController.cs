@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Teleportation code
-        if ((Input.GetKeyDown(KeyCode.N) && !hasTeleported) && teleportTimer == 0f)
+        if (grounded && (Input.GetKeyDown(KeyCode.N) && !hasTeleported) && teleportTimer == 0f)
         {
             teleportTimer = 0.01f;
             animator.SetBool("Teleport", true);

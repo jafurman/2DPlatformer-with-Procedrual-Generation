@@ -30,8 +30,8 @@ public class flyPotion : MonoBehaviour
 
      IEnumerator fly()
      {
-     	pc.jumpForce = 6f;
-     	pc.theRB2D.gravityScale = 0.3f;
+     	pc.jumpForce = 5f;
+     	pc.theRB2D.gravityScale = 0.4f;
      	Debug.Log(pc.jumpForce);
 
      	yield return new WaitForSeconds(10);
