@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3636316658005270184}
   m_LocalRotation: {x: -0.99921495, y: 0.00065473764, z: -0.034893353, w: -0.018749733}
-  m_LocalPosition: {x: 0.028, y: 0.248, z: 8.819}
+  m_LocalPosition: {x: 0.028, y: 0.248, z: 0}
   m_LocalScale: {x: 1, y: 0.100000024, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,12 +204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f897c679de824d75ab192baa8928bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   deathEffect: {fileID: 3282512573892828649, guid: 43a37c44984f34fc6aa59b693e1237a7, type: 3}
-  playSound: {fileID: 0}
   healthBar: {fileID: 3636316658005270184}
   deathSound: {fileID: 0}
   soulValue: 50
-  rb: {fileID: 0}
 --- !u!114 &3636316659211174390
 MonoBehaviour:
   m_ObjectHideFlags: 0

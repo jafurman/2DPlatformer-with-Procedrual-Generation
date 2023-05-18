@@ -55,7 +55,7 @@ public class Spider : MonoBehaviour
             {
                 useForBackground = true;
                 playSound.Play();
-                
+             
                 ScoreManager.instance.TakeScore(1);
                 
                 
