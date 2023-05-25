@@ -555,6 +555,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4816531659717179826, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -309.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531659717179829, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_text
+      value: Spiders not enough, huh?
+      objectReference: {fileID: 0}
     - target: {fileID: 4816531660079863723, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
       propertyPath: m_Name
       value: VictoryScreen
@@ -651,9 +659,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4816531660255066684, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_text
+      value: Progress The Journey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531660255066684, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531660255066684, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661242658440, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661242658441, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661242658443, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661242658443, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661242658443, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4816531661242658443, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816531661719652760, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
@@ -6381,6 +6425,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 267930461}
+    - target: {fileID: 5682080154447564385, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 15122381}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
 --- !u!1001 &181862179

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         playerStart = thePlayer.transform.position;
     }
 
+
+    /*
     public void Victory() 
     {
     		victoryScreen.SetActive(true);
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
             thePumpkin.gameObject.SetActive(false);
             
     }
+    */
 
     public void GameOver() 
     {
