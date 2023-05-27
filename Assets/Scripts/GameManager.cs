@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameReset()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Debug.Log("TIME FOR RESET");
         SceneManager.LoadScene(mainMenu);
         thePlayer.gameObject.SetActive(true);
@@ -54,8 +54,19 @@ public class GameManager : MonoBehaviour
     {
     		victoryScreen.SetActive(false);
     		gameOverScreen.SetActive(false);
-    		thePlayer.gameObject.SetActive(true);
-    		thePlayer.transform.position = playerStart;
+    		thePlayer.gameObject.SetActive(false);
+
+            //If the player is hit or runs into anything there will be a delay before they respawn
+            StartCoroutine(respawnDelay());
+    }
+
+
+    IEnumerator respawnDelay()
+    {
+
+        yield return new WaitForSeconds(2f);
+        thePlayer.transform.position = playerStart;
+        thePlayer.gameObject.SetActive(true);
     }
     
     }
