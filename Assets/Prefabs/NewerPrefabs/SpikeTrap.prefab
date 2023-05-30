@@ -167,6 +167,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   lm: {fileID: 0}
+  spikeTrap: {fileID: 2245292583915995645}
+  minSpawnDelay: 1
+  maxSpawnDelay: 3
 --- !u!82 &685437964
 AudioSource:
   m_ObjectHideFlags: 0
