@@ -72,6 +72,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
+        
         deathSound.Play();
         isDead = true;
 
