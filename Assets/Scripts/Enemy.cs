@@ -113,17 +113,22 @@ public class Enemy : MonoBehaviour
     {
         isInvincible = true;
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-        sprite.enabled = false;
-        yield return new WaitForSeconds(.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(.2f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(.2f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(.2f);
-        sprite.enabled = true;
-        isInvincible = false;
+
+        if (sprite != null)
+        {
+            sprite.enabled = false;
+            yield return new WaitForSeconds(.2f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            sprite.enabled = false;
+            yield return new WaitForSeconds(.2f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            sprite.enabled = false;
+            yield return new WaitForSeconds(.2f);
+            sprite.enabled = true;
+            isInvincible = false;
+        }
+        
     }
 }
