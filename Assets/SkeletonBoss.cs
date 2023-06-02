@@ -28,6 +28,8 @@ public class SkeletonBoss : MonoBehaviour
 
     public PlayerController pc;
 
+    public GameObject leverForDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,9 @@ public class SkeletonBoss : MonoBehaviour
         phase2Enabled = false;
 
         bossAnimator.SetTrigger("Idle");
+
+        //At the start of the fight I want eyes to spawn
+        SpawnEye();
 
      
     }
@@ -58,6 +63,12 @@ public class SkeletonBoss : MonoBehaviour
             {
                 phase2Enabled = true;
                 Debug.Log("It's time for PHASE 2 BITCH");
+
+                if (currentHp <= 0)
+                {
+                    //call boss death function outside of Update
+                    bossDeath();
+                }
             }
         }
 
@@ -89,6 +100,7 @@ public class SkeletonBoss : MonoBehaviour
             //also move the animation to the next phase
             bossAnimator.SetTrigger("SecondPhase");
         }
+
         }
 
     public void SpawnEye()
@@ -105,8 +117,9 @@ public class SkeletonBoss : MonoBehaviour
     public IEnumerator spawnEyes()
     {
         Debug.Log("SPAWN DEM EYES BOI");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(.5f);
         Instantiate(eyeballPrefab, spawnPosition1.position, Quaternion.identity);
+        yield return new WaitForSeconds(.5f);
         Instantiate(eyeballPrefab, spawnPosition2.position, Quaternion.identity);
         yield return new WaitForSeconds(.5f);
         Instantiate(eyeballPrefab, spawnPosition3.position, Quaternion.identity);
@@ -137,4 +150,13 @@ public class SkeletonBoss : MonoBehaviour
         }
     }
 
+
+    public void bossDeath()
+    {
+        //if the code finds itself here that means that the boss has died
+
+        //Spawn the lever for the gate to leave
+        //Instantiate(leverForDoor, transform.position, Quaternion.identity);
+        leverForDoor.SetActive(true);
+    }
 }
