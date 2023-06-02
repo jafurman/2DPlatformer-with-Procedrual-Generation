@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenes/Playtime 3.unity
     guid: 6f1fef34e98114196b0ce30a91aab627
+  - enabled: 1
+    path: Assets/Scenes/Scenes/Playtime 4.unity
+    guid: 07bf51fdb6bf8436280cc71eafac22d1
   m_configObjects: {}

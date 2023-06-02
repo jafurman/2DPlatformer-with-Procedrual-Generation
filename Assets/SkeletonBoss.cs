@@ -21,9 +21,18 @@ public class SkeletonBoss : MonoBehaviour
 
     public GameObject healthBar;
 
+    public GameObject itemsToDestroy;
+
+    public LayerMask attackMask;
+    public float attackRange = .8f;
+
+    public PlayerController pc;
+
     // Start is called before the first frame update
     void Start()
     {
+        pc = GameObject.FindObjectOfType<PlayerController>();
+
         //So I dont have to place the script in the inspector tab, yes I'm that lazy
         bossInstance = GetComponent<Enemy>();
 
@@ -55,7 +64,7 @@ public class SkeletonBoss : MonoBehaviour
 
         if (!phase2Enabled)
         {
-            // Logic for every 20-second spawn of eyes
+            // logic for every 20-second spawn of eyes
             timer += Time.deltaTime;
             if (timer >= timeBetweenSpawn)
             {
@@ -72,6 +81,13 @@ public class SkeletonBoss : MonoBehaviour
                     timer = 0f;
                 }
             }
+        } else if (phase2Enabled)
+        {
+            //once the health goes to a point where I want the chracter and boss to drop, I'm going to destroy specified prefabs/GOs
+            Destroy(itemsToDestroy);
+
+            //also move the animation to the next phase
+            bossAnimator.SetTrigger("SecondPhase");
         }
         }
 
@@ -95,4 +111,30 @@ public class SkeletonBoss : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         Instantiate(eyeballPrefab, spawnPosition3.position, Quaternion.identity);
     }
+
+
+    public void attack()
+    {
+        Vector2 pos = transform.position;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(pos, attackRange, attackMask);
+
+        // Visualize the overlap circle
+        Debug.DrawRay(pos, Vector2.up * attackRange, Color.green);
+        Debug.DrawRay(pos, Vector2.right * attackRange, Color.green);
+        Debug.DrawRay(pos, Vector2.left * attackRange, Color.green);
+        Debug.DrawRay(pos, Vector2.down * attackRange, Color.green);
+
+        // Check if any of the colliders are the player's collider
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+
+                ScoreManager.instance.TakeScore(2);
+                pc.StartCoroutine(pc.flashSprite());
+                break;
+            }
+        }
+    }
+
 }
