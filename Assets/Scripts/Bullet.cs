@@ -51,8 +51,6 @@ public class Bullet : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D hitInfo)  //when anything happens when bullet hits
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        Spider spider = hitInfo.GetComponent<Spider>();
-        Bat bat = hitInfo.GetComponent<Bat>();
 
         if (enemy != null)
         {
@@ -63,13 +61,21 @@ public class Bullet : MonoBehaviour
         Instantiate(impactEffect, transform.position, transform.rotation);
     }
 
+
     public void OnCollisionEnter2D(Collision2D hitInfo)
     {
+        Enemy enemy = hitInfo.collider.GetComponent<Enemy>();
+
         if (hitInfo.gameObject.tag == "Player")
         {
             PlayerController.canMove = false;
             Debug.Log("Connected Player");
             player = hitInfo.gameObject;
+        } else if ( hitInfo.gameObject.tag == "Enemy")
+        {
+            enemy.TakeDamage(damage);
+            //we don't want repetative damage on this
+            Destroy(gameObject);
         }
     }
 

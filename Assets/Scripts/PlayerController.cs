@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time >= nextScytheTime)
         {
-            if (Input.GetKeyDown(KeyCode.O) && grounded)
+            if (Input.GetKeyDown(KeyCode.O) && Slider.isSliding == false)
             {
                 nextScytheTime = Time.time + 1f / ScytheRate;
 
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Hold M to do the slice feature is implemented here
-        if (Input.GetKeyDown(KeyCode.M) && meleeTimer == 0f)
+        if (Input.GetKeyDown(KeyCode.M) && meleeTimer == 0f && Slider.isSliding == false)
         {
             meleeTimer = 0.01f;
             animator.SetBool("HoldSlice", true);
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Teleportation code
-        if (grounded && (Input.GetKeyDown(KeyCode.N) && !hasTeleported) && teleportTimer == 0f)
+        if (grounded && (Input.GetKeyDown(KeyCode.N) && !hasTeleported) && teleportTimer == 0f && Slider.isSliding == false)
         {
             teleportTimer = 0.01f;
             animator.SetBool("Teleport", true);
@@ -321,6 +321,9 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
+
+            //ideally it should only be enemy
+            //but I am a shit programmer so you get Spooder too
             if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder"))
             {
                 Enemy enemy = hit.GetComponent<Enemy>();
@@ -421,6 +424,9 @@ public class PlayerController : MonoBehaviour
                 // ignore any collisions between the two colliders
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other);
             }
+
+            //if the player gets hit by any tag enemy then they will take damage
+            ScoreManager.instance.TakeScore(1);
             StartCoroutine(KnockBack(other.gameObject));
             StartCoroutine(flashSprite());
         }

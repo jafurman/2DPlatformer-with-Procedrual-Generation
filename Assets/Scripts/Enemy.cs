@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float currentHealth;
     public GameObject deathEffect;
     public GameObject healthBar;
     public AudioSource deathSound;
@@ -72,11 +72,6 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if (deathEffect != null)
-        {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-        }
-        
         deathSound.Play();
         isDead = true;
 
@@ -108,7 +103,7 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator StopAnim()
-    {
+    { 
         yield return new WaitForSeconds(0.05f);
         theAnim.SetBool("Dead", isDead);
         Destroy(gameObject);
@@ -133,7 +128,12 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             sprite.enabled = true;
             isInvincible = false;
+            if (deathEffect != null)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+
         }
-        
+
     }
 }
