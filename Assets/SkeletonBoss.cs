@@ -19,6 +19,8 @@ public class SkeletonBoss : MonoBehaviour
 
     public Animator bossAnimator;
 
+    public GameObject healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
