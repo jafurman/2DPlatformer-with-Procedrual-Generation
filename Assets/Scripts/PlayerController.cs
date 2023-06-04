@@ -76,6 +76,9 @@ public class PlayerController : MonoBehaviour
     public bool hasSwung;
     public int swingCount ;
     public static bool canJump = true;
+
+    //Once the character swings there is a .36 second animation that plays
+    public bool isSwinging = false;
     
 
 
@@ -153,13 +156,19 @@ public class PlayerController : MonoBehaviour
         //upwards and downwards animation.
         if (theRB2D.velocity.y < -0.05f)
         {
-            animator.SetBool("Downwards", true);
-            animator.SetBool("Grounded", false);
+            if ( isSwinging )
+            {
+                animator.SetBool("Downwards", false);
+            } else
+            {
+                animator.SetBool("Downwards", true);
+                animator.SetBool("Grounded", false);
+            }
 
         }
         else if (!grounded)
         {
-            animator.SetBool("Downwards", false);
+                animator.SetBool("Downwards", false);
         }
 
         //Hold M to do the slice feature is implemented here
@@ -237,6 +246,9 @@ public class PlayerController : MonoBehaviour
 
     void Scythe()
     {
+        // i was so dog at writing code when I started this project so there is a coroutine for animation instead of directly in the animaator tab
+        StartCoroutine(AnimationDelay());
+
         Vector2 playerPosition = gameObject.transform.position;
         Vector2 moveDirection = gameObject.transform.right;
         if (!FacingRight)
@@ -259,6 +271,9 @@ public class PlayerController : MonoBehaviour
     
     void ScytheUp()
     {
+        // because of my shitty animation setup skills I now have to coroutine when swinging
+        StartCoroutine(AnimationDelay());
+
         //play audio
         ScytheSoundTwo.PlayOneShot(ScytheSoundTwo.clip);
         animator.SetTrigger("ScytheUpAttack");
@@ -473,6 +488,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         sprite.enabled = true;
         isInvincible = false;
+    }
+
+    public IEnumerator AnimationDelay()
+    {
+        // I use this boolean delay so that the swing in air plays as falling
+        isSwinging = true;
+        yield return new WaitForSeconds(.36f);
+        isSwinging = false;
     }
 
 
