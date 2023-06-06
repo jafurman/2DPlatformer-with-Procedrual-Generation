@@ -1458,7 +1458,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86250dc06b63d4d65af077d626dc8708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5799e529a34df43bb9b6940a1a7ca032, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1516,6 +1516,8 @@ MonoBehaviour:
   ScytheSoundOne: {fileID: 2913158169749176771}
   ScytheSoundTwo: {fileID: 3949202949957234431}
   hasSwung: 0
+  swingCount: 0
+  isSwinging: 0
 --- !u!61 &9113520220635006284
 BoxCollider2D:
   m_ObjectHideFlags: 0

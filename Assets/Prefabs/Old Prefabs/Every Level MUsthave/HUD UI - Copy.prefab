@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056863726006018919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: -163, z: -3.96666}
+  m_LocalPosition: {x: -10, y: -76, z: -3.96666}
   m_LocalScale: {x: 0.7104796, y: 0.7104796, z: 0.7104796}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -328,7 +328,7 @@ Transform:
   - {fileID: 370732102423851449}
   - {fileID: 2082308336355029962}
   m_Father: {fileID: 8774712648121476073}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2819523680642023484
 GameObject:
@@ -739,7 +739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 389.2, y: -270.9}
+  m_AnchoredPosition: {x: 375.2, y: -183.9}
   m_SizeDelta: {x: 98.75, y: 74.91998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7524328920003166109
@@ -1036,9 +1036,9 @@ RectTransform:
   m_Children:
   - {fileID: 8774712649138895159}
   - {fileID: 2686731548687136076}
+  - {fileID: 6465544874489974314}
   - {fileID: 5104552532439460786}
   - {fileID: 8199179411461017312}
-  - {fileID: 6465544874489974314}
   - {fileID: 7096355418712133998}
   - {fileID: 9085630128423879221}
   - {fileID: 8674378843831578202}
@@ -1145,7 +1145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.1, y: 4.4}
+  m_AnchoredPosition: {x: 27.099985, y: 91.399994}
   m_SizeDelta: {x: 1260.4, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7212322758556699806
@@ -1157,7 +1157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2504091748937180972, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2504091748937180972, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1271,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 3322156936473728630}
     - target: {fileID: 1575705088321251459, guid: 4b0928f9755c6409ebd755035fb5f67c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1575705088321251459, guid: 4b0928f9755c6409ebd755035fb5f67c, type: 3}
       propertyPath: m_LocalScale.x

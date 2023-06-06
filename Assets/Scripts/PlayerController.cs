@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public int swingCount ;
     public static bool canJump = true;
 
+
     //Once the character swings there is a .36 second animation that plays
     public bool isSwinging = false;
     
