@@ -20,10 +20,11 @@ public class BossPhase2 : StateMachineBehaviour
     {
         Vector2 direction = player.transform.position - rb.transform.position;
 
-        // Set the y-axis movement to zero
-        direction.y = 0;
+        // Normalize the direction vector to have a magnitude of 1
+        direction.Normalize();
 
-        rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+        // Apply the direction as a force to the rigidbody
+        rb.velocity = direction * speed;
 
         if (direction.x < 0) // moving left
         {
