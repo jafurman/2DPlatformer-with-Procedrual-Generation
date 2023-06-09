@@ -9,6 +9,7 @@ public class ghostMove : StateMachineBehaviour
     Rigidbody2D rb;
     public float attackRange;
 
+    public static bool pos;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,10 +24,12 @@ public class ghostMove : StateMachineBehaviour
 
         if (direction.x < 0) // moving left
         {
+            pos = true;
             animator.transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (direction.x > 0) // moving right
         {
+            pos = false;
             animator.transform.localScale = new Vector3(1, 1, 1);
         }
 
