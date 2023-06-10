@@ -10,9 +10,13 @@ public class ghostColliderDetection : MonoBehaviour
     public float attackRange = .7f;
     public PlayerController pc;
 
+    //for sounds
+    public AudioSource se;
+    public AudioClip clip;
 
     public void Start()
     {
+
         pc = GameObject.FindObjectOfType<PlayerController>();
     }
 
@@ -26,7 +30,17 @@ public class ghostColliderDetection : MonoBehaviour
     }
 
 
+    public void playSound()
+    {
+            //this plays the sound once the update into ghost gets hit is played
+            if ((clip) != null && se != null)
+            {
+                //once hit this sound will play
+                se.PlayOneShot(clip);
+            }
+     }
 
+     
     public void attack()
     {
         Vector2 pos = transform.position;
