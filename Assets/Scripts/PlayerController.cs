@@ -250,14 +250,14 @@ public class PlayerController : MonoBehaviour
         // i was so dog at writing code when I started this project so there is a coroutine for animation instead of directly in the animaator tab
         StartCoroutine(AnimationDelay());
 
-        Vector2 playerPosition = gameObject.transform.position;
+        //moves the playerover by the value specified
         Vector2 moveDirection = gameObject.transform.right;
         if (!FacingRight)
         {
             moveDirection *= -1;
         }
-
         gameObject.transform.Translate(moveDirection * 0.2f);
+
         //play audio
         ScytheSoundOne.PlayOneShot(ScytheSoundOne.clip);
         animator.SetTrigger("ScytheAttack");
@@ -274,6 +274,16 @@ public class PlayerController : MonoBehaviour
     {
         // because of my shitty animation setup skills I now have to coroutine when swinging
         StartCoroutine(AnimationDelay());
+
+        //moves the player up and over by the value specified
+        Vector2 upDirection = gameObject.transform.up;
+        gameObject.transform.Translate(upDirection * 0.1f);
+        Vector2 moveDirection = gameObject.transform.right;
+        if (!FacingRight)
+        {
+            moveDirection *= -1;
+        }
+        gameObject.transform.Translate(moveDirection * 0.1f);
 
         //play audio
         ScytheSoundTwo.PlayOneShot(ScytheSoundTwo.clip);

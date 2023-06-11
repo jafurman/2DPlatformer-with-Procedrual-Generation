@@ -205,7 +205,7 @@ AnimatorStateMachine:
     m_Position: {x: 330, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4080200849473324775}
-    m_Position: {x: 580, y: 220, z: 0}
+    m_Position: {x: 800, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1658737052578513727}
     m_Position: {x: -20, y: 10, z: 0}
@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e6a85736d3d4b1b81dd78b3c08a574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostD: {fileID: 0}
 --- !u!1102 &-176007879966624944
 AnimatorState:
   serializedVersion: 6
