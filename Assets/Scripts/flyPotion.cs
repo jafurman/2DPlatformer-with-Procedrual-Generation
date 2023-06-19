@@ -32,11 +32,9 @@ public class flyPotion : MonoBehaviour
      {
      	pc.jumpForce = 5f;
      	pc.theRB2D.gravityScale = 0.4f;
-     	Debug.Log(pc.jumpForce);
 
-     	yield return new WaitForSeconds(10);
+     	yield return new WaitForSeconds(8f);
 
-     	Debug.Log(pc.jumpForce);
      	pc.theRB2D.gravityScale = 1f;
      	pc.jumpForce = 3f;
 

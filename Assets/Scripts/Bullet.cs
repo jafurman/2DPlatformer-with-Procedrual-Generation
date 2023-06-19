@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject theBullet;
-    public float speed = 20f;
+    public float speed = 1.5f;
     public Rigidbody2D rb;
     public float damage = 3f;
     public GameObject impactEffect;
@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     public AudioSource playSound;
 
     private float scaleDecreaseRate = 0.05f; // rate at which to decrease the scale of the game object
+
+    public static float timeDuration = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +43,6 @@ public class Bullet : MonoBehaviour
         // decrease the X scale of the game object
         transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
 
-        // destroy the game object once the X scale reaches zero
-        if (transform.localScale.x <= 0f)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void OnTriggerEnter2D(Collider2D hitInfo)  //when anything happens when bullet hits
@@ -90,7 +87,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator timeStop()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(timeDuration);
 
         Destroy(gameObject);
     }

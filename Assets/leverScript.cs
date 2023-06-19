@@ -61,7 +61,7 @@ public class leverScript : MonoBehaviour
 
     		
     		
-    		if (Input.GetKey(KeyCode.P))
+    		if (Input.GetKey(KeyCode.O))
     		{
     			//flip switch
     			transform.localScale = new Vector2(transform.localScale.x, -transform.localScale.y);
