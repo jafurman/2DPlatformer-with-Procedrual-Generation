@@ -77,10 +77,11 @@ public class PlayerController : MonoBehaviour
     public int swingCount ;
     public static bool canJump = true;
 
-
     //Once the character swings there is a .36 second animation that plays
     public bool isSwinging = false;
-    
+
+    public static bool freezeOn;
+    public static bool released;
 
 
     // Start is called before the first frame update
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
         ctrActive = true;
         swingCount = 0;
+
     }
     
 
@@ -122,11 +124,22 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        
+        //logic code for holding the bullets in kinematic if held
         if (Input.GetKeyDown(KeyCode.P))
         {
+            freezeOn = true;
             inDialogueMode = false;
+            released = false;
         }
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            //action 2
+            freezeOn = false;
+            released = true;
+
+        }
+
+
 
         //if input is left, can move, if input is right, can move
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f )

@@ -18,8 +18,11 @@ public class speedPotion : MonoBehaviour
 
         playerEffect = GameObject.FindGameObjectWithTag("bluePotionEffect");
 
-        //initially set the effect to false
-        playerEffect.SetActive(false);
+        if (playerEffect != null)
+        {
+            playerEffect.SetActive(false);
+        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -39,7 +42,10 @@ public class speedPotion : MonoBehaviour
         pc.ScytheRate = 6;
 
         //also want to turn on our effect
-        playerEffect.SetActive(true);
+        if (playerEffect != null)
+        {
+            playerEffect.SetActive(true);
+        }
 
         //for 8 seconds
         yield return new WaitForSeconds(8f);
@@ -48,7 +54,10 @@ public class speedPotion : MonoBehaviour
         pc.speed = 3;
         pc.ScytheRate = 3.2f;
 
-        playerEffect.SetActive(false);
+        if (playerEffect != null)
+        {
+            playerEffect.SetActive(false);
+        }
 
         Destroy(gameObject);
     }

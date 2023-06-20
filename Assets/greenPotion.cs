@@ -18,12 +18,17 @@ public class greenPotion : MonoBehaviour
 
         playerEffect = GameObject.FindGameObjectWithTag("greenPotionEffect");
 
-        //initially set the effect to false
-        playerEffect.SetActive(false);
+        if (playerEffect != null)
+        {
+            //initially set the effect to false
+            playerEffect.SetActive(false);
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        //player 'picks' up the potion
         if (other.tag == "Player")
         {
             StartCoroutine(longerBulletTime());
@@ -36,20 +41,39 @@ public class greenPotion : MonoBehaviour
     {
         active = true;
 
+        //change the duration of the time to longer
         Bullet.timeDuration = 8f;
-        //also want to turn on our effect
-        playerEffect.SetActive(true);
+
+        if (playerEffect != null)
+        {
+            //initially set the effect to false
+            playerEffect.SetActive(true);
+        }
 
         //for 8 seconds
         yield return new WaitForSeconds(8f);
 
+        //change the color back to regular
+        if (Bullet.ren != null)
+        {
+            Bullet.ren.color = Bullet.startingColor;
+        }
+
+        //set back to 4 seconds
         Bullet.timeDuration = 4f;
 
-        playerEffect.SetActive(false);
+        if (playerEffect != null)
+        {
+            //initially set the effect to false
+            playerEffect.SetActive(false);
+        }
 
         active = false;
 
         Destroy(gameObject);
     }
+
+
+
 
 }

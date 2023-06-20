@@ -18,30 +18,85 @@ public class Bullet : MonoBehaviour
 
     public static float timeDuration = 4;
 
+    public static SpriteRenderer ren;
+    public static Color startingColor;
+
     // Start is called before the first frame update
     void Start()
     {
+        // gets the start color so I can make changes to the color and revert back
+        ren = GetComponent<SpriteRenderer>();
+
+        //this conditional checks if the green potion is on. If it is then this potion will stay green throughout its entire life 
+        if ( greenPotion.active)
+        {
+            startingColor = Color.green;
+        } else
+        {
+            startingColor = ren.color;
+        }
+
+        //because we want this bullet to have a lifetime we create this coroutine to kill it after specified time
         StartCoroutine(timeStop());
     }
 
     void Update()
     {
-        rb.velocity = transform.right * speed;
-
-        if (player != null)
+        if (PlayerController.freezeOn && !PlayerController.released)
         {
-            if (PlayerController.FacingRight == true)
+            //action 1 to happen
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
+
+        }
+        if (!PlayerController.freezeOn && PlayerController.released)
+        {
+            //action 2 to happen
+            //moves the rigidbody of the bullet down by 4 times the speed
+            rb.velocity = -transform.up * speed + new Vector3(0, -4, 0);
+
+            //put proper constraints on for downwards motion
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+            //flip the released variable back to false
+            StartCoroutine(deRelease());
+        }
+        if (!PlayerController.freezeOn && !PlayerController.released)
+        {
+
+            //if neither action 1 or 2, do this last resort action if P isnt clicked at all
+            rb.isKinematic = false;
+
+            rb.velocity = transform.right * speed;
+
+            if (player != null)
             {
-                player.transform.position += new Vector3(1.5f * Time.deltaTime, 0, 0);
+                if (PlayerController.FacingRight == true)
+                {
+                    player.transform.position += new Vector3(1.5f * Time.deltaTime, 0, 0);
+                }
+                else if (PlayerController.FacingRight == false)
+                {
+                    player.transform.position -= new Vector3(1.5f * Time.deltaTime, 0, 0);
+                }
             }
-            else if (PlayerController.FacingRight == false)
+
+            // decrease the X scale of the game object
+            transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
+
+
+            if (greenPotion.active == true)
             {
-                player.transform.position -= new Vector3(1.5f * Time.deltaTime, 0, 0);
+                //change the color of the soul shot
+                Bullet.ren.color = Color.green;
+            }
+            else
+            {
+                Bullet.ren.color = startingColor;
             }
         }
 
-        // decrease the X scale of the game object
-        transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
+            
 
     }
 
@@ -90,5 +145,17 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(timeDuration);
 
         Destroy(gameObject);
+    }
+
+    IEnumerator deRelease()
+    {
+        //however long it takes them to leave the screen
+        yield return new WaitForSeconds(1f);
+
+        //change the rigidbody constraints back
+        //hold the y but not the x
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+        PlayerController.released = false;
     }
 }
