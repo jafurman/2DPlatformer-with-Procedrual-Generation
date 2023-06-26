@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
     public static SpriteRenderer ren;
     public static Color startingColor;
 
+    public static bool canHold;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +39,18 @@ public class Bullet : MonoBehaviour
             startingColor = ren.color;
         }
 
+        //make canHold true
+        canHold = true;
+
         //because we want this bullet to have a lifetime we create this coroutine to kill it after specified time
         StartCoroutine(timeStop());
     }
 
     void Update()
     {
+        Debug.Log("FREEZE? " + PlayerController.freezeOn);
+        Debug.Log("released " + PlayerController.released);
+
         if (PlayerController.freezeOn && !PlayerController.released)
         {
             //action 1 to happen
@@ -63,10 +72,13 @@ public class Bullet : MonoBehaviour
         }
         if (!PlayerController.freezeOn && !PlayerController.released)
         {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
 
             //if neither action 1 or 2, do this last resort action if P isnt clicked at all
             rb.isKinematic = false;
 
+            //this is what makes it move
             rb.velocity = transform.right * speed;
 
             if (player != null)
@@ -148,14 +160,20 @@ public class Bullet : MonoBehaviour
     }
 
     IEnumerator deRelease()
-    {
+    { 
         //however long it takes them to leave the screen
         yield return new WaitForSeconds(1f);
+
+        //after all is done make canHold back to False
+        canHold = false;
 
         //change the rigidbody constraints back
         //hold the y but not the x
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
         PlayerController.released = false;
+
+        //this is so that after when you drop the soul shot it destroys before going back to normal
+        Destroy(gameObject);
     }
 }

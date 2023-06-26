@@ -14,5 +14,4 @@ public class TriggerSFX : MonoBehaviour
 			playSound.Play();
 		}
 		
-		Debug.Log("SOUND PLAYING");
 	}}

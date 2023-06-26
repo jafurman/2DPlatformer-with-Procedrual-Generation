@@ -13,7 +13,6 @@ public class Soul : MonoBehaviour
     {
     	if (collision.tag == "Player")
         {
-	        Debug.Log("Shots left: " + Weapon.shotsLeft);
     		Destroy(gameObject);
     		playSound.Play();
     		ScoreManager.instance.ChangeScore(soulValue);

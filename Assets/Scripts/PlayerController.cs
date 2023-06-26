@@ -98,6 +98,9 @@ public class PlayerController : MonoBehaviour
         ctrActive = true;
         swingCount = 0;
 
+        //start of the game means you cannot hold the bullet yet
+        Bullet.canHold = false;
+
     }
     
 
@@ -123,24 +126,39 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        //chunk of code that enables the player to hold (freeze player position) but only when a bullet is active
+        if (Bullet.canHold)
+        {
+            //logic code for holding the bullets in kinematic if held
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                //freeze the player in their current position fully
+                theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+                freezeOn = true;
+                inDialogueMode = false;
+                released = false;
+
+                //set the animation trigger to hold the soul
+                animator.SetTrigger("HoldSoul");
+
+            }
+            if (Input.GetKeyUp(KeyCode.P))
+            {
+
+                animator.SetTrigger("ReleaseSoul");
+                //action 2
+                freezeOn = false;
+                released = true;
+                StartCoroutine(turnReleasedFalse());
+                //unfreeze position
+                theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+            }
+        }
+
         
-        //logic code for holding the bullets in kinematic if held
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            freezeOn = true;
-            inDialogueMode = false;
-            released = false;
-        }
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            //action 2
-            freezeOn = false;
-            released = true;
-
-        }
-
-
-
         //if input is left, can move, if input is right, can move
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f )
         {
@@ -170,7 +188,7 @@ public class PlayerController : MonoBehaviour
         //upwards and downwards animation.
         if (theRB2D.velocity.y < -0.05f)
         {
-            if ( isSwinging )
+            if ( isSwinging || released )
             {
                 animator.SetBool("Downwards", false);
             } else
@@ -520,6 +538,15 @@ public class PlayerController : MonoBehaviour
         isSwinging = true;
         yield return new WaitForSeconds(.36f);
         isSwinging = false;
+    }
+
+    public IEnumerator turnReleasedFalse()
+    {
+        released = true;
+
+        yield return new WaitForSeconds(1f);
+
+        released = false;
     }
 
 
