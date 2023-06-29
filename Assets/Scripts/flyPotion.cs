@@ -42,8 +42,11 @@ public class flyPotion : MonoBehaviour
 
      IEnumerator fly()
      {
-     	pc.jumpForce = 5f;
-     	pc.theRB2D.gravityScale = 0.4f;
+        //get effects sprite
+        SpriteRenderer sprite = playerEffect.GetComponent<SpriteRenderer>();
+
+        pc.jumpForce = 4f;
+     	pc.theRB2D.gravityScale = 0.5f;
 
         if (playerEffect != null)
         {
@@ -51,7 +54,22 @@ public class flyPotion : MonoBehaviour
             playerEffect.SetActive(true);
         }
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(18f);
+
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+
 
         if (playerEffect != null)
         {

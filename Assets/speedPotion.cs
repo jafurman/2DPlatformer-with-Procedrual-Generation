@@ -37,9 +37,13 @@ public class speedPotion : MonoBehaviour
 
     IEnumerator speedBoost()
     {
+        //get effects sprite
+        SpriteRenderer sprite = playerEffect.GetComponent<SpriteRenderer>();
+
         //we want to increaset the speed of the player movement and also increase the scythe rate
-        pc.speed = 5;
-        pc.ScytheRate = 6;
+        pc.speed = 4;
+        pc.ScytheRate = 10;
+        Bullet.speed = 3f;
 
         //also want to turn on our effect
         if (playerEffect != null)
@@ -48,11 +52,26 @@ public class speedPotion : MonoBehaviour
         }
 
         //for 8 seconds
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(18f);
+
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
 
         //then switch back to normal
         pc.speed = 3;
         pc.ScytheRate = 3.2f;
+        Bullet.speed = 1.5f;
 
         if (playerEffect != null)
         {

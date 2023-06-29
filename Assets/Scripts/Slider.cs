@@ -58,8 +58,6 @@ public class Slider : MonoBehaviour
                     if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                     {
                         rb.velocity = new Vector3(-5f, 5f, 10f);
-                        // attempt at pausing jumping back to wall so character doesnt do the glitch at bottom of wall
-                        StartCoroutine(MoveDelay());
             }
                     isSliding = false;
                     slidingAudio.enabled = false;
@@ -69,13 +67,6 @@ public class Slider : MonoBehaviour
                 }
             }
 
-
-    IEnumerator MoveDelay()
-    {
-        PlayerController.canMove = false;
-        yield return new WaitForSeconds(1f);
-        PlayerController.canMove = true;
-    }
 
   
 }

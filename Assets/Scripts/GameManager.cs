@@ -43,11 +43,10 @@ public class GameManager : MonoBehaviour
     IEnumerator GameReset()
     {
         yield return new WaitForSeconds(2);
-        Debug.Log("TIME FOR RESET");
         SceneManager.LoadScene(mainMenu);
         thePlayer.gameObject.SetActive(true);
         thePumpkin.gameObject.SetActive(true);
-
+        PlayerController.canMove = true;
     }
 
     public void Reset() 

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed = 3f;
     public float jumpForce; //only need this if you want to control the height of the char jump
     public static bool canMove = true;
-    public static bool inDialogueMode = false;
+    private static bool inDialogueMode = false;
     public Rigidbody2D theRB2D; //IMPORTANT!! need a rigidbody component on the player
 
     public static bool grounded; //if player == grounded it can jump again
@@ -26,9 +26,7 @@ public class PlayerController : MonoBehaviour
     public float airTimeCounter; //control height jump
 
     private bool ctrActive;
-    private bool isDead;
 
-    private Collider2D playerCol;
     public GameObject[] childObjs;
     public float shockForce;
 
@@ -83,6 +81,10 @@ public class PlayerController : MonoBehaviour
     public static bool freezeOn;
     public static bool released;
 
+    private float stopTime;
+
+    public static bool forcedStop;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -90,8 +92,6 @@ public class PlayerController : MonoBehaviour
         theLM = FindObjectOfType<LivesManager>();
         theRB2D = GetComponent<Rigidbody2D>(); //instance of rigidbody
         theAnimator = GetComponent<Animator>();
-
-        playerCol = GetComponent<Collider2D>();
 
         airTimeCounter = airTime;
 
@@ -107,6 +107,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log(speed);
+        Debug.Log(isSwinging);
 
         if (Time.time >= nextScytheTime)
         {
@@ -160,29 +162,27 @@ public class PlayerController : MonoBehaviour
 
         
         //if input is left, can move, if input is right, can move
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f )
+        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
+            if (grounded)
+            {
+                //step sounds
+                stepSound.enabled = true;
+            }
+
             if (isKnockedBack)
             {
                 canMove = false;
             }
-            canMove = true;
-        }
 
-        //Stepping noises enabling and disabling
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && grounded)
-        {
             if (Slider.isSliding) //so there isn't noise when the character is sliding on wall
             {
                 stepSound.enabled = false;
             }
 
-            stepSound.enabled = true;
-        }
-        else
+        } else if (!grounded)
         {
             stepSound.enabled = false;
-
         }
 
         //upwards and downwards animation.
@@ -276,8 +276,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //method that moves character forward by one space and swings the scythe
     void Scythe()
     {
+
+        float originalSpeed = speed;
+
         // i was so dog at writing code when I started this project so there is a coroutine for animation instead of directly in the animaator tab
         StartCoroutine(AnimationDelay());
 
@@ -299,22 +303,21 @@ public class PlayerController : MonoBehaviour
             enemy.GetComponent<Enemy>().TakeDamage(1);
             //Enemy.TakeDamage(1);
         }
+
+        //change speed back in case of regulat scythe swing slowing them down
+        speed = originalSpeed;
     }
-    
+
+
+    //moves character up by one space and stops them from moving in the x direction for the remainder of the swing
     void ScytheUp()
     {
+        //stopTime
+        stopTime = .3f;
+        StartCoroutine(stopPlayerFor(stopTime));
+       
         // because of my shitty animation setup skills I now have to coroutine when swinging
         StartCoroutine(AnimationDelay());
-
-        //moves the player up and over by the value specified
-        Vector2 upDirection = gameObject.transform.up;
-        gameObject.transform.Translate(upDirection * 0.1f);
-        Vector2 moveDirection = gameObject.transform.right;
-        if (!FacingRight)
-        {
-            moveDirection *= -1;
-        }
-        gameObject.transform.Translate(moveDirection * 0.1f);
 
         //play audio
         ScytheSoundTwo.PlayOneShot(ScytheSoundTwo.clip);
@@ -409,27 +412,35 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (canMove && !inDialogueMode)
+        if (isSwinging)
         {
-            theRB2D.velocity =
-                new Vector2(Input.GetAxisRaw("Horizontal") * speed,
-                    theRB2D.velocity.y); //Vector 2 is essentially a unity movement plaftorm on a x,y,z plane. 
-            //important to mention that "horizontal" keys on getAxisRaw apply to left and right arrows and 'a' and 'd' keys.
-            theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x)); //animation code
+            speed = 1f;
+        } else
+        {
+            speed = 3;
         }
+            if (canMove && !inDialogueMode)
+            {
+                theRB2D.velocity =
+                    new Vector2(Input.GetAxisRaw("Horizontal") * speed,
+                        theRB2D.velocity.y); //Vector 2 is essentially a unity movement plaftorm on a x,y,z plane. 
+                                             //important to mention that "horizontal" keys on getAxisRaw apply to left and right arrows and 'a' and 'd' keys.
+                theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x)); //animation code
+            }
 
-        if (theRB2D.velocity.x > 0 &&
-            !FacingRight) //more sprite animation code so that the character can turn around when going opposing direction 
-        {
-            // transform.localScale = new Vector2(1f, 1f);
-            Flip();
+            if (theRB2D.velocity.x > 0 &&
+                !FacingRight) //more sprite animation code so that the character can turn around when going opposing direction 
+            {
+                // transform.localScale = new Vector2(1f, 1f);
+                Flip();
+            }
+            else if (theRB2D.velocity.x < 0 && FacingRight)
+            {
+                //transform.localScale = new Vector2(-1f, 1f);
+                Flip();
+            }
         }
-        else if (theRB2D.velocity.x < 0 && FacingRight)
-        {
-            //transform.localScale = new Vector2(-1f, 1f);
-            Flip();
-        }
-    }
+        
 
     private void Flip()
     {
@@ -440,7 +451,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
 
-        if (grounded && !inDialogueMode && canJump)
+        if (grounded && !inDialogueMode && canJump && !isSwinging)
         {
             if ((Input.GetKeyDown(KeyCode.W) || Input.GetMouseButtonDown(0)))
             {
@@ -484,35 +495,10 @@ public class PlayerController : MonoBehaviour
 
             //if the player gets hit by any tag enemy then they will take damage
             ScoreManager.instance.TakeScore(1);
-            StartCoroutine(KnockBack(other.gameObject));
             StartCoroutine(flashSprite());
         }
     }
 
-   
-
-    IEnumerator KnockBack(GameObject enemy)
-    {
-
-        isKnockedBack = true;
-
-        Vector2 enemyPosition = enemy.transform.position;
-        Vector2 playerPosition = transform.position;
-        Vector2 direction = playerPosition - enemyPosition;
-        direction = new Vector2(-direction.x, direction.y);
-
-        // Determine the direction the character is facing
-        float directionToUse = Mathf.Sign(direction.x);
-
-        // Apply the knockback force in the correct direction
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = new Vector2(direction * knockbackDirection.x * 2 , knockbackDirection.y / 3) * 6f;
-        rb.velocity = new Vector2(-direction.x * 7f, 1.2f);
-
-        yield return new WaitForSeconds(1f);
-        
-        isKnockedBack = false;
-    }
 
     public IEnumerator flashSprite()
     {
@@ -536,7 +522,7 @@ public class PlayerController : MonoBehaviour
     {
         // I use this boolean delay so that the swing in air plays as falling
         isSwinging = true;
-        yield return new WaitForSeconds(.36f);
+        yield return new WaitForSeconds(.33f);
         isSwinging = false;
     }
 
@@ -547,6 +533,19 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         released = false;
+    }
+
+
+    //stop the rigidbody from moving and start the coroutine for kinematic to reset
+    private IEnumerator stopPlayerFor(float time)
+    {
+        //change speed
+        
+
+        yield return new WaitForSeconds(time);
+
+       
+        theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
 
