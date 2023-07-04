@@ -107,8 +107,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(speed);
-        Debug.Log(isSwinging);
 
         if (Time.time >= nextScytheTime)
         {
@@ -414,7 +412,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isSwinging)
         {
-            speed = 1f;
+            speed = 1.5f;
         } else
         {
             speed = 3;

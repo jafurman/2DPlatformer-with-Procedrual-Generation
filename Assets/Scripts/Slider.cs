@@ -13,12 +13,13 @@ public class Slider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get the players rigidbody
         rb.GetComponent<Rigidbody2D>();
     }
 
 
     //while sliding
-    void OnCollisionStay2D(Collision2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         Debug.Log("Staying");
         if (col.gameObject.tag == "bullet")
@@ -44,8 +45,9 @@ public class Slider : MonoBehaviour
 
     }
             //while leaving the slide
-     void OnCollisionExit2D(Collision2D col)
+     void OnTriggerExit2D(Collider2D col)
           {
+
                 Debug.Log("Leave");
                 if (col.gameObject.tag == "bullet")
                 {
