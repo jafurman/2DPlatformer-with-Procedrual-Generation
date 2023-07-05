@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4521295558930712307}
   m_Layer: 0
   m_Name: AreaForLoopingSound
-  m_TagString: sliders
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 703682968fea8477793cdd81320b2173, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.005
+  m_Volume: 0.2
   m_Pitch: 0.6
   Loop: 1
   Mute: 0
@@ -168,8 +168,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: 16.675184, y: 7.0702467}
+      - {x: 3.3036218, y: 11.614441}
+      - {x: -13.626896, y: 8.469542}
+      - {x: -16.456516, y: -25.07119}
+      - {x: 4.5326924, y: -24.775078}
+      - {x: 6.3505516, y: -16.438366}
+      - {x: 2.2071319, y: -15.8451185}
+      - {x: 2.1296635, y: -8.854986}
+      - {x: 3.9335666, y: -6.3913364}
+      - {x: 9.786291, y: -3.5951827}
+      - {x: 23.65189, y: -3.6030216}

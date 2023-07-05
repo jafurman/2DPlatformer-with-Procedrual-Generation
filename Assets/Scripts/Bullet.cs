@@ -132,7 +132,6 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo.gameObject.tag == "Player")
         {
-            PlayerController.canMove = false;
             Debug.Log("Connected Player");
             player = hitInfo.gameObject;
         } else if ( hitInfo.gameObject.tag == "Enemy")
@@ -147,7 +146,6 @@ public class Bullet : MonoBehaviour
     {
         if (coal.gameObject.tag == "Player")
         {
-            PlayerController.canMove = true;
             player = null;
         }
     }

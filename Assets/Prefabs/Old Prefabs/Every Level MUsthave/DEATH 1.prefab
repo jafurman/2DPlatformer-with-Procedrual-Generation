@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808957485012688780}
   - component: {fileID: 8874112063640163956}
+  - component: {fileID: 8455300838469407398}
   m_Layer: 0
   m_Name: greenPotionEffect
   m_TagString: greenPotionEffect
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621335954496195882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.369, y: -0.091, z: 0}
-  m_LocalScale: {x: 0.2007867, y: 0.6323424, z: 1}
+  m_LocalPosition: {x: 0.021, y: 0.123, z: 0}
+  m_LocalScale: {x: 2.2597172, y: 2.2597172, z: 2.2597172}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9113520220635006281}
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1869497695
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f6b4633b14c140c29c0eb66f596d8fb, type: 3}
   m_Color: {r: 0.16862746, g: 0.7254902, b: 0.21539377, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8455300838469407398
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621335954496195882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e91c286d2973242faa8b9a91233f2fc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2207752665875178636
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,10 +458,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16516447, y: 0.007973671}
+  m_Offset: {x: -0.16250992, y: -0.04475975}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -451,7 +472,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41452122, y: 0.47830868}
+  m_Size: {x: 0.37030792, y: 0.5290413}
   m_EdgeRadius: 0
 --- !u!1 &3497002804609366894
 GameObject:
@@ -1278,8 +1299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8480673237240072719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0013, y: -0.058, z: 0}
-  m_LocalScale: {x: 0.3565947, y: 1.0407, z: 1}
+  m_LocalPosition: {x: -0.01, y: -0.051, z: 0}
+  m_LocalScale: {x: 1.052418, y: 1.0543332, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9113520220635006281}
@@ -1681,7 +1702,7 @@ GameObject:
   - component: {fileID: 9113520220635006280}
   - component: {fileID: 9113520220635006283}
   - component: {fileID: 5790486722083378641}
-  - component: {fileID: 3690593247694610483}
+  - component: {fileID: 3324301544992413320}
   m_Layer: 0
   m_Name: DEATH 1
   m_TagString: Player
@@ -1755,7 +1776,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a586c00e855a7408a89ad37e77afdaf5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b4bbc4d2feb741febac3959728e3a83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1808,7 +1829,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  ScytheRate: 2.9
+  ScytheRate: 3.2
   nextScytheTime: 0
   ScytheSoundOne: {fileID: 2913158169749176771}
   ScytheSoundTwo: {fileID: 3949202949957234431}
@@ -1827,7 +1848,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.38577873
+  m_Mass: 0.21035814
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -1969,8 +1990,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &3690593247694610483
-PolygonCollider2D:
+--- !u!61 &3324301544992413320
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1982,7 +2003,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.019481659, y: -0.09254646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1992,17 +2013,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.17323303, y: 0.055936337}
-      - {x: 0.1601057, y: 0.23944092}
-      - {x: 0.082621574, y: 0.30772066}
-      - {x: -0.039099693, y: 0.2749009}
-      - {x: -0.10830784, y: 0.22959518}
-      - {x: -0.114871025, y: -0.029465675}
-      - {x: -0.15625, y: -0.140625}
-      - {x: -0.11879444, y: -0.30800724}
-      - {x: 0.014485359, y: -0.48194933}
-      - {x: 0.1606741, y: -0.2634859}
-      - {x: 0.171875, y: -0.078125}
-      - {x: 0.12557316, y: -0.022902012}
+  serializedVersion: 2
+  m_Size: {x: 0.2985916, y: 0.70450115}
+  m_EdgeRadius: 0

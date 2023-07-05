@@ -9,6 +9,8 @@ public class greenPotion : MonoBehaviour
     public GameObject playerEffect;
     public AudioSource ass;
     public static bool active;
+
+    private int currentAmountofShots;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,9 @@ public class greenPotion : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        //player gets current amount of shots left
+        currentAmountofShots = Weapon.shotsLeft;
+
         //player 'picks' up the potion
         if (other.tag == "Player")
         {
@@ -41,6 +46,9 @@ public class greenPotion : MonoBehaviour
     {
         active = true;
 
+        //Give the player 5 shots
+        Weapon.shotsLeft = 5;
+
         //change the duration of the time to longer
         Bullet.timeDuration = 8f;
 
@@ -52,6 +60,9 @@ public class greenPotion : MonoBehaviour
 
         //for 8 seconds
         yield return new WaitForSeconds(8f);
+
+        //change the amount of shots back to amount at time of getting potion
+        Weapon.shotsLeft = currentAmountofShots;
 
         //change the color back to regular
         if (Bullet.ren != null)
