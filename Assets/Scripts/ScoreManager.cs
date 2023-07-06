@@ -18,11 +18,26 @@ public class ScoreManager : MonoBehaviour
     public GameObject soulSlot3;
     public GameObject soulSlot4;
     public GameObject soulSlot5;
-    
-    // Start is called before the first frame update
-    void Start()
+
+	private Color defaultColor;
+	private Renderer g1;
+	private Renderer g2;
+	private Renderer g3;
+	private Renderer g4;
+	private Renderer g5;
+
+	// Start is called before the first frame update
+	void Start()
     {
-        if (instance == null)
+		//get the current color of the soulSlots
+		g1 = soulSlot1.GetComponent<Renderer>();
+		g2 = soulSlot2.GetComponent<Renderer>();
+		g3 = soulSlot3.GetComponent<Renderer>();
+		g4 = soulSlot4.GetComponent<Renderer>();
+		g5 = soulSlot5.GetComponent<Renderer>();
+		defaultColor = g1.material.color;
+
+		if (instance == null)
         {
         	instance = this;
         }
@@ -70,6 +85,23 @@ public class ScoreManager : MonoBehaviour
 
 	public void Update()
     {
+		if (greenPotion.active)
+        {
+			g1.material.color = Color.green;
+			g2.material.color = Color.green;
+			g3.material.color = Color.green;
+			g4.material.color = Color.green;
+			g5.material.color = Color.green;
+		} else
+		{
+			//set all of the colors to strictly default
+			g1.material.color = defaultColor;
+			g2.material.color = defaultColor;
+			g3.material.color = defaultColor;
+			g4.material.color = defaultColor;
+			g5.material.color = defaultColor;
+
+		}
 	    switch (Weapon.shotsLeft)
 	    {
 		    case 0:

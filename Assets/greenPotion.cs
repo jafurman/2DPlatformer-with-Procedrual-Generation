@@ -59,7 +59,7 @@ public class greenPotion : MonoBehaviour
         }
 
         //for 8 seconds
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(16f);
 
         //change the amount of shots back to amount at time of getting potion
         Weapon.shotsLeft = currentAmountofShots;
