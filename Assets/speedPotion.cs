@@ -9,6 +9,8 @@ public class speedPotion : MonoBehaviour
     public GameObject playerEffect;
     public AudioSource ass;
 
+    public static bool speedBoostOn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +43,10 @@ public class speedPotion : MonoBehaviour
         SpriteRenderer sprite = playerEffect.GetComponent<SpriteRenderer>();
 
         //we want to increaset the speed of the player movement and also increase the scythe rate
-        pc.speed = 4;
+
+
         pc.ScytheRate = 10;
+        speedBoostOn = true;
         Bullet.speed = 3f;
 
         //also want to turn on our effect
@@ -69,7 +73,8 @@ public class speedPotion : MonoBehaviour
         sprite.enabled = false;
 
         //then switch back to normal
-        pc.speed = 3;
+
+        speedBoostOn = false;
         pc.ScytheRate = 3.2f;
         Bullet.speed = 1.5f;
 

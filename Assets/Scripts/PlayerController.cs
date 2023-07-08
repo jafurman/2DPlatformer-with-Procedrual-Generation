@@ -413,9 +413,12 @@ public class PlayerController : MonoBehaviour
         if (isSwinging)
         {
             speed = 1.5f;
-        } else
+        } else if (!isSwinging && !speedPotion.speedBoostOn)
         {
             speed = 3;
+        } else if (!isSwinging && speedPotion.speedBoostOn)
+        {
+            speed = 4f;
         }
             if (canMove && !inDialogueMode)
             {
