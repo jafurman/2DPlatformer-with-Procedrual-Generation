@@ -21,6 +21,8 @@ public class noiseAnimationEnter : StateMachineBehaviour
         } 
 
 
+        //In case we want to use player facing controlled knockback 
+        /*
         if (PlayerController.FacingRight)
         {
             right = true;
@@ -28,7 +30,7 @@ public class noiseAnimationEnter : StateMachineBehaviour
         {
             right = false;
         }
-
+        */
         
         
     }
@@ -39,14 +41,14 @@ public class noiseAnimationEnter : StateMachineBehaviour
         Vector3 currentPosition = animator.transform.position;
 
         //actually does the knockback for right
-        if (right)
+        if (ghostMove.pos)
         {
             Vector3 newPosition = new Vector3(currentPosition.x + moveDistance, currentPosition.y, currentPosition.z);
             animator.transform.position = newPosition;
         }
 
         //knockback for player facing left
-        if (!right)
+        if (!ghostMove.pos)
         {
             Vector3 newPosition = new Vector3(currentPosition.x - moveDistance, currentPosition.y, currentPosition.z);
             animator.transform.position = newPosition;
