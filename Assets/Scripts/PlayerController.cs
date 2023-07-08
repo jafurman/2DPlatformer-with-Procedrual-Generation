@@ -162,25 +162,11 @@ public class PlayerController : MonoBehaviour
         //if input is left, can move, if input is right, can move
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            if (grounded)
-            {
-                //step sounds
-                stepSound.enabled = true;
-            }
-
             if (isKnockedBack)
             {
                 canMove = false;
             }
 
-            if (Slider.isSliding) //so there isn't noise when the character is sliding on wall
-            {
-                stepSound.enabled = false;
-            }
-
-        } else if (!grounded)
-        {
-            stepSound.enabled = false;
         }
 
         //upwards and downwards animation.
