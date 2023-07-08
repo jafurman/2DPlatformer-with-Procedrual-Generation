@@ -7,6 +7,8 @@ public class noiseAnimationEnter : StateMachineBehaviour
 
     public float moveDistance = .001f; // Distance to move
 
+    private bool right;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,6 +21,13 @@ public class noiseAnimationEnter : StateMachineBehaviour
         } 
 
 
+        if (PlayerController.FacingRight)
+        {
+            right = true;
+        } else
+        {
+            right = false;
+        }
 
         
         
@@ -29,14 +38,15 @@ public class noiseAnimationEnter : StateMachineBehaviour
     {
         Vector3 currentPosition = animator.transform.position;
 
-        //actually does the knockback
-        if (ghostMove.pos)
+        //actually does the knockback for right
+        if (right)
         {
             Vector3 newPosition = new Vector3(currentPosition.x + moveDistance, currentPosition.y, currentPosition.z);
             animator.transform.position = newPosition;
         }
 
-        if (!ghostMove.pos)
+        //knockback for player facing left
+        if (!right)
         {
             Vector3 newPosition = new Vector3(currentPosition.x - moveDistance, currentPosition.y, currentPosition.z);
             animator.transform.position = newPosition;

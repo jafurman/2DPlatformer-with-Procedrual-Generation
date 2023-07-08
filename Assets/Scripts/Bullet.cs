@@ -119,10 +119,14 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+
+            //destroy the gameobject and instantiate impactEffect if it hits the enemy
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
 
+
         playSound.Play();
-        Instantiate(impactEffect, transform.position, transform.rotation);
     }
 
 
@@ -139,9 +143,20 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
             //we don't want repetative damage on this
             Destroy(gameObject);
+        } else if ( hitInfo.gameObject.tag != "Enemy" && hitInfo.gameObject.tag != "Player")
+        {
+            //destroy the gameobject if it hits anything with a solid collider
+            Destroy(gameObject);
         }
+
+
+        Instantiate(impactEffect, transform.position, transform.rotation);
+
+
     }
 
+
+    //don't know why this is needed
     public void OnCollisionExit2D(Collision2D coal)
     {
         if (coal.gameObject.tag == "Player")
@@ -150,10 +165,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    //time until the bullet stops
     IEnumerator timeStop()
     {
         yield return new WaitForSeconds(timeDuration);
 
+        //Make the cool effect just in case
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

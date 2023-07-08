@@ -382,13 +382,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theBullet: {fileID: 7060462145467170951}
-  speed: 1.5
   rb: {fileID: 7060462145467170949}
   damage: 3
   impactEffect: {fileID: 6958707282639067497, guid: 18fd66b41f37a42618222af8d81007cc, type: 3}
   player: {fileID: 0}
   playSound: {fileID: 877208417975367780}
-  timeDuration: 4
 --- !u!95 &3808838508396564093
 Animator:
   serializedVersion: 4
@@ -426,7 +424,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
