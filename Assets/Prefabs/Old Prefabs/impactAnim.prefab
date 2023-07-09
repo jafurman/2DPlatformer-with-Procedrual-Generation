@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efdd52b77f5f4d78a222626888edb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light2D: {fileID: 1001788501242021025}
 --- !u!114 &1001788501242021025
 MonoBehaviour:
   m_ObjectHideFlags: 0
