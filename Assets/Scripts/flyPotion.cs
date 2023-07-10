@@ -9,7 +9,7 @@ public class flyPotion : MonoBehaviour
 	public GameObject yellowPotion;
 	public AudioSource playSound;
 
-    public GameObject playerEffect;
+    public static GameObject playerEffect;
 
     // Start is called before the first frame update
     private void Start()

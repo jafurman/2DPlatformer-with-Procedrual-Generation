@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public float airTime;
     public float airTimeCounter; //control height jump
 
-    private bool ctrActive;
+    public static bool ctrActive;
 
     public GameObject[] childObjs;
     public float shockForce;
@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
 
         //start of the game means you cannot hold the bullet yet
         Bullet.canHold = false;
+
 
     }
     

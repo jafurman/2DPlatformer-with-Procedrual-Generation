@@ -6,7 +6,7 @@ public class speedPotion : MonoBehaviour
 {
     public PlayerController pc;
     public GameObject bluePotion;
-    public GameObject playerEffect;
+    public static GameObject playerEffect;
     public AudioSource ass;
 
     public static bool speedBoostOn;

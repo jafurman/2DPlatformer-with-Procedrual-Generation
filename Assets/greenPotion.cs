@@ -6,7 +6,7 @@ public class greenPotion : MonoBehaviour
 {
     public PlayerController pc;
     public GameObject greenPot;
-    public GameObject playerEffect;
+    public static GameObject playerEffect;
     public AudioSource ass;
     public static bool active;
 
