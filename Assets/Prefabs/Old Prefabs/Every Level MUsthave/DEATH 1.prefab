@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e5f539e326341bf83f58b307dc0736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 9113520220635006285}
+  rbi: {fileID: 9113520220635006285}
   animator: {fileID: 9113520220635006280}
   slidingAudio: {fileID: 7133096062030372760}
 --- !u!61 &8621962483755086037
