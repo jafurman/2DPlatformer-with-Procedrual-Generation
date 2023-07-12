@@ -441,15 +441,14 @@ public class PlayerController : MonoBehaviour
 
         if (grounded && !inDialogueMode && canJump && !isSwinging)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetMouseButtonDown(0)))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
-                Debug.Log("Calling");
                 jumpSound.PlayOneShot(jumpSound.clip);
             }
         }
 
-        if ((Input.GetKey(KeyCode.W) || Input.GetMouseButton(0)) && !inDialogueMode)
+        if ((Input.GetKey(KeyCode.W)) && !inDialogueMode)
         {
             if (airTimeCounter > 0)
             {
@@ -458,7 +457,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(KeyCode.W))
         {
             airTimeCounter = 0;
         }
