@@ -10,7 +10,7 @@ public class leverScript : MonoBehaviour
 	public bool hasActivated = false;
 	public Collider2D gateCollider;
 
-	public float whereToStopGateOnY;
+	private float whereToStopGateOnY;
 
 	public bool moving = false;
 
@@ -28,6 +28,9 @@ public class leverScript : MonoBehaviour
 
         //To flip the switch were just going to flip the sprite 180 degrees
         Transform transform = gameObject.GetComponent<Transform>();
+
+
+        whereToStopGateOnY = gate.transform.position.y + 1.85f;
     }
 
     // Update is called once per frame
