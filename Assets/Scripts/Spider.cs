@@ -8,14 +8,8 @@ public class Spider : MonoBehaviour
     private float dirY;
     private float moveSpeed;
     private Rigidbody2D rb;
-    private Vector2 localScale;
 
     private bool FacingDown = true;
-
-    private Animator theAnim;
-    private bool isDead;
-
-    public int soulValue = 1; 
 
     public static float health = .5f;
 
@@ -40,8 +34,6 @@ public class Spider : MonoBehaviour
         void Start()
     {
 
-        //theAnim = transform.parent.GetComponent<Animator>();
-        localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         dirY = 1f;
         moveSpeed = 1f;
