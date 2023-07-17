@@ -9,15 +9,19 @@ public class GameManager : MonoBehaviour
 
 	public PlayerController thePlayer;
 	public Pumkin thePumpkin;
-    private Vector2 playerStart;
+    public static Vector2 playerStart;
 
 	public GameObject victoryScreen;
 	public GameObject gameOverScreen;
+
+    public GameObject spawnEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         playerStart = thePlayer.transform.position;
+
+        //spawnEffect = GameObject.FindGameObjectWithTag("SpawnEffect");
     }
 
 
@@ -65,7 +69,22 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         thePlayer.transform.position = playerStart;
+
+        if (spawnEffect != null)
+        {
+            spawnEffect.SetActive(true);
+
+            yield return new WaitForSeconds(1);
+        } 
+
         thePlayer.gameObject.SetActive(true);
+
+        if ( spawnEffect != null)
+        {
+            spawnEffect.SetActive(false);
+
+        }
+
     }
     
     }
