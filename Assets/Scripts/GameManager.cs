@@ -67,24 +67,17 @@ public class GameManager : MonoBehaviour
     IEnumerator respawnDelay()
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         thePlayer.transform.position = playerStart;
 
         if (spawnEffect != null)
         {
-            spawnEffect.SetActive(true);
-
-            yield return new WaitForSeconds(1);
-        } 
-
-        thePlayer.gameObject.SetActive(true);
-
-        if ( spawnEffect != null)
-        {
-            spawnEffect.SetActive(false);
-
+            GameObject effectInstance = Instantiate(spawnEffect, thePlayer.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Destroy(effectInstance);
         }
 
+        thePlayer.gameObject.SetActive(true);
     }
     
     }
