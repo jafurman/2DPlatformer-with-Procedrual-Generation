@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         thePlayer.transform.position = playerStart;
+        yield return new WaitForSeconds(.5f);
 
         if (spawnEffect != null)
         {
