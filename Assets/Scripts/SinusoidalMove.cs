@@ -11,8 +11,8 @@ public class SinusoidalMove : MonoBehaviour
 	[SerializeField]
 	float frequency = 20f;
 
-	[SerializeField]
-	float magnitude = 0.5f;
+
+    float magnitude;
 
 	bool facingRight = true;
 
@@ -24,12 +24,18 @@ public class SinusoidalMove : MonoBehaviour
 
 	Vector3 pos, localScale;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
 
         localScale = transform.localScale;
+
+
+        magnitude = Random.Range(0.2f, 0.4f);
+
     }
 
     // Update is called once per frame
@@ -53,6 +59,7 @@ public class SinusoidalMove : MonoBehaviour
 
     void CheckWhereToFace()
     {
+
     	if(pos.x < leftBound)
     	{
     		facingRight = true; 
@@ -85,5 +92,9 @@ public class SinusoidalMove : MonoBehaviour
     	transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
     	
     }
+
+
+
+
 
 }
