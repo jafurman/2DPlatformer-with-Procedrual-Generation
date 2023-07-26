@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baed55b39af344f997ee7ab7c1280d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 4
 --- !u!1102 &-7658368243823992592
 AnimatorState:
   serializedVersion: 6
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f951f857e7dd743bc8df2f9f135f8853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.005
+  moveDistance: 0.01
 --- !u!1102 &-4080200849473324775
 AnimatorState:
   serializedVersion: 6
@@ -454,8 +454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33504554901754857bcb78a4258f3dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  attackRange: 0.5
+  speed: 2
+  attackRange: 0.6
 --- !u!114 &5683948883653056402
 MonoBehaviour:
   m_ObjectHideFlags: 1
