@@ -30,7 +30,7 @@ public class leverScript : MonoBehaviour
         Transform transform = gameObject.GetComponent<Transform>();
 
 
-        whereToStopGateOnY = gate.transform.position.y + 1.85f;
+        whereToStopGateOnY = gate.transform.position.y + 1.80f;
     }
 
     // Update is called once per frame
