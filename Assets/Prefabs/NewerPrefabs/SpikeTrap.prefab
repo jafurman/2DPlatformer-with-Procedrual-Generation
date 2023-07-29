@@ -126,7 +126,7 @@ MonoBehaviour:
   startPoint: {fileID: 2245292586034729813}
   se: {fileID: 685437964}
   spikeFall: {fileID: 8300000, guid: 509e9ac05689b4993b2992bc00b28b6a, type: 3}
-  fallingSpeed: 0.1
+  fallingSpeed: 0.05
 --- !u!61 &2245292583915995634
 BoxCollider2D:
   m_ObjectHideFlags: 0

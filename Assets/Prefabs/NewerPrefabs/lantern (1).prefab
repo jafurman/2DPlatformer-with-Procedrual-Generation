@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3653779710042802977}
   - component: {fileID: 3653779710042802990}
   - component: {fileID: 3653779710042802991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3653779710130370918}
   - component: {fileID: 3653779710130370937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lanternLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 3653779711091199381}
   - component: {fileID: 3653779711091199378}
   - component: {fileID: 5357022268930806551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lantern (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
