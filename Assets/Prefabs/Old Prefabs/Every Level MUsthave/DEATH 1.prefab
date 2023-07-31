@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 8174518580253704579}
   m_Layer: 0
   m_Name: ScytheImpactPoint
-  m_TagString: Untagged
+  m_TagString: Scythe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,6 +17,8 @@ TagManager:
   - yellowPotionEffect
   - greenPotionEffect
   - SpawnEffect
+  - Scythe
+  - Barrel
   layers:
   - Default
   - TransparentFX

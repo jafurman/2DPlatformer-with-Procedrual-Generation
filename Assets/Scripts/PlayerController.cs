@@ -285,12 +285,18 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(1);
-            //Enemy.TakeDamage(1);
-        }
+            // Check if the enemy has the "Enemy" component before accessing it
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.TakeDamage(1);
+            }
 
-        //change speed back in case of regulat scythe swing slowing them down
-        speed = originalSpeed;
+            if (enemy.tag == "Barrel")
+            {
+                Destroy(enemy.gameObject);
+            }
+        }
     }
 
 
@@ -311,8 +317,17 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(1);
-            //Enemy.TakeDamage(1);
+            // Check if the enemy has the "Enemy" component before accessing it
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.TakeDamage(1);
+            }
+
+            if (enemy.tag == "Barrel")
+            {
+                Destroy(enemy.gameObject);
+            }
         }
     }
 
