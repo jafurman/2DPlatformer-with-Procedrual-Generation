@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6215626558130269159}
   - component: {fileID: 4063759988141616379}
   - component: {fileID: 8758369828300803574}
+  - component: {fileID: 3029026576961243813}
   m_Layer: 8
   m_Name: gearPlatFormX
   m_TagString: Untagged
@@ -117,7 +118,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 9fba2d036c2c946f8a3283a0aea3fc20, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.015447736, y: -0.30940878}
   m_SpriteTilingProperty:
@@ -252,3 +253,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!251 &3029026576961243813
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215626558130269152}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
