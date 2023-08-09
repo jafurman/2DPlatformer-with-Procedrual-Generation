@@ -18,7 +18,7 @@ public class Spike : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
