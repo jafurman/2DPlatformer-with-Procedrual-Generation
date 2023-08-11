@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1157318760}
   - component: {fileID: 2115920132709835620}
   - component: {fileID: 2243863642085699612}
+  - component: {fileID: 1228718380647768938}
   m_Layer: 0
   m_Name: plasma1
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1228718380647768938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157318759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a8a9c5889fb41dbbaafc319bfa0a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 15
 --- !u!1 &65082583372988396
 GameObject:
   m_ObjectHideFlags: 0
