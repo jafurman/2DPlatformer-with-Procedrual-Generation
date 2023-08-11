@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2564509878497450038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2564509878525521242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2564509878540741703}
   - component: {fileID: 2564509878540741702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 2564509878857841664}
   - component: {fileID: 2564509878857841919}
   - component: {fileID: 2564509878857841918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SoulCopier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 2564509878857841665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.351, y: 78.961, z: 0}
-  m_LocalScale: {x: 0.8417291, y: 0.98000824, z: 0.98000824}
+  m_LocalScale: {x: 0.60874134, y: 0.7087453, z: 0.7087453}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2564509878497450038}
