@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 90219857192849968}
   - component: {fileID: 4637920848477920364}
   - component: {fileID: -3023937396205281205}
+  - component: {fileID: 8907268563346126929}
   m_Layer: 0
   m_Name: potionYellow
-  m_TagString: Untagged
+  m_TagString: potionYellow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +33,7 @@ Transform:
   m_LocalPosition: {x: -5.84, y: 8.469887, z: -28.889437}
   m_LocalScale: {x: 1.0002506, y: 0.9275589, z: 0.7175}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8768470876968670278}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
   yellowPotion: {fileID: 90219857192849964}
-  playSound: {fileID: 0}
+  playSound: {fileID: 8907268563346126929}
 --- !u!114 &4637920848477920364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,49 +222,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 50
---- !u!1 &6268495466702509431
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8768470876968670278}
-  - component: {fileID: 149057447117548397}
-  m_Layer: 0
-  m_Name: hitMarker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8768470876968670278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268495466702509431}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 90219857192849971}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &149057447117548397
+--- !u!82 &8907268563346126929
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268495466702509431}
+  m_GameObject: {fileID: 90219857192849964}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ef2c7f44fc4f24789b9956933f6ee6c9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74106771719bb40e79e20cc3578246ee, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

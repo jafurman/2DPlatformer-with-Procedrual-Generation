@@ -6,7 +6,6 @@ public class speedPotion : MonoBehaviour
 {
     public PlayerController pc;
     public GameObject bluePotion;
-    public static GameObject playerEffect;
     public AudioSource ass;
 
     public static bool speedBoostOn;
@@ -18,12 +17,7 @@ public class speedPotion : MonoBehaviour
 
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-        playerEffect = GameObject.FindGameObjectWithTag("bluePotionEffect");
-
-        if (playerEffect != null)
-        {
-            playerEffect.SetActive(false);
-        }
+       
         
     }
 
@@ -40,7 +34,7 @@ public class speedPotion : MonoBehaviour
     IEnumerator speedBoost()
     {
         //get effects sprite
-        SpriteRenderer sprite = playerEffect.GetComponent<SpriteRenderer>();
+        SpriteRenderer sprite = PlayerController.lightning.GetComponent<SpriteRenderer>();
 
         //we want to increaset the speed of the player movement and also increase the scythe rate
 
@@ -48,12 +42,6 @@ public class speedPotion : MonoBehaviour
         pc.ScytheRate = 10;
         speedBoostOn = true;
         Bullet.speed = 3f;
-
-        //also want to turn on our effect
-        if (playerEffect != null)
-        {
-            playerEffect.SetActive(true);
-        }
 
         //for 8 seconds
         yield return new WaitForSeconds(18f);
@@ -78,10 +66,6 @@ public class speedPotion : MonoBehaviour
         pc.ScytheRate = 3.2f;
         Bullet.speed = 1.5f;
 
-        if (playerEffect != null)
-        {
-            playerEffect.SetActive(false);
-        }
 
         Destroy(gameObject);
     }

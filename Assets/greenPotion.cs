@@ -6,7 +6,6 @@ public class greenPotion : MonoBehaviour
 {
     public PlayerController pc;
     public GameObject greenPot;
-    public static GameObject playerEffect;
     public AudioSource ass;
     public static bool active;
 
@@ -18,13 +17,7 @@ public class greenPotion : MonoBehaviour
 
         greenPot = gameObject;
 
-        playerEffect = GameObject.FindGameObjectWithTag("greenPotionEffect");
-
-        if (playerEffect != null)
-        {
-            //initially set the effect to false
-            playerEffect.SetActive(false);
-        }
+        
 
     }
 
@@ -46,20 +39,31 @@ public class greenPotion : MonoBehaviour
     {
         active = true;
 
+        //get effects sprite
+        SpriteRenderer sprite = PlayerController.magic.GetComponent<SpriteRenderer>();
+
         //Give the player 5 shots
         Weapon.shotsLeft = 5;
 
         //change the duration of the time to longer
         Bullet.timeDuration = 8f;
 
-        if (playerEffect != null)
-        {
-            //initially set the effect to false
-            playerEffect.SetActive(true);
-        }
-
         //for 8 seconds
         yield return new WaitForSeconds(16f);
+
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(.33f);
+        sprite.enabled = false;
 
         //change the amount of shots back to amount at time of getting potion
         Weapon.shotsLeft = currentAmountofShots;
@@ -73,11 +77,6 @@ public class greenPotion : MonoBehaviour
         //set back to 4 seconds
         Bullet.timeDuration = 4f;
 
-        if (playerEffect != null)
-        {
-            //initially set the effect to false
-            playerEffect.SetActive(false);
-        }
 
         active = false;
 

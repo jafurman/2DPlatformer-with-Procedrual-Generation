@@ -340,7 +340,7 @@ MonoBehaviour:
   currentHealth: 0
   deathEffect: {fileID: 0}
   healthBar: {fileID: 2205720652705304215}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8700086235440621252}
   soulValue: 2
 --- !u!61 &2205720653353678808
 BoxCollider2D:

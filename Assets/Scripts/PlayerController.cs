@@ -85,6 +85,10 @@ public class PlayerController : MonoBehaviour
 
     public static bool forcedStop;
 
+    public static GameObject wings;
+    public static GameObject lightning;
+    public static GameObject magic;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -101,6 +105,13 @@ public class PlayerController : MonoBehaviour
         //start of the game means you cannot hold the bullet yet
         Bullet.canHold = false;
 
+        magic = GameObject.FindGameObjectWithTag("greenPotionEffect");
+        wings = GameObject.FindGameObjectWithTag("yellowPotionEffect");
+        lightning = GameObject.FindGameObjectWithTag("bluePotionEffect");
+
+        wings.SetActive(false);
+        lightning.SetActive(false);
+        magic.SetActive(false);
 
     }
     
@@ -108,6 +119,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (greenPotion.active)
+        {
+            magic.SetActive(true);
+        } else
+        {
+            magic.SetActive(false);
+        }
+
+        if (flyPotion.active)
+        {
+            wings.SetActive(true);
+        } else
+        {
+            wings.SetActive(false);
+        }
+
+        if (speedPotion.speedBoostOn)
+        {
+            lightning.SetActive(true);
+        } else
+        {
+            lightning.SetActive(false);
+        }
 
         if (Time.time >= nextScytheTime)
         {

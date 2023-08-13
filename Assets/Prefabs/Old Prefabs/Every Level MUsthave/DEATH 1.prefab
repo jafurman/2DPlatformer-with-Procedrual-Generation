@@ -1365,6 +1365,7 @@ GameObject:
   - component: {fileID: 7098122383514484190}
   - component: {fileID: 309847752615630623}
   - component: {fileID: 5026505299394819195}
+  - component: {fileID: 6465896805536098834}
   m_Layer: 0
   m_Name: bluePotionEffect
   m_TagString: bluePotionEffect
@@ -1538,6 +1539,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6465896805536098834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480673237240072719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a8a9c5889fb41dbbaafc319bfa0a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 60
 --- !u!1 &8970110129575037757
 GameObject:
   m_ObjectHideFlags: 0
