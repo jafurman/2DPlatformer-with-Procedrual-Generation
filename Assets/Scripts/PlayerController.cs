@@ -89,10 +89,12 @@ public class PlayerController : MonoBehaviour
     public static GameObject lightning;
     public static GameObject magic;
 
+    public BarrelScript BarrelScriptInstance;
 
     // Start is called before the first frame update
     private void Start()
     {
+
         theLM = FindObjectOfType<LivesManager>();
         theRB2D = GetComponent<Rigidbody2D>(); //instance of rigidbody
         theAnimator = GetComponent<Animator>();
@@ -328,6 +330,8 @@ public class PlayerController : MonoBehaviour
 
             if (enemy.tag == "Barrel")
             {
+                Vector3 enemyPosition = enemy.transform.position;
+                BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
             }
         }
@@ -360,6 +364,8 @@ public class PlayerController : MonoBehaviour
 
             if (enemy.tag == "Barrel")
             {
+                Vector3 enemyPosition = enemy.transform.position;
+                BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
             }
         }

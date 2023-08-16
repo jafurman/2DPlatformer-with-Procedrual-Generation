@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2884201546367993703}
   - component: {fileID: 4226902406961736196}
   - component: {fileID: 8066564448282597282}
+  - component: {fileID: 1435209809402993794}
   m_Layer: 8
   m_Name: rockPlaceHolder
   m_TagString: Wall
@@ -179,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031648636, y: 0.10373497}
+  m_Offset: {x: 0.025388956, y: 0.107346535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -190,7 +191,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46549034, y: 0.08219528}
+  m_Size: {x: 0.384912, y: 0.032844543}
+  m_EdgeRadius: 0
+--- !u!61 &1435209809402993794
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555925154328829042}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03396082, y: 0.14778519}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2823305, y: 0.064092636}
   m_EdgeRadius: 0
 --- !u!1 &7503844043688742730
 GameObject:

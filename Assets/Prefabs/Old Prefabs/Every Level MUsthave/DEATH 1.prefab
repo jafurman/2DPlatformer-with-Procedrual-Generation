@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a8a9c5889fb41dbbaafc319bfa0a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 60
+  spinSpeed: 100
 --- !u!1 &8970110129575037757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2090,7 @@ MonoBehaviour:
   hasSwung: 0
   swingCount: 0
   isSwinging: 0
+  BarrelScriptInstance: {fileID: 5106500144672062216, guid: ee29be61342784998948495f63fcb9c8, type: 3}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4
