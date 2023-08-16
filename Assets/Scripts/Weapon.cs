@@ -15,7 +15,9 @@ public class Weapon : MonoBehaviour
     
     public static int shotsLeft; //going to be amount tied to soul count and initially 3 at beginning of game
 
-    public static int maxShots = 5; 
+    public static int maxShots = 5;
+
+    public static bool canShoot = true;
 
     void Start()
     {
@@ -28,7 +30,7 @@ public class Weapon : MonoBehaviour
     {
     	
     	theAnimator = GetComponent<Animator>();
-        if (Input.GetKeyDown(KeyCode.Space) && shotsLeft > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && shotsLeft > 0 && canShoot)
         {
 	        ScoreManager.instance.TakeScore(1);
 	        StartCoroutine(Shoot());

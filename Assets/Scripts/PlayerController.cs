@@ -174,11 +174,13 @@ public class PlayerController : MonoBehaviour
                 theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
                 freezeOn = true;
-                inDialogueMode = false;
                 released = false;
 
                 //set the animation trigger to hold the soul
+                animator.ResetTrigger("ReleaseSoul");
                 animator.SetTrigger("HoldSoul");
+
+                StartCoroutine(holdFalseTimer());
 
             }
             if (Input.GetKeyUp(KeyCode.P))
@@ -575,6 +577,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         released = false;
+
+        //Make sure after the ability that you CAN actually use the soulShot again..
+        Weapon.canShoot = true;
     }
 
 
@@ -589,6 +594,23 @@ public class PlayerController : MonoBehaviour
        
         theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
+    public IEnumerator holdFalseTimer()
+    {
+        freezeOn = true;
+
+        yield return new WaitForSeconds(2f);
+
+        animator.ResetTrigger("HoldSoul");
+        animator.SetTrigger("ReleaseSoul");
+        //action 2
+        freezeOn = false;
+        released = true;
+        StartCoroutine(turnReleasedFalse());
+        //unfreeze position
+        theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
 
 
 }

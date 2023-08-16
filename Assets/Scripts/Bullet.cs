@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     public static SpriteRenderer ren;
     public static Color startingColor;
 
-    public static bool canHold;
+    public static bool canHold = false;
 
 
     // Start is called before the first frame update
@@ -31,10 +31,11 @@ public class Bullet : MonoBehaviour
         ren = GetComponent<SpriteRenderer>();
 
         //this conditional checks if the green potion is on. If it is then this potion will stay green throughout its entire life 
-        if ( greenPotion.active)
+        if (greenPotion.active)
         {
             startingColor = Color.green;
-        } else
+        }
+        else
         {
             startingColor = ren.color;
         }
@@ -48,9 +49,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("FREEZE? " + PlayerController.freezeOn);
-        Debug.Log("released " + PlayerController.released);
-
         if (PlayerController.freezeOn && !PlayerController.released)
         {
             //action 1 to happen
@@ -62,7 +60,7 @@ public class Bullet : MonoBehaviour
         {
             //action 2 to happen
             //moves the rigidbody of the bullet down by 4 times the speed
-            rb.velocity = -transform.up * speed + new Vector3(0, -4, 0);
+            rb.velocity = -transform.up * speed * 3 + new Vector3(0, -4, 0);
 
             //put proper constraints on for downwards motion
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -85,11 +83,11 @@ public class Bullet : MonoBehaviour
             {
                 if (PlayerController.FacingRight == true)
                 {
-                    player.transform.position += new Vector3(1.5f * Time.deltaTime, 0, 0);
+                    player.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
                 }
                 else if (PlayerController.FacingRight == false)
                 {
-                    player.transform.position -= new Vector3(1.5f * Time.deltaTime, 0, 0);
+                    player.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
                 }
             }
 
@@ -108,7 +106,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-            
+
 
     }
 
@@ -138,12 +136,14 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("Connected Player");
             player = hitInfo.gameObject;
-        } else if ( hitInfo.gameObject.tag == "Enemy")
+        }
+        else if (hitInfo.gameObject.tag == "Enemy")
         {
             enemy.TakeDamage(damage);
             //we don't want repetative damage on this
             Destroy(gameObject);
-        } else if ( hitInfo.gameObject.tag != "Enemy" && hitInfo.gameObject.tag != "Player")
+        }
+        else if (hitInfo.gameObject.tag != "Enemy" && hitInfo.gameObject.tag != "Player")
         {
             //destroy the gameobject if it hits anything with a solid collider
             Destroy(gameObject);
@@ -172,16 +172,24 @@ public class Bullet : MonoBehaviour
 
         //Make the cool effect just in case
         Instantiate(impactEffect, transform.position, transform.rotation);
+
+        //after all is done make canHold back to False
+        canHold = false;
+
         Destroy(gameObject);
     }
 
     IEnumerator deRelease()
-    { 
+    {
+        //stop all shooting allowed
+        Weapon.canShoot = false;
         //however long it takes them to leave the screen
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.7f);
 
         //after all is done make canHold back to False
         canHold = false;
+
+        Weapon.canShoot = true;
 
         //change the rigidbody constraints back
         //hold the y but not the x

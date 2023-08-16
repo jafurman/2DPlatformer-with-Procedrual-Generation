@@ -57,11 +57,7 @@ public class Slider : MonoBehaviour
             else if (col.gameObject.tag == "sliders")
             {
                 PlayerController.canJump = true;
-                if (Input.GetKey(KeyCode.A) && !PlayerController.FacingRight)
-                {
-                    rbi.velocity = new Vector3(-5f, 5f, 10f);
-                }
-                else if (Input.GetKey(KeyCode.D) && PlayerController.FacingRight)
+                if ((Input.GetKey(KeyCode.A) && !PlayerController.FacingRight) || (Input.GetKey(KeyCode.D) && PlayerController.FacingRight))
                 {
                     rbi.velocity = new Vector3(-5f, 5f, 10f);
                 }
