@@ -12,11 +12,14 @@ public class Slider : MonoBehaviour
 
     public static bool CanJump;
 
+    public Collider2D col;
+
     // Start is called before the first frame update
     void Start()
     {
         //get the players rigidbody
         rbi.GetComponent<Rigidbody2D>();
+        col.GetComponent<Collider2D>();
     }
 
 
@@ -59,6 +62,7 @@ public class Slider : MonoBehaviour
                 PlayerController.canJump = true;
                 if ((Input.GetKey(KeyCode.A) && !PlayerController.FacingRight) || (Input.GetKey(KeyCode.D) && PlayerController.FacingRight))
                 {
+                    StartCoroutine(setActiveCollider());
                     rbi.velocity = new Vector3(-5f, 5f, 10f);
                 }
 
@@ -71,6 +75,14 @@ public class Slider : MonoBehaviour
 
         
         
+    }
+
+
+    private IEnumerator setActiveCollider()
+    {
+        col.enabled = false;
+        yield return new WaitForSeconds(.6f);
+        col.enabled = true;
     }
 
 

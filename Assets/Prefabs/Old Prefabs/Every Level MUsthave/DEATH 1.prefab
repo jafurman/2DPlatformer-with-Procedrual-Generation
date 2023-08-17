@@ -528,6 +528,7 @@ MonoBehaviour:
   rbi: {fileID: 9113520220635006285}
   animator: {fileID: 9113520220635006280}
   slidingAudio: {fileID: 7133096062030372760}
+  col: {fileID: 8621962483755086037}
 --- !u!61 &8621962483755086037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -541,7 +542,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10568762, y: 0.020518303}
+  m_Offset: {x: -0.10568762, y: -0.0025994778}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -552,7 +553,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25666332, y: 0.39848518}
+  m_Size: {x: 0.25666332, y: 0.25553465}
   m_EdgeRadius: 0
 --- !u!1 &3497002804609366894
 GameObject:

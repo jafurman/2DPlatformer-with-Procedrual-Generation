@@ -49,13 +49,15 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        //HOLDING
         if (PlayerController.freezeOn && !PlayerController.released)
         {
             //action 1 to happen
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
-
         }
+
+        //RELEASING
         if (!PlayerController.freezeOn && PlayerController.released)
         {
             //action 2 to happen
