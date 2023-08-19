@@ -13,12 +13,20 @@ public class SetActiveDialogue : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        totalCanvas.SetActive(true);
+        if (col.tag == "Player")
+        {
+            totalCanvas.SetActive(true);
+        }
+
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        totalCanvas.SetActive(false);
+        if (col.tag == "Player")
+        {
+            totalCanvas.SetActive(false);
+        }
+
     }
 
 
