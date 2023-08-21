@@ -726,7 +726,7 @@ Animator:
   m_GameObject: {fileID: 4071178720053787218}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 690201545d1c5469485e3cde774a9cf2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -963,6 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCanvas: {fileID: 4071178718711272140}
+  dialogueButton: {fileID: 3408636525788148232}
 --- !u!60 &7445519993873093471
 PolygonCollider2D:
   m_ObjectHideFlags: 0

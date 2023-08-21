@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetActiveDialogue : MonoBehaviour
 {
     public GameObject totalCanvas;
+    public Animator dialogueButton;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class SetActiveDialogue : MonoBehaviour
         if (col.tag == "Player")
         {
             totalCanvas.SetActive(true);
+            dialogueButton.SetBool("SlideIn", true);
         }
 
     }
@@ -25,6 +27,7 @@ public class SetActiveDialogue : MonoBehaviour
         if (col.tag == "Player")
         {
             totalCanvas.SetActive(false);
+            dialogueButton.SetBool("SlideIn", false);
         }
 
     }
