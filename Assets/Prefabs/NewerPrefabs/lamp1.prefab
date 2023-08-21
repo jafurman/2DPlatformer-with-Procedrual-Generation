@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8737779758830475144}
   - component: {fileID: 8737779758830475151}
   - component: {fileID: 8737779758830475150}
-  - component: {fileID: 4471750777711101436}
   - component: {fileID: 5307989627241730882}
   - component: {fileID: 4302883885186231288}
   m_Layer: 0
@@ -152,21 +151,6 @@ MonoBehaviour:
   frequency: 0.8
   leftBound: 0
   rightBound: 0
---- !u!114 &4471750777711101436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737779758830475149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d6ec1e14ae948ac87f412032ea1471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gm: {fileID: 0}
-  lm: {fileID: 0}
-  am: {fileID: 0}
 --- !u!212 &5307989627241730882
 SpriteRenderer:
   m_ObjectHideFlags: 0
