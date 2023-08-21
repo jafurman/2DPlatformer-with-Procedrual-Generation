@@ -26,9 +26,17 @@ public class SetActiveDialogue : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            totalCanvas.SetActive(false);
-            dialogueButton.SetBool("SlideIn", false);
+            StartCoroutine(waitASec());
         }
+
+    }
+
+
+    public IEnumerator waitASec()
+    {
+        dialogueButton.SetBool("SlideIn", false);
+        yield return new WaitForSeconds(.5f);
+        totalCanvas.SetActive(false);
 
     }
 
