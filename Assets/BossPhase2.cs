@@ -18,13 +18,17 @@ public class BossPhase2 : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 direction = player.transform.position - rb.transform.position;
+        Vector2 playerPosition = player.transform.position;
+        Vector2 bossPosition = rb.transform.position;
+
+        // Only consider the x-axis difference
+        Vector2 direction = new Vector2(playerPosition.x - bossPosition.x, 0);
 
         // Normalize the direction vector to have a magnitude of 1
         direction.Normalize();
 
         // Apply the direction as a force to the rigidbody
-        rb.velocity = direction * speed;
+        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
 
         if (direction.x < 0) // moving left
         {

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e45cef63d1a4a2c935d4ffcbfffb49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Tutorial ;0
+  levelToLoad: Playtime ;)
   defaultLives: 5
   defaultScore: 3
 --- !u!1 &247535514

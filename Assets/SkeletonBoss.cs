@@ -97,8 +97,7 @@ public class SkeletonBoss : MonoBehaviour
             //once the health goes to a point where I want the chracter and boss to drop, I'm going to destroy specified prefabs/GOs
             Destroy(itemsToDestroy);
 
-            //also move the animation to the next phase
-            bossAnimator.SetTrigger("SecondPhase");
+            StartCoroutine(waitASec());
         }
 
         }
@@ -158,5 +157,14 @@ public class SkeletonBoss : MonoBehaviour
         //Spawn the lever for the gate to leave
         //Instantiate(leverForDoor, transform.position, Quaternion.identity);
         leverForDoor.SetActive(true);
+    }
+
+
+    IEnumerator waitASec()
+    {
+        yield return new WaitForSeconds(4f);
+        //also move the animation to the next phase
+        bossAnimator.SetTrigger("SecondPhase");
+
     }
 }
