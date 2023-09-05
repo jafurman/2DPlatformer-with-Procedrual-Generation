@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         if (greenPotion.active)
         {
             magic.SetActive(true);
@@ -144,6 +145,7 @@ public class PlayerController : MonoBehaviour
         {
             lightning.SetActive(false);
         }
+
 
         if (Time.time >= nextScytheTime)
         {
@@ -314,7 +316,6 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection *= -1;
         }
-        gameObject.transform.Translate(moveDirection * 0.2f);
 
         //play audio
         ScytheSoundOne.PlayOneShot(ScytheSoundOne.clip);

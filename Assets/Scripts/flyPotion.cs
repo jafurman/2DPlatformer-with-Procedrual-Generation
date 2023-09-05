@@ -56,7 +56,7 @@ public class flyPotion : MonoBehaviour
         yield return new WaitForSeconds(.33f);
         sprite.enabled = true;
         yield return new WaitForSeconds(.33f);
-        sprite.enabled = false;
+
 
         active = false;
 

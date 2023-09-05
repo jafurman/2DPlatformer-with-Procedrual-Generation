@@ -58,7 +58,6 @@ public class speedPotion : MonoBehaviour
         yield return new WaitForSeconds(.33f);
         sprite.enabled = true;
         yield return new WaitForSeconds(.33f);
-        sprite.enabled = false;
 
         //then switch back to normal
 

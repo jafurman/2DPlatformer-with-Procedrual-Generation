@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9211, y: 7.2127}
-  m_SizeDelta: {x: 932.9471, y: 121.4505}
+  m_AnchoredPosition: {x: -1.0593, y: -6.6315}
+  m_SizeDelta: {x: 925.2226, y: 93.762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071178718958663865
 CanvasRenderer:
@@ -251,8 +251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: -3.9041996}
+  m_SizeDelta: {x: -8.924, y: -7.8084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071178719193958567
 CanvasRenderer:
@@ -284,7 +284,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 20
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -295,7 +295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CONTINUE >>
+  m_Text: CONTINUE >> OR [K]
 --- !u!1 &4071178719242108922
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,8 +335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 148}
-  m_SizeDelta: {x: 961.0146, y: 246.2904}
+  m_AnchoredPosition: {x: -22.493, y: 116.35}
+  m_SizeDelta: {x: 1006.0005, y: 182.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071178719242108917
 CanvasRenderer:
@@ -431,8 +431,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.9000015}
-  m_SizeDelta: {x: 1.9523, y: -176.5485}
+  m_AnchoredPosition: {x: 0.4880371, y: -14.274597}
+  m_SizeDelta: {x: 0.9761, y: -144.1994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071178719428404349
 CanvasRenderer:
@@ -475,7 +475,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: < Talk To Mage >
+  m_Text: < Talk To Mage [I]>
 --- !u!1 &4071178719972782843
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
