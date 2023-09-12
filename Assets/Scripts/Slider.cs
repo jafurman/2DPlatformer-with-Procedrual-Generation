@@ -14,6 +14,8 @@ public class Slider : MonoBehaviour
 
     public Collider2D col;
 
+    public static bool HaveNotJumped;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +51,18 @@ public class Slider : MonoBehaviour
 
 
     }
+
+    private void Update()
+    {
+        if (col.enabled == false && HaveNotJumped)
+        {
+            col.enabled = true;
+        }
+    }
+
     //while leaving the slide
     void OnTriggerExit2D(Collider2D col)
     {
-
             if (col.gameObject.tag == "bullet")
             {
                 //do nothing
@@ -81,9 +91,12 @@ public class Slider : MonoBehaviour
     private IEnumerator setActiveCollider()
     {
         col.enabled = false;
+        HaveNotJumped = false;
         yield return new WaitForSeconds(.6f);
+        HaveNotJumped = true;
         col.enabled = true;
     }
+
 
 
 

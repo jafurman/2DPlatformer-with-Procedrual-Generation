@@ -26,4 +26,5 @@ public class followPlayer : MonoBehaviour
         Vector2 direction = (player.transform.position - eyeballRb.transform.position).normalized;
         eyeballRb.MovePosition(eyeballRb.position + direction * speed * Time.deltaTime);
     }
+
 }

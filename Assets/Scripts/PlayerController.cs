@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
         lightning.SetActive(false);
         magic.SetActive(false);
 
+        Slider.HaveNotJumped = true;
     }
     
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -78,10 +79,6 @@ public class Enemy : MonoBehaviour
         deathSound.Play();
         isDead = true;
 
-        // Disable movement and collider
-        Collider2D hitBox = GetComponent<Collider2D>();
-        hitBox.enabled = false;
-
         SinusoidalMove sinMov = GetComponent<SinusoidalMove>();
         if (sinMov != null)
         {
@@ -95,8 +92,27 @@ public class Enemy : MonoBehaviour
         }
 
         ScoreManager.instance.ChangeScore(soulValue);
-        theAnim.SetTrigger("die"); // Set the die trigger in the Animator component
-        StartCoroutine(DestroyEnemy());
+        if (theAnim.parameters.Any(param => param.name == "die" && param.type == AnimatorControllerParameterType.Trigger))
+        {
+            // The "die" trigger exists, so set it and start the coroutine
+            theAnim.SetTrigger("die");
+
+            if (deathEffect != null)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+
+            StartCoroutine(DestroyEnemy());
+
+        }
+        else
+        {
+            if (deathEffect != null)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator DestroyEnemy()
@@ -131,10 +147,6 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             sprite.enabled = true;
             isInvincible = false;
-            if (deathEffect != null)
-            {
-                Instantiate(deathEffect, transform.position, Quaternion.identity);
-            }
 
         }
 

@@ -30,6 +30,12 @@ public class SkeletonBoss : MonoBehaviour
 
     public GameObject leverForDoor;
 
+    public GameObject deathAnimPrefab;
+
+    public Transform spawnDeathPos;
+
+    private bool bossDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +53,10 @@ public class SkeletonBoss : MonoBehaviour
         //At the start of the fight I want eyes to spawn
         SpawnEye();
 
-     
+
+
+
+
     }
 
     // Update is called once per frame
@@ -55,19 +64,20 @@ public class SkeletonBoss : MonoBehaviour
     {
         if (bossInstance != null)
         {
-            //get the current HP of the boss
+            // Get the current HP of the boss
             float currentHp = bossInstance.currentHealth;
 
-            //if the boss hp dips below 15 then its time for phase 2
-            if ( currentHp <= 15 )
+            // If the boss hp dips below 20, it's time for phase 2
+            if (currentHp <= 20 && !bossDead) // Check if bossDeath hasn't been called yet
             {
                 phase2Enabled = true;
-                Debug.Log("It's time for PHASE 2 BITCH");
 
+                // Check if boss HP is less than or equal to 0
                 if (currentHp <= 0)
                 {
-                    //call boss death function outside of Update
+                    // Call boss death function
                     bossDeath();
+                    bossDead = true; // Set the flag to true to prevent multiple calls
                 }
             }
         }
@@ -97,7 +107,7 @@ public class SkeletonBoss : MonoBehaviour
             //once the health goes to a point where I want the chracter and boss to drop, I'm going to destroy specified prefabs/GOs
             Destroy(itemsToDestroy);
 
-            StartCoroutine(waitASec());
+            bossAnimator.SetTrigger("SecondPhase");
         }
 
         }
@@ -152,19 +162,28 @@ public class SkeletonBoss : MonoBehaviour
 
     public void bossDeath()
     {
-        //if the code finds itself here that means that the boss has died
 
-        //Spawn the lever for the gate to leave
-        //Instantiate(leverForDoor, transform.position, Quaternion.identity);
-        leverForDoor.SetActive(true);
+        // Spawn the lever for the gate to leave
+        // Instantiate(leverForDoor, transform.position, Quaternion.identity);
+        StartCoroutine(DeathActions());
     }
 
-
-    IEnumerator waitASec()
+    public IEnumerator DeathActions()
     {
-        yield return new WaitForSeconds(4f);
-        //also move the animation to the next phase
-        bossAnimator.SetTrigger("SecondPhase");
 
+        GameObject deathAnim = Instantiate(deathAnimPrefab, spawnDeathPos.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(2.4f);
+
+        bossAnimator.SetTrigger("Die");
+        // If the code finds itself here, that means that the boss has died
+
+        leverForDoor.SetActive(true);
+
+        if (deathAnim != null)
+        {
+            Destroy(deathAnim);
+        }
     }
+
 }
