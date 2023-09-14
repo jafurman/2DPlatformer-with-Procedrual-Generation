@@ -27,4 +27,5 @@ public class followPlayer : MonoBehaviour
         eyeballRb.MovePosition(eyeballRb.position + direction * speed * Time.deltaTime);
     }
 
+
 }

@@ -22,6 +22,7 @@ TagManager:
   - potionGreen
   - potionYellow
   - potionBlue
+  - SoulCatcher
   layers:
   - Default
   - TransparentFX
