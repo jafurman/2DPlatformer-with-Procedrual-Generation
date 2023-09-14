@@ -16,6 +16,8 @@ public class Slider : MonoBehaviour
 
     public static bool HaveNotJumped;
 
+    public GameObject visualTimerPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,7 +94,20 @@ public class Slider : MonoBehaviour
     {
         col.enabled = false;
         HaveNotJumped = false;
+        Vector3 playerPos = gameObject.transform.position;
+        if (PlayerController.FacingRight)
+        {
+            playerPos.x += .3f;
+            playerPos.y += .1f;
+        } else if (!PlayerController.FacingRight)
+        {
+            playerPos.x -= .4f;
+        }
+        GameObject visualTimer = Instantiate(visualTimerPrefab, playerPos, Quaternion.identity);
+
         yield return new WaitForSeconds(.6f);
+
+        Destroy(visualTimer);
         HaveNotJumped = true;
         col.enabled = true;
     }
