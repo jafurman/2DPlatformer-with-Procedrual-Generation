@@ -76,6 +76,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        killManager.instance.addKillCounter();
+
         deathSound.Play();
         isDead = true;
 
