@@ -25,6 +25,7 @@ TagManager:
   - SoulCatcher
   - disabledLeft
   - disabledRight
+  - Warden
   layers:
   - Default
   - TransparentFX

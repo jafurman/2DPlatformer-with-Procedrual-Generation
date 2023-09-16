@@ -446,7 +446,7 @@ public class PlayerController : MonoBehaviour
 
                 //ideally it should only be enemy
                 //but I am a shit programmer so you get Spooder too
-                if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder"))
+                if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder") || hit.CompareTag("Warden"))
                 {
                     Enemy enemy = hit.GetComponent<Enemy>();
                     Spider spider = hit.GetComponent<Spider>();

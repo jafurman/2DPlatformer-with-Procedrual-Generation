@@ -16,7 +16,8 @@ public class Slider : MonoBehaviour
 
     public static bool HaveNotJumped;
 
-    public GameObject visualTimerPrefab;
+    public GameObject slideIndicator;
+    public Animator slideIndAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,10 @@ public class Slider : MonoBehaviour
         //get the players rigidbody
         rbi.GetComponent<Rigidbody2D>();
         col.GetComponent<Collider2D>();
+
+        slideIndAnim = slideIndicator.GetComponent<Animator>();
+
+        slideIndAnim.enabled = false;
     }
 
 
@@ -94,20 +99,13 @@ public class Slider : MonoBehaviour
     {
         col.enabled = false;
         HaveNotJumped = false;
-        Vector3 playerPos = gameObject.transform.position;
-        if (PlayerController.FacingRight)
-        {
-            playerPos.x += .3f;
-            playerPos.y += .1f;
-        } else if (!PlayerController.FacingRight)
-        {
-            playerPos.x -= .4f;
-        }
-        GameObject visualTimer = Instantiate(visualTimerPrefab, playerPos, Quaternion.identity);
+        slideIndAnim.enabled = true;
+        slideIndicator.SetActive(true);
 
         yield return new WaitForSeconds(.6f);
 
-        Destroy(visualTimer);
+        slideIndicator.SetActive(false);
+        slideIndAnim.enabled = false;
         HaveNotJumped = true;
         col.enabled = true;
     }

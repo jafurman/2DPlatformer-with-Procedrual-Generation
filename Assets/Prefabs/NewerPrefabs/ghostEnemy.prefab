@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 8700086235440621252}
   m_Layer: 7
   m_Name: ghostEnemy
-  m_TagString: Untagged
+  m_TagString: Warden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
