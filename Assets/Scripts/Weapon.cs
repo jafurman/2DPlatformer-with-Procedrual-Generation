@@ -43,12 +43,15 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Shoot () ///bulletlogic
     {
+        if (canShoot)
+        {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             // SoundManager.PlaySound("playerShoot");
             audioSource.PlayOneShot(shootingAudioClip);
             theAnimator.SetBool("Shoot", true);
             yield return new WaitForSeconds(.7f);
             theAnimator.SetBool("Shoot", false);
+        }           
        
     }
 }

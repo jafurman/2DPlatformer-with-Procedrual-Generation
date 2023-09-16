@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private float meleeTimer = 0f;
 
-    private bool allowAttack = true;
+    public static bool allowAttack = true;
 
     public AudioSource slice;
     public bool hasTeleported = false;
@@ -91,10 +91,15 @@ public class PlayerController : MonoBehaviour
 
     public BarrelScript BarrelScriptInstance;
 
+    public DisableManager dm;
+
+    public static bool canUseM;
+    public static bool canUseP;
+
     // Start is called before the first frame update
     private void Start()
     {
-
+        dm = FindObjectOfType<DisableManager>();
         theLM = FindObjectOfType<LivesManager>();
         theRB2D = GetComponent<Rigidbody2D>(); //instance of rigidbody
         theAnimator = GetComponent<Animator>();
@@ -106,6 +111,8 @@ public class PlayerController : MonoBehaviour
 
         //start of the game means you cannot hold the bullet yet
         Bullet.canHold = false;
+        canUseM = true;
+        canUseP = true;
 
         magic = GameObject.FindGameObjectWithTag("greenPotionEffect");
         wings = GameObject.FindGameObjectWithTag("yellowPotionEffect");
@@ -165,38 +172,43 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //chunk of code that enables the player to hold (freeze player position) but only when a bullet is active
-        if (Bullet.canHold)
+        if (canUseP == true)
         {
-            //logic code for holding the bullets in kinematic if held
-            if (Input.GetKeyDown(KeyCode.P))
+            //chunk of code that enables the player to hold (freeze player position) but only when a bullet is active
+            if (Bullet.canHold)
             {
-                //freeze the player in their current position fully
-                theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                //logic code for holding the bullets in kinematic if held
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    //freeze the player in their current position fully
+                    theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
-                freezeOn = true;
-                released = false;
+                    freezeOn = true;
+                    released = false;
 
-                //set the animation trigger to hold the soul
-                animator.ResetTrigger("ReleaseSoul");
-                animator.SetTrigger("HoldSoul");
+                    //set the animation trigger to hold the soul
+                    animator.ResetTrigger("ReleaseSoul");
+                    animator.SetTrigger("HoldSoul");
 
-                StartCoroutine(holdFalseTimer());
+                    StartCoroutine(holdFalseTimer());
 
-            }
-            if (Input.GetKeyUp(KeyCode.P))
-            {
+                }
+                if (Input.GetKeyUp(KeyCode.P))
+                {
 
-                animator.SetTrigger("ReleaseSoul");
-                //action 2
-                freezeOn = false;
-                released = true;
-                StartCoroutine(turnReleasedFalse());
-                //unfreeze position
-                theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    animator.SetTrigger("ReleaseSoul");
+                    //action 2
+                    freezeOn = false;
+                    released = true;
+                    StartCoroutine(turnReleasedFalse());
+                    //unfreeze position
+                    theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    StartCoroutine(dm.DisableP());
 
+                }
             }
         }
+        
 
         
         //if input is left, can move, if input is right, can move
@@ -227,36 +239,44 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Downwards", false);
         }
 
-        //Hold M to do the slice feature is implemented here
-        if (Input.GetKeyDown(KeyCode.M) && meleeTimer == 0f && Slider.isSliding == false)
+        if (canUseM == true)
         {
-            meleeTimer = 0.01f;
-            animator.SetBool("HoldSlice", true);
-        }
+            //Hold M to do the slice feature is implemented here
+            if (Input.GetKeyDown(KeyCode.M) && meleeTimer == 0f && Slider.isSliding == false)
+            {
+                meleeTimer = 0.01f;
+                animator.SetBool("HoldSlice", true);
+            }
 
-        if (Input.GetKeyUp(KeyCode.M) && allowAttack)
+            if (Input.GetKeyUp(KeyCode.M) && allowAttack)
+            {
+                meleeTimer = 0;
+                animator.SetBool("HoldSlice", false);
+            }
+
+            if (meleeTimer > 0)
+            {
+                meleeTimer += Time.deltaTime;
+                if (meleeTimer >= 1.0f && allowAttack)
+                {
+                    PerformMeleeAttack();
+                    slice.Play();
+                    allowAttack = false;
+                }
+
+                if (meleeTimer >= 1.41f)
+                {
+                    animator.SetBool("HoldSlice", false);
+                    allowAttack = true;
+                    meleeTimer = 0f;
+
+                }
+            }
+        } else if (canUseM == false)
         {
-            meleeTimer = 0;
             animator.SetBool("HoldSlice", false);
         }
-
-        if (meleeTimer > 0)
-        {
-            meleeTimer += Time.deltaTime;
-            if (meleeTimer >= 1.0f && allowAttack)
-            {
-                PerformMeleeAttack();
-                slice.Play();
-                allowAttack = false;
-            }
-
-            if (meleeTimer >= 1.41f)
-            {
-                animator.SetBool("HoldSlice", false);
-                allowAttack = true;
-                meleeTimer = 0f;
-            }
-        }
+        
 
         //Teleportation code
         if (grounded && (Input.GetKeyDown(KeyCode.N) && !hasTeleported) && teleportTimer == 0f && Slider.isSliding == false)
@@ -419,25 +439,26 @@ public class PlayerController : MonoBehaviour
 
     private void PerformMeleeAttack()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeRange);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeRange);
 
-        foreach (Collider2D hit in hits)
-        {
-
-            //ideally it should only be enemy
-            //but I am a shit programmer so you get Spooder too
-            if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder"))
+            foreach (Collider2D hit in hits)
             {
-                Enemy enemy = hit.GetComponent<Enemy>();
-                Spider spider = hit.GetComponent<Spider>();
 
-                if (enemy != null)
+                //ideally it should only be enemy
+                //but I am a shit programmer so you get Spooder too
+                if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder"))
                 {
-                    enemy.TakeDamage(1);
+                    Enemy enemy = hit.GetComponent<Enemy>();
+                    Spider spider = hit.GetComponent<Spider>();
 
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(1);
+
+                    }
                 }
             }
-        }
+        StartCoroutine(dm.DisableM());
     }
 
     private void FixedUpdate()
