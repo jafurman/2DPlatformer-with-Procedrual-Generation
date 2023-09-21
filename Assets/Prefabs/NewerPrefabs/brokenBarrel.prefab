@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 850320291488111592}
   - component: {fileID: 850320291488111593}
   - component: {fileID: 850320291488111598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brokenBarrel2
-  m_TagString: Untagged
+  m_TagString: BrokenBarrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,9 +152,9 @@ GameObject:
   - component: {fileID: 850320291667068578}
   - component: {fileID: 850320291667068579}
   - component: {fileID: 850320291667068576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brokenBarrel1
-  m_TagString: Untagged
+  m_TagString: BrokenBarrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,4 +328,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4b8537802f74dfebf47727b69a0c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBeforeDelete: 5
+  secondsBeforeDelete: 2

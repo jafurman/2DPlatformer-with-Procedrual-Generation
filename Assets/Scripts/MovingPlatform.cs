@@ -13,6 +13,8 @@ public class MovingPlatform : MonoBehaviour
     public BoxCollider2D col;
     public AudioSource ad;
 
+    public GameObject player;
+
     public void Start()
     {
       col = GetComponent<BoxCollider2D>();
@@ -35,10 +37,18 @@ public class MovingPlatform : MonoBehaviour
             if (movingUp)
             {
                 transform.position = new Vector2(transform.position.x, currentY + speed * Time.deltaTime);
+                if (player != null)
+                {
+                    player.transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+                }
             }
             else if (!movingUp)
             {
                 transform.position = new Vector2(transform.position.x, currentY - speed * Time.deltaTime);
+                if (player != null)
+                {
+                    player.transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
+                }
             }
 
 
@@ -80,6 +90,21 @@ public class MovingPlatform : MonoBehaviour
         canMove = true;
         movingUp = true;
         ad.enabled = true;
+    }
+
+    public void OnCollisionEnter2D(Collision2D coal)
+    {
+        if (coal.gameObject.tag == "Player")
+        {
+            player = coal.gameObject;
+        }
+    }
+    public void OnCollisionExit2D(Collision2D coal)
+    {
+        if (coal.gameObject.tag == "Player")
+        {
+            player = null;
+        }
     }
 
 

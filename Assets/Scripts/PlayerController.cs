@@ -352,6 +352,7 @@ public class PlayerController : MonoBehaviour
 
             if (enemy.tag == "Barrel")
             {
+        
                 Vector3 enemyPosition = enemy.transform.position;
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
@@ -390,6 +391,7 @@ public class PlayerController : MonoBehaviour
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
             }
+
         }
     }
 
@@ -443,10 +445,15 @@ public class PlayerController : MonoBehaviour
 
             foreach (Collider2D hit in hits)
             {
-
-                //ideally it should only be enemy
-                //but I am a shit programmer so you get Spooder too
-                if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder") || hit.CompareTag("Warden"))
+            if (hit.tag == "Barrel")
+            {
+                Vector3 enemyPosition = hit.transform.position;
+                BarrelScriptInstance.spawnBarrel(enemyPosition);
+                Destroy(hit.gameObject);
+            }
+            //ideally it should only be enemy
+            //but I am a shit programmer so you get Spooder too
+            if (hit.CompareTag("Enemy") || hit.CompareTag("Spooder") || hit.CompareTag("Warden"))
                 {
                     Enemy enemy = hit.GetComponent<Enemy>();
                     Spider spider = hit.GetComponent<Spider>();
