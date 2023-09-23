@@ -36,7 +36,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d778aab0d9b94b08bdcaa032b946764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 5
+  shootInterval: 3
 --- !u!1102 &2880528913189191661
 AnimatorState:
   serializedVersion: 6
