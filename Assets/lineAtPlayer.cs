@@ -5,11 +5,14 @@ using UnityEngine;
 public class lineAtPlayer : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public Vector3 playerPos;
-    public Vector3 spawnPos;
-    public Vector3 direction;
+    private Vector3 playerPos;
+    private Vector3 spawnPos;
+    private Vector3 direction;
 
     public float speed = 5;
+
+    public GameObject explodePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +36,21 @@ public class lineAtPlayer : MonoBehaviour
     void Update()
     {
         rb.velocity = direction.normalized * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (explodePrefab != null)
+            {
+                GameObject explode = explodePrefab;
+
+                Instantiate(explode, transform.position, Quaternion.identity);
+
+                Destroy(gameObject);
+            }
+
+        }
     }
 }
