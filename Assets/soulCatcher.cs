@@ -54,23 +54,29 @@ public class soulCatcher : MonoBehaviour
             // Set the new current position of the player to be the "start" which would resemble a checkpoint
             GameManager.playerStart = player.transform.position;
 
+            Destroy(col.gameObject);
+
             StartCoroutine(spawntheTag());
 
 
 
             // Set the active value to true
             active = true;
+
+
         }
     }
 
     private IEnumerator spawntheTag()
     {
         Vector3 PlayerPosition = player.transform.position;
-        PlayerPosition.y -= .6f;
+        PlayerPosition.y += .66f;
         GameObject spawnTag = Instantiate(spawnTagPrefab, PlayerPosition, Quaternion.identity);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         Destroy(spawnTag);
+
+
     }
 }
