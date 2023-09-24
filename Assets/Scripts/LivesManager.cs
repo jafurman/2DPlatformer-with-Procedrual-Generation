@@ -15,7 +15,12 @@ public class LivesManager : MonoBehaviour
 
     public int soulReduction = 0;
 
+    public spawnMinusOneSoul spawnOneScript;
+
     public static LivesManager instance;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,8 @@ public class LivesManager : MonoBehaviour
         {
         	theGM.GameOver();
         }
+
+
     }
 
     public void TakeLife()
@@ -46,6 +53,7 @@ public class LivesManager : MonoBehaviour
         if (PlayerController.isInvincible == false)
         {
             livesCounter--;
+        
             PlayerPrefs.SetInt("CurrentLives", livesCounter);
             if (Weapon.shotsLeft > 0)
             {
@@ -59,4 +67,6 @@ public class LivesManager : MonoBehaviour
     	livesCounter++;
     	PlayerPrefs.SetInt("CurrentLives", livesCounter);
     }
+
+
 }

@@ -2094,7 +2094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34, y: -229}
+  m_AnchoredPosition: {x: -305, y: -179.40002}
   m_SizeDelta: {x: -1210.9989, y: -752.2002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8774712647462170060
@@ -2431,6 +2431,10 @@ PrefabInstance:
       propertyPath: soulReduction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2504091748937180979, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
+      propertyPath: minusOnePrefab
+      value: 
+      objectReference: {fileID: 8179910863563101153, guid: 5781f6d33252044228880662d4afea1a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
 --- !u!4 &5104552532439460786 stripped
@@ -2477,6 +2481,10 @@ PrefabInstance:
       propertyPath: soulSlot5
       value: 
       objectReference: {fileID: 3322156936473728630}
+    - target: {fileID: 1575705088321251458, guid: 4b0928f9755c6409ebd755035fb5f67c, type: 3}
+      propertyPath: minusOnePrefab
+      value: 
+      objectReference: {fileID: 8179910863563101153, guid: 5781f6d33252044228880662d4afea1a, type: 3}
     - target: {fileID: 1575705088321251459, guid: 4b0928f9755c6409ebd755035fb5f67c, type: 3}
       propertyPath: m_RootOrder
       value: 5

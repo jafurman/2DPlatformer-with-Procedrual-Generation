@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
         thePlayer.gameObject.SetActive(true);
         Slider.HaveNotJumped = true;
+
     }
     
     }

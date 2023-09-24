@@ -26,6 +26,10 @@ public class ScoreManager : MonoBehaviour
 	private Renderer g4;
 	private Renderer g5;
 
+	private Vector3 playerPos;
+
+	public GameObject minusOnePrefab;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -76,6 +80,8 @@ public class ScoreManager : MonoBehaviour
 		else
 		{
 			Weapon.shotsLeft -= soulReduction;
+			StartCoroutine(spawnMinusOneAnim());
+
 		}
 		PlayerPrefs.SetInt("CurrentScore", Weapon.shotsLeft);
 		scoreText.text = Weapon.shotsLeft.ToString();
@@ -85,6 +91,8 @@ public class ScoreManager : MonoBehaviour
 
 	public void Update()
     {
+		playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+
 		if (greenPotion.active)
         {
 			g1.material.color = Color.green;
@@ -149,5 +157,16 @@ public class ScoreManager : MonoBehaviour
 			    break;
 	    }
     }
-    
+
+	private IEnumerator spawnMinusOneAnim()
+	{
+		Debug.Log("Calling function");
+		playerPos.y += .5f;
+		GameObject minusOneGO = Instantiate(minusOnePrefab, playerPos, Quaternion.identity);
+
+		yield return new WaitForSeconds(1f);
+
+		Destroy(minusOneGO);
+	}
+
 }
