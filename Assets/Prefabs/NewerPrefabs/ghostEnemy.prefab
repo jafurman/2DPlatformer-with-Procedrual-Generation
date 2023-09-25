@@ -406,7 +406,7 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 1
-  attackRange: 0.7
+  attackRange: 0.4
   pc: {fileID: 0}
   se: {fileID: 8700086235440621252}
   clip: {fileID: 8300000, guid: 3eb61102e6bb04576b4b36cde2db3504, type: 3}

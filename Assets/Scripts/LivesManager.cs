@@ -15,11 +15,11 @@ public class LivesManager : MonoBehaviour
 
     public int soulReduction = 0;
 
-    public spawnMinusOneSoul spawnOneScript;
-
     public static LivesManager instance;
 
+    private Vector3 playerPos;
 
+    public GameObject minusOnePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +45,7 @@ public class LivesManager : MonoBehaviour
         	theGM.GameOver();
         }
 
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
     }
 
@@ -53,7 +54,7 @@ public class LivesManager : MonoBehaviour
         if (PlayerController.isInvincible == false)
         {
             livesCounter--;
-        
+            StartCoroutine(spawnMinusOneAnim());
             PlayerPrefs.SetInt("CurrentLives", livesCounter);
             if (Weapon.shotsLeft > 0)
             {
@@ -66,6 +67,16 @@ public class LivesManager : MonoBehaviour
     {
     	livesCounter++;
     	PlayerPrefs.SetInt("CurrentLives", livesCounter);
+    }
+
+    private IEnumerator spawnMinusOneAnim()
+    {
+        playerPos.y += .5f;
+        GameObject minusOneGO = Instantiate(minusOnePrefab, playerPos, Quaternion.identity);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(minusOneGO);
     }
 
 
