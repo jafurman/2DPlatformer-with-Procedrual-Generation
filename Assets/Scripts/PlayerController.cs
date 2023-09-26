@@ -357,6 +357,16 @@ public class PlayerController : MonoBehaviour
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
             }
+
+            if (enemy.CompareTag("Enemy"))
+            {
+                // Assuming you have a specific LineAtPlayer instance related to the mage shot
+                lineAtPlayer lap = enemy.GetComponent<lineAtPlayer>();
+                if (lap != null)
+                {
+                    lap.MageShotSpeed = -lap.MageShotSpeed;
+                }
+            }
         }
     }
 
@@ -390,6 +400,16 @@ public class PlayerController : MonoBehaviour
                 Vector3 enemyPosition = enemy.transform.position;
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
+            }
+
+            if (enemy.CompareTag("Enemy"))
+            {
+                // Assuming you have a specific LineAtPlayer instance related to the mage shot
+                lineAtPlayer lap = enemy.GetComponent<lineAtPlayer>();
+                if (lap != null)
+                {
+                    lap.MageShotSpeed = -lap.MageShotSpeed;
+                }
             }
 
         }

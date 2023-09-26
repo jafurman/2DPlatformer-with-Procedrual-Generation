@@ -59,7 +59,12 @@ public class lineAtPlayer : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
-            enemy.TakeDamage(2);
+            enemy.TakeDamage(1);
+            GameObject explode = explodePrefab;
+
+            Instantiate(explode, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
         }
     }
 }

@@ -10,10 +10,16 @@ public class cMage : MonoBehaviour
     private GameObject player;
     private bool hasPlayerPassed = false;
 
+    public BoxCollider2D col;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        col = GetComponent<BoxCollider2D>();
+
+        StartCoroutine(enableCollider());
     }
 
     // Update is called once per frame
@@ -55,5 +61,12 @@ public class cMage : MonoBehaviour
     public void shoot()
     {
         Instantiate(shootPrefab, spawnPos.position, Quaternion.identity);
+    }
+
+    public IEnumerator enableCollider()
+    {
+        col.enabled = false;
+        yield return new WaitForSeconds(3.3f);
+        col.enabled = true;
     }
 }
