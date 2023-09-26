@@ -15,6 +15,8 @@ public class lineAtPlayer : MonoBehaviour
 
     public GameObject player;
 
+    public float yVal, xVal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class lineAtPlayer : MonoBehaviour
 
         direction.y += randomVal;
 
+        StartCoroutine(destroy());
 
     }
 
@@ -59,12 +62,23 @@ public class lineAtPlayer : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
-            enemy.TakeDamage(1);
+            enemy.TakeDamage(3);
             GameObject explode = explodePrefab;
 
             Instantiate(explode, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator destroy()
+    {
+        yield return new WaitForSeconds(5f);
+
+        GameObject explode = explodePrefab;
+
+        Instantiate(explode, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

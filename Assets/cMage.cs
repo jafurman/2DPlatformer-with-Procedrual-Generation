@@ -66,7 +66,7 @@ public class cMage : MonoBehaviour
     public IEnumerator enableCollider()
     {
         col.enabled = false;
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(3f);
         col.enabled = true;
     }
 }
