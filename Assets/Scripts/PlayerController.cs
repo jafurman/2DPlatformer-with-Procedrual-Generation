@@ -464,7 +464,16 @@ public class PlayerController : MonoBehaviour
 
                     }
                 }
+            if (hit.CompareTag("Enemy"))
+            {
+                // Assuming you have a specific LineAtPlayer instance related to the mage shot
+                lineAtPlayer lap = hit.GetComponent<lineAtPlayer>();
+                if (lap != null)
+                {
+                    lap.MageShotSpeed = -lap.MageShotSpeed;
+                }
             }
+        }
         StartCoroutine(dm.DisableM());
     }
 

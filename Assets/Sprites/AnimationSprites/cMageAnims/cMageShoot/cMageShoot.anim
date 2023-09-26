@@ -25,29 +25,29 @@ AnimationClip:
       value: {fileID: 21300000, guid: 20dc2b7917d6a4f1a8cae265cf633702, type: 3}
     - time: 0.23333333
       value: {fileID: 21300000, guid: e8154f78e4e774f0f852b45cd47ed518, type: 3}
-    - time: 0.3
+    - time: 0.28333333
       value: {fileID: 21300000, guid: fe7d33a516dfe4fdd89ff1ebd723ee32, type: 3}
-    - time: 0.43333334
+    - time: 0.4
       value: {fileID: 21300000, guid: 8dcd5d2256f3f4e9f93f0a478632421d, type: 3}
-    - time: 0.55
+    - time: 0.5
       value: {fileID: 21300000, guid: 07e970f91364544459c44b2327265212, type: 3}
-    - time: 0.65
+    - time: 0.5833333
       value: {fileID: 21300000, guid: 7fb9b3ae05f9448a29954138612a7209, type: 3}
-    - time: 0.75
+    - time: 0.6666667
       value: {fileID: 21300000, guid: c06e22023600a45618e07b9fcd16901a, type: 3}
-    - time: 0.85
+    - time: 0.75
       value: {fileID: 21300000, guid: 9559991ae92114b369620b64f5446f3d, type: 3}
-    - time: 0.95
+    - time: 0.8333333
       value: {fileID: 21300000, guid: 1dbd7b4cb31004d69a20619afd0980f9, type: 3}
-    - time: 1.0666667
+    - time: 0.93333334
       value: {fileID: 21300000, guid: d913814991dd043ec83271ec9c50d3de, type: 3}
-    - time: 1.4666667
+    - time: 1.2666667
       value: {fileID: 21300000, guid: 57b27613e1c5e42db81f5c009972d53d, type: 3}
-    - time: 1.55
+    - time: 1.3333334
       value: {fileID: 21300000, guid: 775c9df01e03f47e7b4cc936b13c0295, type: 3}
-    - time: 1.6666666
+    - time: 1.4333333
       value: {fileID: 21300000, guid: 219ccd3ff36cf4501929bef22e030edd, type: 3}
-    - time: 1.7666667
+    - time: 1.5166667
       value: {fileID: 21300000, guid: 0648953e4348042c88bd93133b13e4e3, type: 3}
     attribute: m_Sprite
     path: 
@@ -88,7 +88,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.7833333
+    m_StopTime: 1.5333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -108,7 +108,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.3
+  - time: 1.1166667
     functionName: shoot
     data: 
     objectReferenceParameter: {fileID: 0}

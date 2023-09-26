@@ -9,13 +9,17 @@ public class lineAtPlayer : MonoBehaviour
     private Vector3 spawnPos;
     private Vector3 direction;
 
-    public float speed = 5;
+    public float MageShotSpeed = 3.5f;
 
     public GameObject explodePrefab;
+
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         //Vector3 positions of the player and the spawnPoint
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -35,7 +39,7 @@ public class lineAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = direction.normalized * speed;
+        rb.velocity = direction.normalized * MageShotSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,6 +55,11 @@ public class lineAtPlayer : MonoBehaviour
                 Destroy(gameObject);
             }
 
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.TakeDamage(2);
         }
     }
 }

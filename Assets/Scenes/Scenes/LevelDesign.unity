@@ -9858,7 +9858,6 @@ GameObject:
   - component: {fileID: 564373104}
   - component: {fileID: 564373103}
   - component: {fileID: 564373108}
-  - component: {fileID: 564373109}
   m_Layer: 7
   m_Name: cMage
   m_TagString: Enemy
@@ -10074,24 +10073,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32278985, y: 0.73136795}
   m_EdgeRadius: 0
---- !u!114 &564373109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564373102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f897c679de824d75ab192baa8928bf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 8
-  currentHealth: 0
-  deathEffect: {fileID: 0}
-  healthBar: {fileID: 190637875}
-  deathSound: {fileID: 1657528760}
-  soulValue: 3
 --- !u!1 &575581082
 GameObject:
   m_ObjectHideFlags: 0
@@ -27402,7 +27383,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f3cbf7341ca0a44e7b793669ffce19c9, type: 2}
     - target: {fileID: 8774712647462170050, guid: 20eb27314a89e453c99dcec0a6c974f5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -575
+      value: -574.99994
       objectReference: {fileID: 0}
     - target: {fileID: 8774712647462170050, guid: 20eb27314a89e453c99dcec0a6c974f5, type: 3}
       propertyPath: m_AnchoredPosition.y

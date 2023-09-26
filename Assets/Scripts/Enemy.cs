@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         }
 
         if (currentHealth <= 0)
-        {
+        { 
             //turn off health when dead
             Destroy(healthBar);
 

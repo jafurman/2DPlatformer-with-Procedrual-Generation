@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1575705088321251469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5125093, y: -5.924987, z: 2.3216887}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 43.86628, y: 43.86628, z: 43.86628}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74803a2b379744e379ceabf81491ec60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  scoreText: {fileID: 0}
+  canChange: 1
+  soulSlot1: {fileID: 0}
+  soulSlot2: {fileID: 0}
+  soulSlot3: {fileID: 0}
+  soulSlot4: {fileID: 0}
+  soulSlot5: {fileID: 0}
+  minusOnePrefab: {fileID: 8179910863563101153, guid: 5781f6d33252044228880662d4afea1a, type: 3}
