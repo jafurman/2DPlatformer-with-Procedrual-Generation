@@ -45,6 +45,8 @@ public class Bullet : MonoBehaviour
 
         //because we want this bullet to have a lifetime we create this coroutine to kill it after specified time
         StartCoroutine(timeStop());
+
+
     }
 
     void Update()
@@ -120,6 +122,8 @@ public class Bullet : MonoBehaviour
 
 
         playSound.Play();
+
+
     }
 
 
@@ -181,7 +185,7 @@ public class Bullet : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
         Weapon.canShoot = false; 
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(2f);
 
         canHold = false;
 
@@ -191,4 +195,5 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
+
 }
