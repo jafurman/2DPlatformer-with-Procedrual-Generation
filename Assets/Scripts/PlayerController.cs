@@ -174,38 +174,36 @@ public class PlayerController : MonoBehaviour
 
         if (canUseP == true)
         {
-            //chunk of code that enables the player to hold (freeze player position) but only when a bullet is active
-            if (Bullet.canHold)
+            //logic code for holding the bullets in kinematic if held
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                //logic code for holding the bullets in kinematic if held
-                if (Input.GetKeyDown(KeyCode.P))
-                {
-                    //freeze the player in their current position fully
-                    theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                //freeze the player in their current position fully
+                theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
-                    freezeOn = true;
-                    released = false;
+                freezeOn = true;
+                released = false;
 
-                    //set the animation trigger to hold the soul
-                    animator.ResetTrigger("ReleaseSoul");
-                    animator.SetTrigger("HoldSoul");
+                //set the animation trigger to hold the soul
+                animator.ResetTrigger("ReleaseSoul");
+                animator.SetTrigger("HoldSoul");
 
-                    StartCoroutine(holdFalseTimer());
+                StartCoroutine(holdFalseTimer());
 
-                }
-                if (Input.GetKeyUp(KeyCode.P))
-                {
+            }
+            if (Input.GetKeyUp(KeyCode.P))
+            {
 
-                    animator.SetTrigger("ReleaseSoul");
-                    //action 2
-                    freezeOn = false;
-                    released = true;
-                    StartCoroutine(turnReleasedFalse());
-                    //unfreeze position
-                    theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    StartCoroutine(dm.DisableP());
+                animator.SetTrigger("ReleaseSoul");
+                //action 2
+                freezeOn = false;
+                released = true;
+                StartCoroutine(turnReleasedFalse());
+                //unfreeze position
+                theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce + 2);
+                StartCoroutine(dm.DisableP());
 
-                }
+
             }
         }
         
@@ -634,9 +632,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         released = false;
-
-        //Make sure after the ability that you CAN actually use the soulShot again..
-        Weapon.canShoot = true;
     }
 
 
@@ -656,7 +651,7 @@ public class PlayerController : MonoBehaviour
     {
         freezeOn = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         animator.ResetTrigger("HoldSoul");
         animator.SetTrigger("ReleaseSoul");
@@ -665,7 +660,13 @@ public class PlayerController : MonoBehaviour
         released = true;
         StartCoroutine(turnReleasedFalse());
         //unfreeze position
-        theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (!DisabledManager.disabledP.activeSelf)
+        {
+            theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce + 2);
+            StartCoroutine(dm.DisableP());
+        }
+
     }
 
 

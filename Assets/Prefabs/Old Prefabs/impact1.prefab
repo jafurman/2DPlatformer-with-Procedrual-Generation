@@ -389,6 +389,7 @@ MonoBehaviour:
   impactEffect: {fileID: 6958707282639067497, guid: 18fd66b41f37a42618222af8d81007cc, type: 3}
   player: {fileID: 0}
   playSound: {fileID: 877208417975367780}
+  bulletPrefab: {fileID: 7060462145467170951}
 --- !u!95 &3808838508396564093
 Animator:
   serializedVersion: 4

@@ -129,7 +129,6 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo.gameObject.tag == "Player")
         {
-            Debug.Log("Connected Player");
             player = hitInfo.gameObject;
         }
         else if (hitInfo.gameObject.tag == "Enemy")
@@ -176,30 +175,20 @@ public class Bullet : MonoBehaviour
 
     IEnumerator deRelease()
     {
-        //action 2 to happen
-        //moves the rigidbody of the bullet down by 4 times the speed
+
         rb.velocity = -transform.up * speed * 3 + new Vector3(0, -4, 0);
 
-        //put proper constraints on for downwards motion
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        //stop all shooting allowed
-        Weapon.canShoot = false;
-        //however long it takes them to leave the screen
+
+        Weapon.canShoot = false; 
         yield return new WaitForSeconds(.7f);
 
-
-        //after all is done make canHold back to False
         canHold = false;
 
-        Weapon.canShoot = true;
-
-        //change the rigidbody constraints back
-        //hold the y but not the x
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
         PlayerController.released = false;
 
-        //this is so that after when you drop the soul shot it destroys before going back to normal
         Destroy(gameObject);
     }
 }

@@ -21,15 +21,19 @@ public class DisabledManager : MonoBehaviour
 
     public IEnumerator DisableP()
     {
+        Weapon.canShoot = false;
         Bullet.canHold = false;
         disabledP.SetActive(true);
         pAnim.enabled = true;
 
         yield return new WaitForSeconds(5f);
 
+        Weapon.canShoot = true;
         Bullet.canHold = true;
         disabledP.SetActive(false);
         pAnim.enabled = false;
+        PlayerController.freezeOn = false;
+        PlayerController.released = false;
     }
 
     public static IEnumerator DisableM()
@@ -43,5 +47,6 @@ public class DisabledManager : MonoBehaviour
         PlayerController.allowAttack = true;
         disabledM.SetActive(false);
         mAnim.enabled = false;
+
     }
 }
