@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
 
     public static bool canHold = false;
 
+    public bool volatileRounds;
+
+    public LayerMask enemyLayers;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,7 @@ public class Bullet : MonoBehaviour
 
         //make canHold true
         canHold = true;
+        volatileRounds = false;
 
         //because we want this bullet to have a lifetime we create this coroutine to kill it after specified time
         StartCoroutine(timeStop());
@@ -101,6 +106,8 @@ public class Bullet : MonoBehaviour
             {
                 Bullet.ren.color = startingColor;
             }
+
+            Debug.Log("Rounds are volatile: " + volatileRounds);
         }
 
 
@@ -113,11 +120,34 @@ public class Bullet : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            
 
-            //destroy the gameobject and instantiate impactEffect if it hits the enemy
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (volatileRounds)
+            {
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(gameObject.transform.position, 3, enemyLayers);
+                foreach (Collider2D surroundingEnemies in hitEnemies)
+                {
+                    // Check if the enemy has the "Enemy" component before accessing it
+                    Enemy enemyComponent = surroundingEnemies.GetComponent<Enemy>();
+                    if (enemyComponent != null)
+                    {
+                        enemyComponent.TakeDamage(1);
+                    }
+                }
+                GameObject radialExplosion = impactEffect;
+                radialExplosion.transform.localScale = new Vector3(3, 3, 3);
+                float doubleDamage = damage * 2;
+                enemy.TakeDamage(damage);
+                Instantiate(radialExplosion, transform.position, transform.rotation);
+                Destroy(gameObject);
+            } else
+            {
+                enemy.TakeDamage(damage);
+                //destroy the gameobject and instantiate impactEffect if it hits the enemy
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+
         }
 
 
@@ -180,13 +210,15 @@ public class Bullet : MonoBehaviour
     IEnumerator deRelease()
     {
 
+        volatileRounds = true;
         rb.velocity = -transform.up * speed * 3 + new Vector3(0, -4, 0);
 
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
         Weapon.canShoot = false; 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
+        volatileRounds = false;
         canHold = false;
 
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;

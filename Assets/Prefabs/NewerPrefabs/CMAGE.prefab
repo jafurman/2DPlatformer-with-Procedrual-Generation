@@ -332,7 +332,7 @@ MonoBehaviour:
   currentHealth: 0
   deathEffect: {fileID: 0}
   healthBar: {fileID: 24536515364228663}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 1176590281582612547}
   soulValue: 3
 --- !u!82 &1176590281582612547
 AudioSource:

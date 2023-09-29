@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
         thePlayer.gameObject.SetActive(true);
         Slider.HaveNotJumped = true;
-
+        PlayerController.speed = 3f;
     }
     
     }

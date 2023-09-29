@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3f;
+    public static float speed = 3f;
     public float jumpForce; //only need this if you want to control the height of the char jump
     public static bool canMove = true;
     private static bool inDialogueMode = false;

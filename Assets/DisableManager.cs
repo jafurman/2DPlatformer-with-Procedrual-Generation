@@ -10,8 +10,11 @@ public class DisableManager : MonoBehaviour
     private Animator pAnim;
     private Animator mAnim;
 
+    public GameObject player;
+
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         
         pAnim = disabledP.GetComponent<Animator>();
         mAnim = disabledM.GetComponent<Animator>();
@@ -44,10 +47,28 @@ public class DisableManager : MonoBehaviour
         disabledM.SetActive(true);
         mAnim.enabled = true;
 
-        yield return new WaitForSeconds(4.8f);
+        yield return new WaitForSeconds(4.4f);
 
         PlayerController.canUseM = true;
         disabledM.SetActive(false);
         mAnim.enabled = false;
+    }
+
+    public void Update()
+    {
+       if (!player.gameObject.activeSelf)
+        {
+            // M code
+            PlayerController.canUseM = true;
+            disabledM.SetActive(false);
+            mAnim.enabled = false;
+
+            // P code
+            PlayerController.canUseP = true;
+            Bullet.canHold = true;
+            disabledP.SetActive(false);
+            pAnim.enabled = false;
+            Weapon.canShoot = true;
+        }
     }
 }
