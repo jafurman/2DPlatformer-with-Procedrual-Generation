@@ -96,6 +96,8 @@ public class PlayerController : MonoBehaviour
     public static bool canUseM;
     public static bool canUseP;
 
+    public static float cutSpeed = 1; //always should be 1 unless speed cut to 0
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -178,7 +180,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {
                 //freeze the player in their current position fully
-                theRB2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                theRB2D.gravityScale = .2f;
+                cutSpeed = .2f;
+                theRB2D.drag = 3f;
 
                 freezeOn = true;
                 released = false;
@@ -194,12 +198,19 @@ public class PlayerController : MonoBehaviour
             {
 
                 animator.SetTrigger("ReleaseSoul");
+                animator.ResetTrigger("HoldSoul");
                 //action 2
                 freezeOn = false;
                 released = true;
                 StartCoroutine(turnReleasedFalse());
                 //unfreeze position
                 theRB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                if (!flyPotion.active)
+                {
+                    theRB2D.gravityScale = 1;
+                }
+                cutSpeed = 1;
+                theRB2D.drag = 0;
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce + 2);
                 StartCoroutine(dm.DisableP());
 
@@ -220,7 +231,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //upwards and downwards animation.
-        if (theRB2D.velocity.y < -0.05f)
+        if (theRB2D.velocity.y < -0.05f && !freezeOn)
         {
             if ( isSwinging || released )
             {
@@ -522,7 +533,7 @@ public class PlayerController : MonoBehaviour
             if (canMove && !inDialogueMode)
             {
                 theRB2D.velocity =
-                    new Vector2(Input.GetAxisRaw("Horizontal") * speed,
+                    new Vector2(Input.GetAxisRaw("Horizontal") * speed * cutSpeed,
                         theRB2D.velocity.y); //Vector 2 is essentially a unity movement plaftorm on a x,y,z plane. 
                                              //important to mention that "horizontal" keys on getAxisRaw apply to left and right arrows and 'a' and 'd' keys.
                 theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x)); //animation code

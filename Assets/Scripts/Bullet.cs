@@ -137,7 +137,7 @@ public class Bullet : MonoBehaviour
                 GameObject radialExplosion = impactEffect;
                 radialExplosion.transform.localScale = new Vector3(3, 3, 3);
                 float doubleDamage = damage * 2;
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(doubleDamage);
                 Instantiate(radialExplosion, transform.position, transform.rotation);
                 Destroy(gameObject);
             } else
