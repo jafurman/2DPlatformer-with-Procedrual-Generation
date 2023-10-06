@@ -57,11 +57,8 @@ public class spawnFour : MonoBehaviour
 
             yield return new WaitForSeconds(1.4f);
 
-            // Destroy the respawn animation GameObject
-            if (respawnAnim != null)
-            {
-                Destroy(respawnAnim);
-            }
+            Destroy(respawnAnim);
+
             GameObject spawnObject = Instantiate(spawnPrefab, spawnPos, Quaternion.identity);
             counter++;
             temp++;
