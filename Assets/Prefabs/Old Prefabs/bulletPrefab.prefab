@@ -390,6 +390,10 @@ MonoBehaviour:
   player: {fileID: 0}
   playSound: {fileID: 877208417975367780}
   volatileRounds: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  spinScript: {fileID: 0}
 --- !u!95 &3808838508396564093
 Animator:
   serializedVersion: 4

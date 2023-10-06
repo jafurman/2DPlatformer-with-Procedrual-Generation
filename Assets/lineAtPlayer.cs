@@ -31,7 +31,7 @@ public class lineAtPlayer : MonoBehaviour
 
         direction.y += .3f;
 
-        float randomVal = Random.Range(-.3f, .3f);
+        float randomVal = Random.Range(-.4f, .4f);
 
         direction.y += randomVal;
 

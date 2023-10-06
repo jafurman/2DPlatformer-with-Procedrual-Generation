@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // gets the start color so I can make changes to the color and revert back
         ren = GetComponent<SpriteRenderer>();
 
@@ -208,8 +209,7 @@ public class Bullet : MonoBehaviour
     }
 
     IEnumerator deRelease()
-    {
-
+    { 
         volatileRounds = true;
         rb.velocity = -transform.up * speed * 3 + new Vector3(0, -4, 0);
 

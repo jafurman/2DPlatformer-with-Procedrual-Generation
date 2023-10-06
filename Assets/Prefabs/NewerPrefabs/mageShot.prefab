@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d26aaff9be88a40708dd86f6e59ec5d2, type: 3}
-  m_Color: {r: 1, g: 0.3726415, b: 0.532396, a: 1}
+  m_Color: {r: 1, g: 0.1462264, b: 0.36500582, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,8 +218,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  MageShotSpeed: 3.5
   explodePrefab: {fileID: 6958707282639067497, guid: 18fd66b41f37a42618222af8d81007cc, type: 3}
   player: {fileID: 0}
+  yVal: 0
+  xVal: 0
 --- !u!95 &-2573628795474901954
 Animator:
   serializedVersion: 4
