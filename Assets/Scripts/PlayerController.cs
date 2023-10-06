@@ -123,6 +123,8 @@ public class PlayerController : MonoBehaviour
         wings.SetActive(false);
         lightning.SetActive(false);
         magic.SetActive(false);
+
+        Weapon.canShoot = true;
     }
     
 
