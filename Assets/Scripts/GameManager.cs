@@ -81,6 +81,17 @@ public class GameManager : MonoBehaviour
         thePlayer.gameObject.SetActive(true);
         Slider.HaveNotJumped = true;
         PlayerController.speed = 3f;
+        thePlayer.theRB2D.gravityScale = 1f;
+        PlayerController.cutSpeed = 1;
+        thePlayer.theRB2D.drag = 0f;
+        PlayerController.freezeOn = false;
+
+        GameObject slideIndicator = GameObject.FindGameObjectWithTag("slideIndicator");
+
+        if (slideIndicator != null)
+        {
+            slideIndicator.SetActive(false);
+        }
     }
     
     }

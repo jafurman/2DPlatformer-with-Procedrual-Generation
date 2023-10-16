@@ -38,6 +38,7 @@ public class DisableManager : MonoBehaviour
         disabledP.SetActive(false);
         pAnim.enabled = false;
         Weapon.canShoot = true;
+
     }
 
     public IEnumerator DisableM()

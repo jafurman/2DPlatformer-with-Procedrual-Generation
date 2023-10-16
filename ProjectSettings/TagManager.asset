@@ -28,6 +28,7 @@ TagManager:
   - Warden
   - BrokenBarrel
   - MageShot
+  - slideIndicator
   layers:
   - Default
   - TransparentFX
