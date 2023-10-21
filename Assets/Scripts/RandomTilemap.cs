@@ -31,8 +31,18 @@ public class RandomTilemap : MonoBehaviour
 
     public GameObject levelEnder;
 
+    public TilemapCollider2D TMcollider;
+
+    public static bool started;
+
     void Start()
     {
+
+        started = false;
+
+        //Make Tilemap Collider false so player doesnt hit it when spectating
+        TMcollider = tilemap.GetComponent<TilemapCollider2D>();
+        TMcollider.enabled = false;
 
         modulator = Mathf.RoundToInt((percentageAgainstBackTracking * 10) / 100);
         GenerateLevel();
@@ -159,9 +169,13 @@ public class RandomTilemap : MonoBehaviour
             }
         }
 
-        //move the player to the start of the level
+        //move the player to the start of the level and enable collider
         playerSpawnPos = new Vector3Int((gridSize.x / 2), (gridSize.y / 2));
         player.transform.position = playerSpawnPos;
+
+        TMcollider.enabled = true;
+
+        started = true;
 
         Instantiate(levelEnder, startPos, Quaternion.identity);
 
