@@ -689,10 +689,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 playerPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
         playerPos.y -= .5f;
-        playerPos.x += .5f;
+        playerPos.x += .35f;
         GameObject pReleaseAnimGO = Instantiate(pReleaseAnim, playerPos, Quaternion.identity);
 
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.45f);
 
         Destroy(pReleaseAnimGO);
     }
