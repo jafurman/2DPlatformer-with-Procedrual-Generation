@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour
 
     public static float cutSpeed = 1; //always should be 1 unless speed cut to 0
 
+    public GameObject pReleaseAnim;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -198,6 +200,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.P))
             {
+                StartCoroutine(destroyAnim());
 
                 animator.SetTrigger("ReleaseSoul");
                 animator.ResetTrigger("HoldSoul");
@@ -680,6 +683,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(dm.DisableP());
         }
 
+    }
+
+    private IEnumerator destroyAnim()
+    {
+        Vector3 playerPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+        playerPos.y -= .5f;
+        playerPos.x += .5f;
+        GameObject pReleaseAnimGO = Instantiate(pReleaseAnim, playerPos, Quaternion.identity);
+
+        yield return new WaitForSeconds(.6f);
+
+        Destroy(pReleaseAnimGO);
     }
 
 

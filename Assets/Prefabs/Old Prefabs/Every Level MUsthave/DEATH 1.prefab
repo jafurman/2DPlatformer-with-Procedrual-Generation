@@ -2162,7 +2162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463bed441061a4640a924fea190cd620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   jumpForce: 3
   theRB2D: {fileID: 9113520220635006285}
   shoot: 0
@@ -2201,6 +2200,7 @@ MonoBehaviour:
   isSwinging: 0
   BarrelScriptInstance: {fileID: 5106500144672062216, guid: ee29be61342784998948495f63fcb9c8, type: 3}
   dm: {fileID: 0}
+  pReleaseAnim: {fileID: 1031697751761014047, guid: f379f8a7d077044b0828d8505a738d4c, type: 3}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4
