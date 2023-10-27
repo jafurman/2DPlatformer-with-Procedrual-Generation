@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DestroyIn : MonoBehaviour
 {
-    public int secondsBeforeDelete;
+    public float secondsBeforeDelete;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DestroyInn(secondsBeforeDelete));
     }
 
-    private IEnumerator DestroyInn(int seconds)
+    private IEnumerator DestroyInn(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);

@@ -27,6 +27,9 @@ public class Bullet : MonoBehaviour
 
     public LayerMask enemyLayers;
 
+    public GameObject spawnTailPrefab;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -208,14 +211,23 @@ public class Bullet : MonoBehaviour
     }
 
     IEnumerator deRelease()
-    { 
+    {
+        Vector3 spawnPos = gameObject.transform.position;
+        spawnPos.x += .2f;
+        spawnPos.y += .1f;
+        GameObject spawnTailGO = Instantiate(spawnTailPrefab, spawnPos, Quaternion.identity);
+
         volatileRounds = true;
         rb.velocity = -transform.up * speed * 3 + new Vector3(0, -4, 0);
 
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-        Weapon.canShoot = false; 
-        yield return new WaitForSeconds(4f);
+        Weapon.canShoot = false;
+
+        yield return new WaitForSeconds(.4f);
+        Destroy(spawnTailGO);
+
+        yield return new WaitForSeconds(3.4f);
 
         volatileRounds = false;
         canHold = false;

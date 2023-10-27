@@ -2200,7 +2200,8 @@ MonoBehaviour:
   isSwinging: 0
   BarrelScriptInstance: {fileID: 5106500144672062216, guid: ee29be61342784998948495f63fcb9c8, type: 3}
   dm: {fileID: 0}
-  pReleaseAnim: {fileID: 1031697751761014047, guid: f379f8a7d077044b0828d8505a738d4c, type: 3}
+  pReleaseAnim: {fileID: 3059669041925811996, guid: b6cc6bb7b08e848308b72d58e3d73cc2, type: 3}
+  pReleaseAnimGO: {fileID: 0}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4

@@ -5619,7 +5619,7 @@ Tilemap:
   m_TileColorArray: []
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.2216981, b: 0.9595023, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 0, y: 0, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -18907,6 +18907,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 412730928404861141, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7031848
+      objectReference: {fileID: 0}
+    - target: {fileID: 412730928404861141, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_Size.y
+      value: 2.170886
+      objectReference: {fileID: 0}
+    - target: {fileID: 412730928404861141, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.014798522
+      objectReference: {fileID: 0}
+    - target: {fileID: 412730928404861141, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.1775288
+      objectReference: {fileID: 0}
+    - target: {fileID: 559429275936538938, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.827
+      objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047652, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_Name
       value: pumkin Variant
@@ -18916,12 +18936,24 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.880147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.880147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.880147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.62
+      value: -7.7418
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.48
+      value: -11.5731
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.z

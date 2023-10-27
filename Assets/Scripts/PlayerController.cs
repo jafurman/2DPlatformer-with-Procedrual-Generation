@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
     public static float cutSpeed = 1; //always should be 1 unless speed cut to 0
 
     public GameObject pReleaseAnim;
+    public GameObject pReleaseAnimGO;
 
     // Start is called before the first frame update
     private void Start()
@@ -221,6 +222,7 @@ public class PlayerController : MonoBehaviour
 
 
             }
+
         }
         
 
@@ -688,11 +690,11 @@ public class PlayerController : MonoBehaviour
     private IEnumerator destroyAnim()
     {
         Vector3 playerPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
-        playerPos.y -= .5f;
-        playerPos.x += .35f;
-        GameObject pReleaseAnimGO = Instantiate(pReleaseAnim, playerPos, Quaternion.identity);
+        playerPos.y -= .05f;
+        playerPos.x += .15f;
+        pReleaseAnimGO = Instantiate(pReleaseAnim, playerPos, Quaternion.identity);
 
-        yield return new WaitForSeconds(.45f);
+        yield return new WaitForSeconds(.35f);
 
         Destroy(pReleaseAnimGO);
     }

@@ -392,8 +392,8 @@ MonoBehaviour:
   volatileRounds: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
-  spinScript: {fileID: 0}
+    m_Bits: 128
+  spawnTailPrefab: {fileID: 1031697751761014047, guid: f379f8a7d077044b0828d8505a738d4c, type: 3}
 --- !u!95 &3808838508396564093
 Animator:
   serializedVersion: 4
