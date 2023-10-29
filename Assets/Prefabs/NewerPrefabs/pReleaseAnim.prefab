@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4b8537802f74dfebf47727b69a0c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBeforeDelete: 0.2
+  secondsBeforeDelete: 0.3
 --- !u!114 &1211940740890978909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4b8537802f74dfebf47727b69a0c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBeforeDelete: 0.2
+  secondsBeforeDelete: 0.3
 --- !u!114 &6885499453410482420
 MonoBehaviour:
   m_ObjectHideFlags: 0

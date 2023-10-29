@@ -29,6 +29,7 @@ TagManager:
   - BrokenBarrel
   - MageShot
   - slideIndicator
+  - CAMERA
   layers:
   - Default
   - TransparentFX

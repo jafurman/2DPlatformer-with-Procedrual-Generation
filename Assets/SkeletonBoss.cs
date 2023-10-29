@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SkeletonBoss : MonoBehaviour
 {
@@ -49,12 +50,6 @@ public class SkeletonBoss : MonoBehaviour
         phase2Enabled = false;
 
         bossAnimator.SetTrigger("Idle");
-
-        //At the start of the fight I want eyes to spawn
-        SpawnEye();
-
-
-
 
 
     }
@@ -173,7 +168,7 @@ public class SkeletonBoss : MonoBehaviour
 
         GameObject deathAnim = Instantiate(deathAnimPrefab, spawnDeathPos.transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(2.1f);
 
         bossAnimator.SetTrigger("Die");
         // If the code finds itself here, that means that the boss has died
