@@ -25,9 +25,6 @@ public class StartBossFight : MonoBehaviour
             boss.SetActive(false);
         }
 
-
-
-
     }
 
     // Update is called once per frame

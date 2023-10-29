@@ -37,6 +37,7 @@ public class SkeletonBoss : MonoBehaviour
 
     private bool bossDead = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +51,6 @@ public class SkeletonBoss : MonoBehaviour
         phase2Enabled = false;
 
         bossAnimator.SetTrigger("Idle");
-
 
     }
 
@@ -73,6 +73,7 @@ public class SkeletonBoss : MonoBehaviour
                     // Call boss death function
                     bossDeath();
                     bossDead = true; // Set the flag to true to prevent multiple calls
+                    Destroy(gameObject);
                 }
             }
         }
@@ -161,6 +162,8 @@ public class SkeletonBoss : MonoBehaviour
         // Spawn the lever for the gate to leave
         // Instantiate(leverForDoor, transform.position, Quaternion.identity);
         StartCoroutine(DeathActions());
+        Rigidbody2D deathRb = GetComponent<Rigidbody2D>();
+        deathRb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public IEnumerator DeathActions()
@@ -168,9 +171,11 @@ public class SkeletonBoss : MonoBehaviour
 
         GameObject deathAnim = Instantiate(deathAnimPrefab, spawnDeathPos.transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(2.1f);
+        yield return new WaitForSeconds(1.8f);
 
-        bossAnimator.SetTrigger("Die");
+        bossAnimator.SetTrigger("die");
+
+        yield return new WaitForSeconds(.4f);
         // If the code finds itself here, that means that the boss has died
 
         leverForDoor.SetActive(true);
