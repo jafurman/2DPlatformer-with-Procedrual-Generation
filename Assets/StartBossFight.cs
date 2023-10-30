@@ -17,7 +17,6 @@ public class StartBossFight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bossFightStarted = true;
         hpBar = boss.GetComponent<BossHPBar>();
 
         if (boss != null)
@@ -48,6 +47,8 @@ public class StartBossFight : MonoBehaviour
                     bossCamera.StartBossFightCamera();
                 }
             }
+
+            StartCoroutine(DesObj());
         }
     }
 
@@ -66,6 +67,13 @@ public class StartBossFight : MonoBehaviour
         hpBar.HC6.SetActive(true);
         yield return new WaitForSeconds(.3f);
         hpBar.HC7.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        bossFightStarted = true;
+    }
+
+    public IEnumerator DesObj()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        Destroy(gameObject);
     }
 }

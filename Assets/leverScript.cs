@@ -6,7 +6,6 @@ public class leverScript : MonoBehaviour
 {
 
 	public GameObject gate;
-	public GameObject c;
 	public bool hasActivated = false;
 	public Collider2D gateCollider;
 
@@ -56,11 +55,6 @@ public class leverScript : MonoBehaviour
     {
     	if ( col.gameObject.tag == "Player" && !hasActivated)
     	{
-            if (c != null)
-            {
-                //set message active to ask player if they want to click
-                c.SetActive(true);
-            }
 
     		
     		
@@ -74,25 +68,12 @@ public class leverScript : MonoBehaviour
     			//only one activation allowed
     			hasActivated = true;
 
-                if (c != null)
-                {
-                    //set canvas false
-                    c.SetActive(false);
-                }
     			//turn off the gate's collider
     			gateCollider.enabled = false;
                 StartCoroutine(StopGateSounds());
                 
     		}
     	}
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (c != null)
-        {
-            c.SetActive(false);
-        }
     }
 
     IEnumerator StopGateSounds()

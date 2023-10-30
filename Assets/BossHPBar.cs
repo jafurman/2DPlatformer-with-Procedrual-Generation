@@ -37,7 +37,7 @@ public class BossHPBar : MonoBehaviour
         {
             bossHp = enemy.currentHealth;
 
-            if (bossHp > 37 && bossHp < 40)
+            if (bossHp > 37 && bossHp <= 40)
             {
                 HC1.SetActive(true);
                 HC2.SetActive(true);

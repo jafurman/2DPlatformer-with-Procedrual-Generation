@@ -73,7 +73,6 @@ public class SkeletonBoss : MonoBehaviour
                     // Call boss death function
                     bossDeath();
                     bossDead = true; // Set the flag to true to prevent multiple calls
-                    Destroy(gameObject);
                 }
             }
         }
@@ -171,11 +170,9 @@ public class SkeletonBoss : MonoBehaviour
 
         GameObject deathAnim = Instantiate(deathAnimPrefab, spawnDeathPos.transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(1.8f);
-
         bossAnimator.SetTrigger("die");
 
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(1.5f);
         // If the code finds itself here, that means that the boss has died
 
         leverForDoor.SetActive(true);
@@ -184,6 +181,8 @@ public class SkeletonBoss : MonoBehaviour
         {
             Destroy(deathAnim);
         }
+
+        Destroy(gameObject);
     }
 
 }
