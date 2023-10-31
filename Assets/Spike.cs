@@ -44,7 +44,7 @@ public class Spike : MonoBehaviour
             // Cast a ray downwards from the specified start point
             RaycastHit2D hit = Physics2D.Raycast(startPos, direction);
 
-            if (hit.collider != null && !hit.collider.CompareTag("sliders"))
+            if (hit.collider != null && !hit.collider.CompareTag("sliders") && !hit.collider.CompareTag("CAMERA"))
             {
                 se.PlayOneShot(spikeFall);
                 hasPlayedAudio = true;
