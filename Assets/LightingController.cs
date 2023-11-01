@@ -16,14 +16,10 @@ public class LightingController : MonoBehaviour
         
         foreach (Light2D light in lights)
         {
-            if (light.gameObject.CompareTag("Player"))
+            if (!light.gameObject.CompareTag("Player"))
             {
-                //do nothing
-            } else
-            {
-              light.intensity = darknessIntensity;
+                light.intensity = darknessIntensity;
             }
-
         }
     }
 }
