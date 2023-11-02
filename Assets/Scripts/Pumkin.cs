@@ -10,6 +10,8 @@ public class Pumkin : MonoBehaviour
     public GameObject player;
     public string nextLevel;
 
+    public bool isOpeningDialogue;
+
 
     public void Start()
     {
@@ -27,13 +29,27 @@ public class Pumkin : MonoBehaviour
                 SceneManager.LoadScene(nextLevel);
             }
         }
+    }
 
-            
-        
+    public void Update()
+    {
+        if (isOpeningDialogue)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                SkipButton();
+            }
+        }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         victoryScreen.SetActive(false);
+    }
+
+    public void SkipButton()
+    {
+        SceneManager.LoadScene(nextLevel);
+        Debug.Log("Clicking NOW");
     }
 }

@@ -58,6 +58,10 @@ public class RandomTilemap : MonoBehaviour
         StartCoroutine(DestroyTilesFromMiddle());
 
         bias = Random.Range(0, 4);
+
+        Color randomColor = new Color(Random.value, Random.value, Random.value);
+        tilemap.color = randomColor; 
+        
     }
 
     void GenerateLevel()

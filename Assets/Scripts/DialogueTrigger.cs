@@ -6,6 +6,15 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    public bool isOpeningScene;
+
+    public void Start()
+    {
+        if (isOpeningScene)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+    }
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
