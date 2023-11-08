@@ -316,11 +316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 393.0623
+      value: 556.0623
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 371.38278
+      value: 461.38278
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.z
@@ -470,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397037848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 411.5, y: 404, z: -7.5}
+  m_LocalPosition: {x: 574.5, y: 494, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11948,7 +11948,6 @@ MonoBehaviour:
   nameText: {fileID: 4071178720462607586}
   dialogueText: {fileID: 4071178719618653871}
   animator: {fileID: 4071178718794013153}
-  isTyping: 0
 --- !u!224 &4071178720671013956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12006,8 +12005,8 @@ MonoBehaviour:
   dialogue:
     name: Narrator
     sentences:
-    - CONtent to be typed. Guy just doinf this stuff guy things.
-    - Stuff.. but on another page and MORE content
+    - CONTENT
+    - 'Welcome to Level 1: Can''t Escape'
   isOpeningScene: 1
 --- !u!222 &4071178720671013977
 CanvasRenderer:
