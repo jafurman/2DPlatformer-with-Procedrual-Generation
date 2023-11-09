@@ -39,7 +39,6 @@ public class StartBossFight : MonoBehaviour
         {
             if (boss != null)
             {
-                boss.SetActive(true);
                 StartCoroutine(spawnHP());
 
                 if (cam != null)
@@ -54,6 +53,9 @@ public class StartBossFight : MonoBehaviour
 
     public IEnumerator spawnHP()
     {
+        StartCoroutine(spawnLights.startLights());
+        yield return new WaitForSeconds(2f);
+        boss.SetActive(true);
         hpBar.HC1.SetActive(true);
         yield return new WaitForSeconds(.3f);
         hpBar.HC2.SetActive(true);
@@ -68,11 +70,15 @@ public class StartBossFight : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         hpBar.HC7.SetActive(true);
         bossFightStarted = true;
+
+
+        //Boss Fight Starting Method Calls
+        LightingController.turnBright();
     }
 
     public IEnumerator DesObj()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(6f);
 
         Destroy(gameObject);
     }

@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class LightingController : MonoBehaviour
 {
-    public Light2D[] lights;
+    public static Light2D[] lights;
 
     public float darknessIntensity = 0.5f;
 
@@ -20,6 +20,14 @@ public class LightingController : MonoBehaviour
             {
                 light.intensity = darknessIntensity;
             }
+        }
+    }
+
+    public static void turnBright()
+    {
+        foreach (Light2D light in lights)
+        {
+            light.intensity = 5f;
         }
     }
 }
