@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
     public GameObject pReleaseAnim;
     public GameObject pReleaseAnimGO;
 
+    public GameObject spawnSlashPrefab;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -339,10 +341,11 @@ public class PlayerController : MonoBehaviour
     //method that moves character forward by one space and swings the scythe
     void Scythe()
     {
+        StartCoroutine(SpawnScytheSlash());
 
         float originalSpeed = speed;
 
-        // i was so dog at writing code when I started this project so there is a coroutine for animation instead of directly in the animaator tab
+        // I was so dog at writing code when I started this project so there is a coroutine for animation instead of directly in the animator tab
         StartCoroutine(AnimationDelay());
 
         //moves the playerover by the value specified
@@ -390,6 +393,7 @@ public class PlayerController : MonoBehaviour
     //moves character up by one space and stops them from moving in the x direction for the remainder of the swing
     void ScytheUp()
     {
+        StartCoroutine(SpawnScytheSlash());
         //stopTime
         stopTime = .3f;
         StartCoroutine(stopPlayerFor(stopTime));
@@ -698,6 +702,15 @@ public class PlayerController : MonoBehaviour
 
         Destroy(pReleaseAnimGO);
     }
+
+    public IEnumerator SpawnScytheSlash()
+    {
+        Vector3 scythePoint = GameObject.FindGameObjectWithTag("Scythe").transform.position;
+        GameObject spawnSlash = Instantiate(spawnSlashPrefab, scythePoint, Quaternion.identity);
+        yield return new WaitForSeconds(.5f);
+        Destroy(spawnSlash);
+    }
+
 
 
 

@@ -56,6 +56,7 @@ public class StartBossFight : MonoBehaviour
         StartCoroutine(spawnLights.startLights());
         yield return new WaitForSeconds(2f);
         boss.SetActive(true);
+        yield return new WaitForSeconds(1f);
         hpBar.HC1.SetActive(true);
         yield return new WaitForSeconds(.3f);
         hpBar.HC2.SetActive(true);

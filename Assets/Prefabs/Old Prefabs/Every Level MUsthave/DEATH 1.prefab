@@ -709,7 +709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4140956959778074734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.336, y: -0.136, z: 0.89015305}
+  m_LocalPosition: {x: 0.336, y: -0.136, z: 0}
   m_LocalScale: {x: 1, y: 0.6625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2202,6 +2202,7 @@ MonoBehaviour:
   dm: {fileID: 0}
   pReleaseAnim: {fileID: 3059669041925811996, guid: b6cc6bb7b08e848308b72d58e3d73cc2, type: 3}
   pReleaseAnimGO: {fileID: 0}
+  spawnSlashPrefab: {fileID: 3728512444323115070, guid: f4d1325e90d994206b9e188f4a73df3b, type: 3}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4
