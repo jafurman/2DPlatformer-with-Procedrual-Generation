@@ -20,7 +20,7 @@ public class slashAnimEffects : MonoBehaviour
     {
         float randomHue = Random.Range(0f, 1f);
         float saturation = 1f;
-        float brightness = 1f;
+        float brightness = .5f;
         Color randomColor = Color.HSVToRGB(randomHue, saturation, brightness);
 
         return randomColor;

@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (isOpeningScene)
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            TriggerDialogue();
         }
     }
     public void TriggerDialogue()
