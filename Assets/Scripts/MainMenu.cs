@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
 
 	public string levelToLoad;
+	public string PCGLEVELNAME;
 
 	public int defaultLives;
 	public int defaultScore;
@@ -25,4 +26,9 @@ public class MainMenu : MonoBehaviour
 	{
 		Application.Quit(); 
 	}
+
+	public void PCGLevelStart()
+    {
+		SceneManager.LoadScene(PCGLEVELNAME);
+    }
 }
