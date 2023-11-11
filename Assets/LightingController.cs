@@ -19,6 +19,9 @@ public class LightingController : MonoBehaviour
             if (!light.gameObject.CompareTag("Player"))
             {
                 light.intensity = darknessIntensity;
+            } else
+            {
+                light.intensity = darknessIntensity + 10;
             }
         }
     }
