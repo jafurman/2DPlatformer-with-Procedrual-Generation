@@ -30,6 +30,7 @@ TagManager:
   - MageShot
   - slideIndicator
   - CAMERA
+  - soul
   layers:
   - Default
   - TransparentFX

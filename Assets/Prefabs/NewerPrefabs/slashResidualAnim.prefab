@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacec3ae40e5741ff81b642a7a46e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 0}
+  slashLight: {fileID: 3825742763286116877}
 --- !u!114 &3825742763286116877
 MonoBehaviour:
   m_ObjectHideFlags: 0

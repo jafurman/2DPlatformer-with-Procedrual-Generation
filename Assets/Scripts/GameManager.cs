@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator respawnDelay()
     {
+        SpriteRenderer playerSprite = thePlayer.gameObject.GetComponent<SpriteRenderer>();
+        playerSprite.enabled = true;
 
         yield return new WaitForSeconds(1.5f);
         thePlayer.transform.position = playerStart;

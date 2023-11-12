@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class slashAnimEffects : MonoBehaviour
 {
-    public Light2D light;
+    public Light2D slashLight;
     public static bool isWanted = false;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class slashAnimEffects : MonoBehaviour
 
             Color randomColor = GetRandomBrightColor();
             sprite.color = randomColor;
-            light.color = randomColor;
+            slashLight.color = randomColor;
         }
 
     }
