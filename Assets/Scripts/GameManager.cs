@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameReset()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(mainMenu);
         thePlayer.gameObject.SetActive(true);
         thePumpkin.gameObject.SetActive(true);

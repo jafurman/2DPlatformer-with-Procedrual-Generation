@@ -22,7 +22,7 @@ public class RandomTilemap : MonoBehaviour
 
     public int bias;
 
-    private List<Vector3> vectorList = new List<Vector3>();
+    private List<Vector3Int> vectorList = new List<Vector3Int>();
 
     public GameObject spawnPrefab;
 
@@ -34,6 +34,12 @@ public class RandomTilemap : MonoBehaviour
     public TilemapCollider2D TMcollider;
 
     public static bool started;
+
+    public GameObject spawnEffect;
+
+    // bru there is no way you're almost graduated and writing code like this
+    public Vector3Int[] topLeft, topMid, topRight, midLeft, midRight, botLeft, botMid, botRight;
+
 
     void Start()
     {
@@ -59,9 +65,19 @@ public class RandomTilemap : MonoBehaviour
 
         bias = Random.Range(0, 4);
 
-        Color randomColor = new Color(Random.value, Random.value, Random.value);
+        Color randomColor = GetRandomBrightColor();
         tilemap.color = randomColor; 
         
+    }
+
+    private Color GetRandomBrightColor()
+    {
+        float randomHue = Random.Range(0f, 1f);
+        float saturation = 1f;
+        float brightness = 1f;
+        Color randomColor = Color.HSVToRGB(randomHue, saturation, brightness);
+
+        return randomColor;
     }
 
     void GenerateLevel()
@@ -101,7 +117,6 @@ public class RandomTilemap : MonoBehaviour
                 //while not null go right to avoid burnout
                 while (tile != null)
                 {
-                    Debug.Log(bias);
                     switch (bias)
                     {
                         case 0:
@@ -163,6 +178,8 @@ public class RandomTilemap : MonoBehaviour
 
     public void placePrefabs()
     {
+        cleanUpMap();
+
         foreach (Vector3 vector in vectorList)
         {
             int randInt = Random.Range(1, 200);
@@ -175,7 +192,7 @@ public class RandomTilemap : MonoBehaviour
 
         //move the player to the start of the level and enable collider
         playerSpawnPos = new Vector3Int((gridSize.x / 2), (gridSize.y / 2));
-        player.transform.position = playerSpawnPos;
+        StartCoroutine(spawnPlayer());
 
         TMcollider.enabled = true;
 
@@ -184,4 +201,97 @@ public class RandomTilemap : MonoBehaviour
         Instantiate(levelEnder, startPos, Quaternion.identity);
 
     }
+
+
+    public IEnumerator spawnPlayer()
+    {
+        player.transform.position = playerSpawnPos;
+        player.SetActive(false);
+        if (spawnEffect != null)
+        {
+            GameObject effectInstance = Instantiate(spawnEffect, playerSpawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Destroy(effectInstance);
+            player.SetActive(true);
+        }
+    }
+
+
+    public void cleanUpMap()
+    {
+        foreach (Vector3Int vector in vectorList)
+        {
+            TileBase testTile = tilemap.GetTile(vector);
+
+            // Get surrounding values
+            Vector3Int tl = new Vector3Int(vector.x - 1, vector.y + 1);
+            Vector3Int tm = new Vector3Int(vector.x, vector.y + 1);
+            Vector3Int tr = new Vector3Int(vector.x + 1, vector.y + 1);
+            Vector3Int ml = new Vector3Int(vector.x - 1, vector.y);
+            Vector3Int mr = new Vector3Int(vector.x + 1, vector.y);
+            Vector3Int bl = new Vector3Int(vector.x - 1, vector.y - 1);
+            Vector3Int bm = new Vector3Int(vector.x, vector.y - 1);
+            Vector3Int br = new Vector3Int(vector.x + 1, vector.y - 1);
+
+            TileBase topLeft = tilemap.GetTile(tl);
+            TileBase topMid = tilemap.GetTile(tm);
+            TileBase topRight = tilemap.GetTile(tr);
+            TileBase midLeft = tilemap.GetTile(ml);
+            TileBase midRight = tilemap.GetTile(mr);
+            TileBase botLeft = tilemap.GetTile(bl);
+            TileBase botMid = tilemap.GetTile(bm);
+            TileBase botRight = tilemap.GetTile(br);
+
+            //try doing a delete on only all the single spaces tiles
+
+
+            /*
+            if (topLeft == null && topMid == null && midLeft == null)
+            {
+                tilemap.SetTile(vector, tiles[0]);
+            }
+
+            else if (topMid == null)
+            {
+                tilemap.SetTile(vector, tiles[1]);
+            }
+
+            else if (topRight == null && topMid == null && midRight == null)
+            {
+                tilemap.SetTile(vector, tiles[2]);
+            }
+
+            else if (midLeft == null)
+            {
+                tilemap.SetTile(vector, tiles[3]);
+            }
+
+            else if (midRight == null)
+            {
+                tilemap.SetTile(vector, tiles[4]);
+            }
+
+            else if (midLeft == null && botLeft == null && botMid == null)
+            {
+                tilemap.SetTile(vector, tiles[5]);
+            }
+
+            else if (botMid == null)
+            {
+                tilemap.SetTile(vector, tiles[6]);
+            }
+
+            else if (botMid == null && botRight == null && midRight == null)
+            {
+                tilemap.SetTile(vector, tiles[7]);
+            }
+            else
+            {
+                tilemap.SetTile(vector, null);
+            }
+            */
+        }
+    }
+
 }
+
