@@ -31,6 +31,8 @@ TagManager:
   - slideIndicator
   - CAMERA
   - soul
+  - MagesUI
+  - FlashInstance
   layers:
   - Default
   - TransparentFX

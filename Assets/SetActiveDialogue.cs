@@ -7,15 +7,19 @@ public class SetActiveDialogue : MonoBehaviour
     public GameObject totalCanvas;
     public Animator dialogueButton;
 
+    public FlashTheMages FlashTheMagesInstance;
+
     private void Start()
     {
         totalCanvas.SetActive(false);
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player")
         {
+            StartCoroutine(FlashTheMagesInstance.FlashDEMMAGES());
             totalCanvas.SetActive(true);
             dialogueButton.SetBool("SlideIn", true);
         }
