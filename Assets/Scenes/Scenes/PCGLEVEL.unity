@@ -5034,6 +5034,7 @@ MonoBehaviour:
   levelEnder: {fileID: 5431514169187579349}
   TMcollider: {fileID: 814917754}
   spawnEffect: {fileID: 8331108276904658689, guid: ad0d9f0bc60c94c8fbb6f769b43abb0e, type: 3}
+  tilesOnField: []
   topLeft: []
   topMid: []
   topRight: []

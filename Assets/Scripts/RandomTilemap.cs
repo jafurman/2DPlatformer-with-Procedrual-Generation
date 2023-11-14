@@ -89,8 +89,7 @@ public class RandomTilemap : MonoBehaviour
             for (int y = 0; y < gridSize.y; y++)
             {
                 Vector3Int tilePosition = new Vector3Int(x, y, 0);
-                int tileIndex = Random.Range(0, tiles.Length);
-                tilemap.SetTile(tilePosition, tiles[tileIndex]);
+                tilemap.SetTile(tilePosition, tiles[4]);
 
                 tilesOnField.Add(tilePosition);
             }
@@ -184,6 +183,7 @@ public class RandomTilemap : MonoBehaviour
     public void placePrefabs()
     {
         cleanUpMap();
+        cleanUpMap();
 
         foreach (Vector3 vector in vectorList)
         {
@@ -227,7 +227,10 @@ public class RandomTilemap : MonoBehaviour
         foreach (Vector3Int vector in tilesOnField)
         {
             TileBase testTile = tilemap.GetTile(vector);
-
+            if (testTile == null)
+            {
+                continue;
+            }
             // Get surrounding values
             Vector3Int tl = new Vector3Int(vector.x - 1, vector.y + 1);
             Vector3Int tm = new Vector3Int(vector.x, vector.y + 1);
@@ -248,8 +251,30 @@ public class RandomTilemap : MonoBehaviour
             TileBase botRight = tilemap.GetTile(br);
 
 
+            //all null spaces
+            if ((topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null)
+                || (topLeft != null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null)
+                || (topLeft == null && topMid == null && topRight != null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null)
+                || (topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft != null && botMid == null && botRight == null)
+                || (topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight != null)
+                || midLeft == null && midRight == null
+                || topMid == null && botMid == null)
+            {
+                tilemap.SetTile(vector, null);
+            }
+
             //all topLeft spaces
-            if ( midRight != null && botMid != null && botRight != null &&
+            else if ( midRight != null && botMid != null && botRight != null &&
                 topLeft == null && topMid == null && midLeft == null )
             {
                 tilemap.SetTile(vector, tiles[0]);
@@ -309,17 +334,9 @@ public class RandomTilemap : MonoBehaviour
                 && midLeft != null && midRight != null
                 && botLeft != null && botMid != null && botRight != null)
             {
-
                 tilemap.SetTile(vector, tiles[4]);
             }
 
-            //all null spaces
-            else if ((topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null))
-            {
-                tilemap.SetTile(vector, null);
-            }
 
 
 
