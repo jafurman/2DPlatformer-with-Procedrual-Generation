@@ -37,6 +37,8 @@ public class RandomTilemap : MonoBehaviour
 
     public GameObject spawnEffect;
 
+    public List<Vector3Int> tilesOnField = new List<Vector3Int>();
+
     // bru there is no way you're almost graduated and writing code like this
     public Vector3Int[] topLeft, topMid, topRight, midLeft, midRight, botLeft, botMid, botRight;
 
@@ -89,6 +91,8 @@ public class RandomTilemap : MonoBehaviour
                 Vector3Int tilePosition = new Vector3Int(x, y, 0);
                 int tileIndex = Random.Range(0, tiles.Length);
                 tilemap.SetTile(tilePosition, tiles[tileIndex]);
+
+                tilesOnField.Add(tilePosition);
             }
         }
     }
@@ -101,6 +105,7 @@ public class RandomTilemap : MonoBehaviour
             {
                 break;
             }
+
             // add each tiles vector 3 that we go to to a list
             if (!vectorList.Contains(startPos))
             {
@@ -219,7 +224,7 @@ public class RandomTilemap : MonoBehaviour
 
     public void cleanUpMap()
     {
-        foreach (Vector3Int vector in vectorList)
+        foreach (Vector3Int vector in tilesOnField)
         {
             TileBase testTile = tilemap.GetTile(vector);
 
@@ -242,55 +247,59 @@ public class RandomTilemap : MonoBehaviour
             TileBase botMid = tilemap.GetTile(bm);
             TileBase botRight = tilemap.GetTile(br);
 
-            //try doing a delete on only all the single spaces tiles
+            
+
+            //all null spaces
+            if ((topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null))
+            {
+                tilemap.SetTile(vector, null);
+            }
+
+            //all voidWall spaces
+            if (topLeft != null && topMid != null && topRight != null
+                && midLeft != null && midRight != null
+                && botLeft != null && botMid != null && botRight != null)
+            {
+                
+                tilemap.SetTile(vector, tiles[4]);
+            }
 
 
-            /*
-            if (topLeft == null && topMid == null && midLeft == null)
+            //all topLeft spaces
+            if ( midRight != null && botMid != null && botRight != null &&
+                topLeft == null && topMid == null && midLeft == null )
             {
                 tilemap.SetTile(vector, tiles[0]);
             }
 
-            else if (topMid == null)
+            //all bottomRight spaces
+            if (midRight == null && botMid == null && botRight == null &&
+                topLeft != null && topMid != null && midLeft != null)
             {
-                tilemap.SetTile(vector, tiles[1]);
+                tilemap.SetTile(vector, tiles[8]);
             }
 
-            else if (topRight == null && topMid == null && midRight == null)
+            //all topRight spaces
+            if (midLeft != null && botLeft != null && botMid != null &&
+                topMid == null && topRight == null && midRight == null)
             {
                 tilemap.SetTile(vector, tiles[2]);
             }
 
-            else if (midLeft == null)
-            {
-                tilemap.SetTile(vector, tiles[3]);
-            }
-
-            else if (midRight == null)
-            {
-                tilemap.SetTile(vector, tiles[4]);
-            }
-
-            else if (midLeft == null && botLeft == null && botMid == null)
-            {
-                tilemap.SetTile(vector, tiles[5]);
-            }
-
-            else if (botMid == null)
+            //all botLeft spaces
+            if (midLeft == null && botLeft == null && botMid == null &&
+                topMid != null && topRight != null && midRight != null)
             {
                 tilemap.SetTile(vector, tiles[6]);
             }
 
-            else if (botMid == null && botRight == null && midRight == null)
-            {
-                tilemap.SetTile(vector, tiles[7]);
-            }
-            else
-            {
-                tilemap.SetTile(vector, null);
-            }
-            */
+
+
+
         }
+        tilemap.RefreshAllTiles();
     }
 
 }
