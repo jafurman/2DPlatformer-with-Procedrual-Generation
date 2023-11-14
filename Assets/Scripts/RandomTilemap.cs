@@ -36,8 +36,12 @@ public class RandomTilemap : MonoBehaviour
     public static bool started;
 
     public GameObject spawnEffect;
+    public GameObject magePrefab;
+    public GameObject skellyHandsPrefab;
 
     public List<Vector3Int> tilesOnField = new List<Vector3Int>();
+
+    public List<Vector3Int> topSpaces = new List<Vector3Int>();
 
     // bru there is no way you're almost graduated and writing code like this
     public Vector3Int[] topLeft, topMid, topRight, midLeft, midRight, botLeft, botMid, botRight;
@@ -214,6 +218,7 @@ public class RandomTilemap : MonoBehaviour
         player.SetActive(false);
         if (spawnEffect != null)
         {
+            yield return new WaitForSeconds(2f);
             GameObject effectInstance = Instantiate(spawnEffect, playerSpawnPos, Quaternion.identity);
             yield return new WaitForSeconds(1.5f);
             Destroy(effectInstance);
@@ -320,6 +325,7 @@ public class RandomTilemap : MonoBehaviour
                 && botLeft != null && botMid != null && botRight != null)
             {
                 tilemap.SetTile(vector, tiles[1]);
+                topSpaces.Add(vector);
             }
 
             //all bottom edge spaces
@@ -342,6 +348,27 @@ public class RandomTilemap : MonoBehaviour
 
         }
         tilemap.RefreshAllTiles();
+        spawnTopSpaces();
+    }
+
+    public void spawnTopSpaces()
+    {
+        foreach (Vector3Int vector in topSpaces)
+        {
+            int chance = Random.Range(0, 26);
+
+            if (chance == 15)
+            {
+                GameObject mage = Instantiate(magePrefab, vector, Quaternion.identity);
+            }
+
+            if (chance == 17)
+            {
+                Vector3 newPos = vector;
+                newPos.y += 2f;
+                GameObject skellyHands = Instantiate(skellyHandsPrefab, newPos, Quaternion.identity);
+            }
+        }
     }
 
 }
