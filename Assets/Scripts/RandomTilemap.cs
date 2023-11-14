@@ -247,25 +247,6 @@ public class RandomTilemap : MonoBehaviour
             TileBase botMid = tilemap.GetTile(bm);
             TileBase botRight = tilemap.GetTile(br);
 
-            
-
-            //all null spaces
-            if ((topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null))
-            {
-                tilemap.SetTile(vector, null);
-            }
-
-            //all voidWall spaces
-            if (topLeft != null && topMid != null && topRight != null
-                && midLeft != null && midRight != null
-                && botLeft != null && botMid != null && botRight != null)
-            {
-                
-                tilemap.SetTile(vector, tiles[4]);
-            }
-
 
             //all topLeft spaces
             if ( midRight != null && botMid != null && botRight != null &&
@@ -275,26 +256,70 @@ public class RandomTilemap : MonoBehaviour
             }
 
             //all bottomRight spaces
-            if (midRight == null && botMid == null && botRight == null &&
+            else if (midRight == null && botMid == null && botRight == null &&
                 topLeft != null && topMid != null && midLeft != null)
             {
                 tilemap.SetTile(vector, tiles[8]);
             }
 
             //all topRight spaces
-            if (midLeft != null && botLeft != null && botMid != null &&
+            else if (midLeft != null && botLeft != null && botMid != null &&
                 topMid == null && topRight == null && midRight == null)
             {
                 tilemap.SetTile(vector, tiles[2]);
             }
 
             //all botLeft spaces
-            if (midLeft == null && botLeft == null && botMid == null &&
+            else if (midLeft == null && botLeft == null && botMid == null &&
                 topMid != null && topRight != null && midRight != null)
             {
                 tilemap.SetTile(vector, tiles[6]);
             }
 
+            //all left edge spaces
+            else if (midLeft == null && topMid != null & botMid != null
+                && topRight != null && midRight != null && botRight != null)
+            {
+                tilemap.SetTile(vector, tiles[3]);
+            }
+
+            //all right edge spaces
+            else if (midLeft != null && topMid != null & botMid != null
+                && topLeft != null && midRight == null && botLeft != null )
+            {
+                tilemap.SetTile(vector, tiles[5]);
+            }
+
+            //all top edge spaces
+            else if (topMid == null && midLeft != null && midRight != null
+                && botLeft != null && botMid != null && botRight != null)
+            {
+                tilemap.SetTile(vector, tiles[1]);
+            }
+
+            //all bottom edge spaces
+            else if (botMid == null && midLeft != null && midRight != null
+                && topLeft != null && topMid != null && topRight != null)
+            {
+                tilemap.SetTile(vector, tiles[7]);
+            }
+
+            //all voidWall spaces
+            else if (topLeft != null && topMid != null && topRight != null
+                && midLeft != null && midRight != null
+                && botLeft != null && botMid != null && botRight != null)
+            {
+
+                tilemap.SetTile(vector, tiles[4]);
+            }
+
+            //all null spaces
+            else if ((topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null))
+            {
+                tilemap.SetTile(vector, null);
+            }
 
 
 
