@@ -1,7 +1,11 @@
 # 2DRetroGame
-A 2D action-adventure platformer. 
+A 2D action-adventure platformer.
 
-Try out version one build with the final build coming October 30th, 2023!
+Four increasing levels of normal platforming. (4)
+When a Boss Fight for level five. (1)
+Then six levels of procedurally generated levels as "trials" (6)
+
+Try out the current live version:
 
 https://jafurman.itch.io/death
 
