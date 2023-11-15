@@ -27,7 +27,7 @@ public class RandomTilemap : MonoBehaviour
     public GameObject spawnPrefab;
 
     public GameObject player;
-    public Vector3 playerSpawnPos;
+    public Vector3Int playerSpawnPos;
 
     public GameObject levelEnder;
 
@@ -177,7 +177,7 @@ public class RandomTilemap : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(.005f);
         }
 
         Debug.Log("Finished");
@@ -190,8 +190,14 @@ public class RandomTilemap : MonoBehaviour
 
     public void placePrefabs()
     {
+        //move the player to the start of the level and enable collider
+        playerSpawnPos = new Vector3Int((gridSize.x / 2), gridSize.y / 2);
+
+        SetPlayerSpawnArea();
         cleanUpMap();
         cleanUpMap();
+        cleanUpMap();
+        spawnTopSpaces();
 
         foreach (Vector3 vector in vectorList)
         {
@@ -203,8 +209,7 @@ public class RandomTilemap : MonoBehaviour
             }
         }
 
-        //move the player to the start of the level and enable collider
-        playerSpawnPos = new Vector3Int((gridSize.x / 2), (gridSize.y / 2));
+
         StartCoroutine(spawnPlayer());
 
         TMcollider.enabled = true;
@@ -218,12 +223,12 @@ public class RandomTilemap : MonoBehaviour
 
     public IEnumerator spawnPlayer()
     {
-        player.transform.position = playerSpawnPos;
+        player.transform.position = GameManager.playerStart;
         player.SetActive(false);
         if (spawnEffect != null)
         {
             yield return new WaitForSeconds(2f);
-            GameObject effectInstance = Instantiate(spawnEffect, playerSpawnPos, Quaternion.identity);
+            GameObject effectInstance = Instantiate(spawnEffect, player.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(1.5f);
             Destroy(effectInstance);
             player.SetActive(true);
@@ -358,7 +363,6 @@ public class RandomTilemap : MonoBehaviour
 
         }
         tilemap.RefreshAllTiles();
-        spawnTopSpaces();
     }
 
     public void spawnTopSpaces()
@@ -367,23 +371,43 @@ public class RandomTilemap : MonoBehaviour
         {
             int chance = Random.Range(0, 23);
 
-            if (chance == 15 || chance == 6)
+            if (chance == 15)
             {
                 Vector3 mageSpawnPos = tilemap.transform.position;
                 mageSpawnPos.x = vector.x;
                 mageSpawnPos.y = vector.y;
+                mageSpawnPos.x += 1.5f;
                 mageSpawnPos.y += 2.5f;
                 mageSpawnPos.z += 2.5f;
                 GameObject mage = Instantiate(magePrefab, mageSpawnPos, Quaternion.identity);
             }
 
-            if (chance == 17)
+            if (chance == 17 || chance == 6)
             {
                 Vector3 newPos = vector;
                 newPos.y += 1.4f;
                 GameObject skellyHands = Instantiate(skellyHandsPrefab, newPos, Quaternion.identity);
             }
         }
+    }
+
+    public void SetPlayerSpawnArea()
+    {
+        int squareSize = 6;
+        Vector3Int startTilePosition = playerSpawnPos;
+
+
+        // Iterate through the square area and set the tiles to null
+        for (int x = 0; x < squareSize; x++)
+        {
+            for (int y = 0; y < squareSize; y++)
+            {
+                Vector3Int currentTilePos = startTilePosition + new Vector3Int(x, y, 0);
+                tilemap.SetTile(currentTilePos, null);
+            }
+        }
+
+        tilemap.SetTile(playerSpawnPos, null);
     }
 
 }

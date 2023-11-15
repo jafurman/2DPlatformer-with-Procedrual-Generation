@@ -22,7 +22,6 @@ public class BackgroundColorController : MonoBehaviour
 
     public void changeBgColor()
     {
-        Debug.Log("Changing color of BG");
         Color matchColor = RandomTilemap.tmColor;
         foreach(GameObject go in backgrounds)
         {

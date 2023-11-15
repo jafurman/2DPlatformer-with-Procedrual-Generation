@@ -46702,7 +46702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5431514169187579349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.7418, y: -11.5731, z: -0.19277334}
+  m_LocalPosition: {x: -8.1, y: -11.99, z: -0.19277334}
   m_LocalScale: {x: 0.880147, y: 0.880147, z: 0.880147}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47019,7 +47019,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 443788400479226784, guid: 78ba06db89aa649dea7d99e69acec210, type: 3}
       propertyPath: randomBgColor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6354248439939828608, guid: 78ba06db89aa649dea7d99e69acec210, type: 3}
       propertyPath: m_RootOrder
