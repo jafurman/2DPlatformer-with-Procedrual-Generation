@@ -365,20 +365,22 @@ public class RandomTilemap : MonoBehaviour
     {
         foreach (Vector3Int vector in topSpaces)
         {
-            int chance = Random.Range(0, 26);
+            int chance = Random.Range(0, 23);
 
-            if (chance == 15)
+            if (chance == 15 || chance == 6)
             {
                 Vector3 mageSpawnPos = tilemap.transform.position;
                 mageSpawnPos.x = vector.x;
                 mageSpawnPos.y = vector.y;
+                mageSpawnPos.y += 2.5f;
+                mageSpawnPos.z += 2.5f;
                 GameObject mage = Instantiate(magePrefab, mageSpawnPos, Quaternion.identity);
             }
 
             if (chance == 17)
             {
                 Vector3 newPos = vector;
-                newPos.y += 1.5f;
+                newPos.y += 1.4f;
                 GameObject skellyHands = Instantiate(skellyHandsPrefab, newPos, Quaternion.identity);
             }
         }
