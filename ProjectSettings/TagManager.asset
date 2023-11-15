@@ -33,6 +33,7 @@ TagManager:
   - soul
   - MagesUI
   - FlashInstance
+  - BACKGROUND
   layers:
   - Default
   - TransparentFX

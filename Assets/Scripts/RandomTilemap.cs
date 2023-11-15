@@ -43,6 +43,8 @@ public class RandomTilemap : MonoBehaviour
 
     public List<Vector3Int> topSpaces = new List<Vector3Int>();
 
+    public static Color tmColor;
+
     // bru there is no way you're almost graduated and writing code like this
     public Vector3Int[] topLeft, topMid, topRight, midLeft, midRight, botLeft, botMid, botRight;
 
@@ -72,7 +74,9 @@ public class RandomTilemap : MonoBehaviour
         bias = Random.Range(0, 4);
 
         Color randomColor = GetRandomBrightColor();
-        tilemap.color = randomColor; 
+
+        tilemap.color = randomColor;
+        tmColor = randomColor;
         
     }
 
@@ -273,7 +277,13 @@ public class RandomTilemap : MonoBehaviour
                 && midLeft == null && midRight == null
                 && botLeft == null && botMid == null && botRight != null)
                 || midLeft == null && midRight == null
-                || topMid == null && botMid == null)
+                || topMid == null && botMid == null
+                || (topLeft != null && topMid != null && topRight != null
+                && midLeft == null && midRight == null
+                && botLeft == null && botMid == null && botRight == null)
+                || (topLeft == null && topMid == null && topRight == null
+                && midLeft == null && midRight == null
+                && botLeft != null && botMid != null && botRight != null))
             {
                 tilemap.SetTile(vector, null);
             }
@@ -359,13 +369,16 @@ public class RandomTilemap : MonoBehaviour
 
             if (chance == 15)
             {
-                GameObject mage = Instantiate(magePrefab, vector, Quaternion.identity);
+                Vector3 mageSpawnPos = tilemap.transform.position;
+                mageSpawnPos.x = vector.x;
+                mageSpawnPos.y = vector.y;
+                GameObject mage = Instantiate(magePrefab, mageSpawnPos, Quaternion.identity);
             }
 
             if (chance == 17)
             {
                 Vector3 newPos = vector;
-                newPos.y += 2f;
+                newPos.y += 1.5f;
                 GameObject skellyHands = Instantiate(skellyHandsPrefab, newPos, Quaternion.identity);
             }
         }
