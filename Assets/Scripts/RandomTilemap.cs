@@ -106,6 +106,7 @@ public class RandomTilemap : MonoBehaviour
 
     public IEnumerator DestroyTilesFromMiddle()
     {
+        yield return new WaitForSeconds(3f);
         while (startPos.x < maxX && startPos.y > 0 && startPos.y < maxY && startPos.x > 0)
         {
             if (startPos.x >= maxX - 2 || startPos.y <= 2 || startPos.y >= maxY - 2 || startPos.x <= 2)
@@ -177,7 +178,6 @@ public class RandomTilemap : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(.005f);
         }
 
         Debug.Log("Finished");
@@ -194,10 +194,14 @@ public class RandomTilemap : MonoBehaviour
         playerSpawnPos = new Vector3Int((gridSize.x / 2), gridSize.y / 2);
 
         SetPlayerSpawnArea();
+        SetEndArea();
+
         cleanUpMap();
         cleanUpMap();
         cleanUpMap();
+
         spawnTopSpaces();
+
 
         foreach (Vector3 vector in vectorList)
         {
@@ -216,14 +220,19 @@ public class RandomTilemap : MonoBehaviour
 
         started = true;
 
-        Instantiate(levelEnder, startPos, Quaternion.identity);
+        Vector3 offsetPosition = startPos;
+        offsetPosition.x += 3;
+        offsetPosition.y += 1.5f;
+        Instantiate(levelEnder, offsetPosition, Quaternion.identity);
 
     }
 
 
     public IEnumerator spawnPlayer()
     {
-        player.transform.position = GameManager.playerStart;
+        Vector3 playerBeginsHere = GameManager.playerStart;
+        playerBeginsHere.x += 1;
+        player.transform.position = playerBeginsHere;
         player.SetActive(false);
         if (spawnEffect != null)
         {
@@ -396,7 +405,6 @@ public class RandomTilemap : MonoBehaviour
         int squareSize = 6;
         Vector3Int startTilePosition = playerSpawnPos;
 
-
         // Iterate through the square area and set the tiles to null
         for (int x = 0; x < squareSize; x++)
         {
@@ -404,11 +412,43 @@ public class RandomTilemap : MonoBehaviour
             {
                 Vector3Int currentTilePos = startTilePosition + new Vector3Int(x, y, 0);
                 tilemap.SetTile(currentTilePos, null);
+                vectorList.Remove(currentTilePos);
             }
         }
 
         tilemap.SetTile(playerSpawnPos, null);
     }
 
+    public void SetEndArea()
+    {
+        int squareSize = 6;
+        Vector3Int lastVector = vectorList[vectorList.Count - 1];
+        Vector3Int EndTilePosition = lastVector;
+
+        for (int x = -1; x < squareSize + 1; x++)
+        {
+            for (int y = -1; y < squareSize + 1; y++)
+            {
+                Vector3Int currentTilePos = EndTilePosition + new Vector3Int(x, y, 0);
+
+
+                if (x == -1 || x == squareSize || y == -1 || y == squareSize)
+                {
+                    if (!tilesOnField.Contains(currentTilePos))
+                    {
+                        tilemap.SetTile(currentTilePos, tiles[4]);
+                        
+                    }
+                }
+                else
+                {
+                    tilemap.SetTile(currentTilePos, null);
+                    vectorList.Remove(currentTilePos);
+                }
+            }
+        }
+
+        tilemap.SetTile(playerSpawnPos, null);
+    }
 }
 
