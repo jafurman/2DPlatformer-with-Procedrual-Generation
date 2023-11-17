@@ -219,11 +219,7 @@ public class RandomTilemap : MonoBehaviour
         TMcollider.enabled = true;
 
         started = true;
-
-        Vector3 offsetPosition = startPos;
-        offsetPosition.x += 3;
-        offsetPosition.y += 1.5f;
-        Instantiate(levelEnder, offsetPosition, Quaternion.identity);
+        
 
     }
 
@@ -405,6 +401,19 @@ public class RandomTilemap : MonoBehaviour
         int squareSize = 6;
         Vector3Int startTilePosition = playerSpawnPos;
 
+        Vector2 playerStart = GameManager.playerStart;
+        Vector3Int playerBeginsHere = new Vector3Int((int)playerStart.x, (int)playerStart.y, 0);
+        playerBeginsHere.x += 1;
+
+        Vector3Int underOne = playerBeginsHere;
+        Vector3Int underTwo = playerBeginsHere;
+        underOne.y -= 1;
+        underTwo.y -= 1;
+        underOne.x += 1;
+        underTwo.x -= 1;
+
+        tilemap.SetTile(underOne, tiles[2]);
+        tilemap.SetTile(underTwo, tiles[0]);
         // Iterate through the square area and set the tiles to null
         for (int x = 0; x < squareSize; x++)
         {
@@ -422,9 +431,13 @@ public class RandomTilemap : MonoBehaviour
     public void SetEndArea()
     {
         int squareSize = 6;
-        Vector3Int lastVector = vectorList[vectorList.Count - 1];
+        Vector3Int lastVector = vectorList[vectorList.Count - 9];
         Vector3Int EndTilePosition = lastVector;
 
+        Vector3Int offSetPos = lastVector;
+        offSetPos.y += 3;
+        offSetPos.x += 2;
+        Instantiate(levelEnder, offSetPos, Quaternion.identity);
         for (int x = -1; x < squareSize + 1; x++)
         {
             for (int y = -1; y < squareSize + 1; y++)
@@ -447,6 +460,7 @@ public class RandomTilemap : MonoBehaviour
                 }
             }
         }
+
 
         tilemap.SetTile(playerSpawnPos, null);
     }
