@@ -181,6 +181,8 @@ public class RandomTilemap : MonoBehaviour
 
         }
 
+        Debug.Log("This iteration took " + vectorList.Count + " tiles.");
+
         Debug.Log("Finished");
 
         placePrefabs();
@@ -223,23 +225,6 @@ public class RandomTilemap : MonoBehaviour
         started = true;
         
 
-    }
-
-
-    public IEnumerator spawnPlayer()
-    {
-        Vector3 playerBeginsHere = GameManager.playerStart;
-        playerBeginsHere.x += 1;
-        player.transform.position = playerBeginsHere;
-        player.SetActive(false);
-        if (spawnEffect != null)
-        {
-            yield return new WaitForSeconds(2f);
-            GameObject effectInstance = Instantiate(spawnEffect, player.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(1.5f);
-            Destroy(effectInstance);
-            player.SetActive(true);
-        }
     }
 
 
@@ -401,6 +386,36 @@ public class RandomTilemap : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator spawnPlayer()
+    {
+        Vector3 playerBeginsHere = GameManager.playerStart;
+        playerBeginsHere.x += 1;
+        player.transform.position = playerBeginsHere;
+        player.SetActive(false);
+        if (spawnEffect != null)
+        {
+            yield return new WaitForSeconds(2f);
+            GameObject effectInstance = Instantiate(spawnEffect, player.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Destroy(effectInstance);
+            player.SetActive(true);
+        }
+
+        //code to tell which kind of level is generated
+        int tilesTravelled = vectorList.Count;
+        if (tilesTravelled <= 500 )
+        {
+            Debug.Log("This level is rated easy");
+        } else if (500 < tilesTravelled && tilesTravelled <= 900)
+        {
+            Debug.Log("This level is rated medium");
+        } else if (900 < tilesTravelled)
+        {
+            Debug.Log("This level is rated hard");
+        }
+    }
+
 
     public void SetPlayerSpawnArea()
     {
