@@ -193,14 +193,15 @@ public class RandomTilemap : MonoBehaviour
         //move the player to the start of the level and enable collider
         playerSpawnPos = new Vector3Int((gridSize.x / 2), gridSize.y / 2);
 
+        cleanUpMap(true);
+        cleanUpMap(true);
+        cleanUpMap(true);
         SetPlayerSpawnArea();
         SetEndArea();
 
-        cleanUpMap();
-        cleanUpMap();
-        cleanUpMap();
-
         spawnTopSpaces();
+        cleanUpMap(false);
+
 
 
         foreach (Vector3 vector in vectorList)
@@ -241,7 +242,7 @@ public class RandomTilemap : MonoBehaviour
     }
 
 
-    public void cleanUpMap()
+    public void cleanUpMap(bool EraseTiles)
     {
         foreach (Vector3Int vector in tilesOnField)
         {
@@ -270,32 +271,36 @@ public class RandomTilemap : MonoBehaviour
             TileBase botRight = tilemap.GetTile(br);
 
 
-            //all null spaces
-            if ((topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null)
-                || (topLeft != null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null)
-                || (topLeft == null && topMid == null && topRight != null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null)
-                || (topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft != null && botMid == null && botRight == null)
-                || (topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight != null)
-                || midLeft == null && midRight == null
-                || topMid == null && botMid == null
-                || (topLeft != null && topMid != null && topRight != null
-                && midLeft == null && midRight == null
-                && botLeft == null && botMid == null && botRight == null)
-                || (topLeft == null && topMid == null && topRight == null
-                && midLeft == null && midRight == null
-                && botLeft != null && botMid != null && botRight != null))
+            if (EraseTiles)
             {
-                tilemap.SetTile(vector, null);
+                //all null spaces
+                if ((topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight == null)
+                    || (topLeft != null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight == null)
+                    || (topLeft == null && topMid == null && topRight != null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight == null)
+                    || (topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft != null && botMid == null && botRight == null)
+                    || (topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight != null)
+                    || midLeft == null && midRight == null
+                    || topMid == null && botMid == null
+                    || (topLeft != null && topMid != null && topRight != null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight == null)
+                    || (topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft != null && botMid != null && botRight != null))
+                {
+                    tilemap.SetTile(vector, null);
+                }
+
             }
 
             //all topLeft spaces
@@ -401,31 +406,30 @@ public class RandomTilemap : MonoBehaviour
         int squareSize = 6;
         Vector3Int startTilePosition = playerSpawnPos;
 
-        Vector2 playerStart = GameManager.playerStart;
-        Vector3Int playerBeginsHere = new Vector3Int((int)playerStart.x, (int)playerStart.y, 0);
-        playerBeginsHere.x += 1;
-
-        Vector3Int underOne = playerBeginsHere;
-        Vector3Int underTwo = playerBeginsHere;
-        underOne.y -= 1;
-        underTwo.y -= 1;
-        underOne.x += 1;
-        underTwo.x -= 1;
-
-        tilemap.SetTile(underOne, tiles[2]);
-        tilemap.SetTile(underTwo, tiles[0]);
         // Iterate through the square area and set the tiles to null
         for (int x = 0; x < squareSize; x++)
         {
             for (int y = 0; y < squareSize; y++)
             {
                 Vector3Int currentTilePos = startTilePosition + new Vector3Int(x, y, 0);
-                tilemap.SetTile(currentTilePos, null);
-                vectorList.Remove(currentTilePos);
+
+                if (x == 2 && y == 1)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[0]);
+                }
+                else if (x == 3 && y == 1)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[2]);
+                } else
+                {
+                    tilemap.SetTile(currentTilePos, null);
+                    vectorList.Remove(currentTilePos);
+                }
             }
         }
 
         tilemap.SetTile(playerSpawnPos, null);
+
     }
 
     public void SetEndArea()
