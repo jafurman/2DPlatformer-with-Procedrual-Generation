@@ -45,6 +45,9 @@ public class RandomTilemap : MonoBehaviour
 
     public static Color tmColor;
 
+    public GameObject levelStartPrefab;
+    public GameObject leverEnderPrefab;
+
     // bru there is no way you're almost graduated and writing code like this
     public Vector3Int[] topLeft, topMid, topRight, midLeft, midRight, botLeft, botMid, botRight;
 
@@ -415,6 +418,8 @@ public class RandomTilemap : MonoBehaviour
 
                 if (x == 2 && y == 1)
                 {
+                    Vector3 prefabSpawnLocation = new Vector3(startTilePosition.x + x + 1f,startTilePosition.y + y + 1.5f, startTilePosition.z);
+                    GameObject leverEnder = Instantiate(leverEnderPrefab, prefabSpawnLocation, Quaternion.identity);
                     tilemap.SetTile(currentTilePos, tiles[0]);
                 }
                 else if (x == 3 && y == 1)
@@ -447,10 +452,6 @@ public class RandomTilemap : MonoBehaviour
         Vector3Int lastVector = vectorList[vectorList.Count - 9];
         Vector3Int EndTilePosition = lastVector;
 
-        Vector3Int offSetPos = lastVector;
-        offSetPos.y += 3;
-        offSetPos.x += 2;
-        Instantiate(levelEnder, offSetPos, Quaternion.identity);
         for (int x = -1; x < squareSize + 1; x++)
         {
             for (int y = -1; y < squareSize + 1; y++)
@@ -470,6 +471,8 @@ public class RandomTilemap : MonoBehaviour
                 }
                 else if (x == 3 && y == 2)
                 {
+                    Vector3 prefabSpawnLocation = new Vector3(EndTilePosition.x + x + 1, EndTilePosition.y + y + 1.5f, EndTilePosition.z);
+                    GameObject leverEnder = Instantiate(leverEnderPrefab, prefabSpawnLocation, Quaternion.identity);
                     tilemap.SetTile(currentTilePos, tiles[0]);
                 }
                 else if (x == 4 && y == 2)

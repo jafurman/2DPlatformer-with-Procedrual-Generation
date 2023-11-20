@@ -1038,6 +1038,8 @@ MonoBehaviour:
   skellyHandsPrefab: {fileID: 1364491965742818501}
   tilesOnField: []
   topSpaces: []
+  levelStartPrefab: {fileID: 6386596580924404626, guid: 3abaa46e3a5c54e5bbc3bd66c8d4fa50, type: 3}
+  leverEnderPrefab: {fileID: 6386596580924404626, guid: 3abaa46e3a5c54e5bbc3bd66c8d4fa50, type: 3}
   topLeft: []
   topMid: []
   topRight: []
