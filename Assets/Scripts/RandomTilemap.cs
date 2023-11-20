@@ -198,7 +198,7 @@ public class RandomTilemap : MonoBehaviour
         cleanUpMap(true);
         SetPlayerSpawnArea();
         SetEndArea();
-
+        cleanUpMap(true);
         spawnTopSpaces();
         cleanUpMap(false);
 
@@ -420,7 +420,16 @@ public class RandomTilemap : MonoBehaviour
                 else if (x == 3 && y == 1)
                 {
                     tilemap.SetTile(currentTilePos, tiles[2]);
-                } else
+                }
+                else if (x == 3 && y == 0)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[8]);
+                }
+                else if (x == 2 && y == 0)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[6]);
+                }
+                else
                 {
                     tilemap.SetTile(currentTilePos, null);
                     vectorList.Remove(currentTilePos);
@@ -434,7 +443,7 @@ public class RandomTilemap : MonoBehaviour
 
     public void SetEndArea()
     {
-        int squareSize = 6;
+        int squareSize = 8;
         Vector3Int lastVector = vectorList[vectorList.Count - 9];
         Vector3Int EndTilePosition = lastVector;
 
@@ -449,13 +458,31 @@ public class RandomTilemap : MonoBehaviour
                 Vector3Int currentTilePos = EndTilePosition + new Vector3Int(x, y, 0);
 
 
-                if (x == -1 || x == squareSize || y == -1 || y == squareSize)
+                if (x == -1 || x == squareSize || y == -1 || y == squareSize ||
+                    x == 0 || x == squareSize -1 || y == 0 || y == squareSize -1)
                 {
                     if (!tilesOnField.Contains(currentTilePos))
                     {
                         tilemap.SetTile(currentTilePos, tiles[4]);
+                        tilesOnField.Add(currentTilePos);
                         
                     }
+                }
+                else if (x == 3 && y == 2)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[0]);
+                }
+                else if (x == 4 && y == 2)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[2]);
+                }
+                else if (x == 4 && y == 1)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[8]);
+                }
+                else if (x == 3 && y == 1)
+                {
+                    tilemap.SetTile(currentTilePos, tiles[6]);
                 }
                 else
                 {
