@@ -29,8 +29,6 @@ public class RandomTilemap : MonoBehaviour
     public GameObject player;
     public Vector3Int playerSpawnPos;
 
-    public GameObject levelEnder;
-
     public TilemapCollider2D TMcollider;
 
     public static bool started;
@@ -418,8 +416,8 @@ public class RandomTilemap : MonoBehaviour
 
                 if (x == 2 && y == 1)
                 {
-                    Vector3 prefabSpawnLocation = new Vector3(startTilePosition.x + x + 1f,startTilePosition.y + y + 1.5f, startTilePosition.z);
-                    GameObject leverEnder = Instantiate(leverEnderPrefab, prefabSpawnLocation, Quaternion.identity);
+                    Vector3 prefabSpawnLocation = new Vector3(startTilePosition.x + x + 1f,startTilePosition.y + y + 1.5f, startTilePosition.z + 1.4f);
+                    GameObject leverEnder = Instantiate(levelStartPrefab, prefabSpawnLocation, Quaternion.identity);
                     tilemap.SetTile(currentTilePos, tiles[0]);
                 }
                 else if (x == 3 && y == 1)
@@ -471,7 +469,7 @@ public class RandomTilemap : MonoBehaviour
                 }
                 else if (x == 3 && y == 2)
                 {
-                    Vector3 prefabSpawnLocation = new Vector3(EndTilePosition.x + x + 1, EndTilePosition.y + y + 1.5f, EndTilePosition.z);
+                    Vector3 prefabSpawnLocation = new Vector3(EndTilePosition.x + x + 1, EndTilePosition.y + y + 1.5f, EndTilePosition.z + 1.4f);
                     GameObject leverEnder = Instantiate(leverEnderPrefab, prefabSpawnLocation, Quaternion.identity);
                     tilemap.SetTile(currentTilePos, tiles[0]);
                 }

@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6386596580924404625}
   m_Layer: 0
-  m_Name: leverEnderPrefab
+  m_Name: leverStartPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
