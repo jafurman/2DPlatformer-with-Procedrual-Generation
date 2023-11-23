@@ -33,4 +33,38 @@ public class LightingController : MonoBehaviour
             light.intensity = 5f;
         }
     }
+
+    public static void crazyLights()
+    {
+        int WHICHONE = Random.Range(0, 2);
+        Debug.Log(WHICHONE);
+        if (WHICHONE == 1)
+        {
+            foreach (Light2D lig in lights)
+            {
+                float hue = Random.Range(0f, 1f);
+                float value = Random.Range(0.7f, 1.0f);
+                Color randomColor = Color.HSVToRGB(hue, 1, value);
+                SpriteRenderer lightGo = lig.GetComponent<SpriteRenderer>();
+                lightGo.color = randomColor;
+                lig.color = randomColor;
+                lig.intensity = 3;
+            }
+        } else if (WHICHONE == 0)
+        {
+            float hue = Random.Range(0f, 1f);
+            float value = Random.Range(0.7f, 1.0f);
+            Color randomColor = Color.HSVToRGB(hue, 1, value);
+            foreach (Light2D lig in lights)
+            {
+                SpriteRenderer lightGo = lig.GetComponent<SpriteRenderer>();
+                lightGo.color = randomColor;
+                lig.color = randomColor;
+                lig.intensity = 3;
+            }
+        }
+
+    }
+
+
 }
