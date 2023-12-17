@@ -259,7 +259,7 @@ public class RandomTilemap : MonoBehaviour
 
             if (EraseTiles)
             {
-                //all null spaces
+                // all null spaces
                 if ((topLeft == null && topMid == null && topRight == null
                     && midLeft == null && midRight == null
                     && botLeft == null && botMid == null && botRight == null)
@@ -282,7 +282,77 @@ public class RandomTilemap : MonoBehaviour
                     && botLeft == null && botMid == null && botRight == null)
                     || (topLeft == null && topMid == null && topRight == null
                     && midLeft == null && midRight == null
-                    && botLeft != null && botMid != null && botRight != null))
+                    && botLeft != null && botMid != null && botRight != null)
+                    || (topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight == null && botRight == null)
+                    || (topLeft == null && midRight == null && botRight == null && botMid == null)
+                    || (topLeft == null && topMid == null && botRight == null && midLeft == null)
+
+                    // uniques
+
+                    || (topLeft != null && topMid != null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft == null && botMid != null && botRight != null)
+
+                    || (topLeft == null && topMid == null && topRight != null
+                    && midLeft != null && midRight != null
+                    && botLeft != null && botMid != null && botRight == null)
+
+                    || (topLeft == null && topMid != null && topRight != null
+                    && midLeft != null && midRight != null
+                    && botLeft != null && botMid == null && botRight == null)
+
+                    || (topLeft != null && topMid == null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft == null && botMid != null && botRight != null)
+
+                    || (topLeft == null && topMid != null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft != null && botMid != null && botRight != null)
+
+                    || (topLeft != null && topMid == null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft != null && botMid != null && botRight != null)
+
+                    || (topLeft == null && topMid == null && topRight != null
+                    && midLeft != null && midRight == null
+                    && botLeft != null && botMid != null && botRight != null)
+
+                    || (topLeft == null && topMid != null && topRight != null
+                    && midLeft != null && midRight == null
+                    && botLeft != null && botMid != null && botRight == null)
+
+                    || (topLeft != null && topMid != null && topRight == null
+                    && midLeft != null && midRight != null
+                    && botLeft == null && botMid == null && botRight != null)
+
+                    || (topLeft == null && topMid != null && topRight != null
+                    && midLeft == null && midRight != null
+                    && botLeft != null && botMid != null && botRight == null)
+
+                    || (topLeft != null && topMid != null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft == null && botMid == null && botRight != null)
+
+                    || (topLeft == null && topMid != null && topRight != null
+                    && midLeft == null && midRight != null
+                    && botLeft != null && botMid == null && botRight == null)
+
+                    || (topLeft != null && topMid != null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft != null && botMid != null && botRight != null)
+
+                    || (topLeft != null && topMid != null && topRight == null
+                    && midLeft == null && midRight == null
+                    && botLeft == null && botMid == null && botRight == null)
+
+                    || (topLeft != null && topMid == null && topRight == null
+                    && midLeft != null && midRight != null
+                    && botLeft != null && botMid != null && botRight == null)
+
+                    || (topLeft == null && topMid == null && topRight == null
+                    && midLeft == null && midRight != null
+                    && botLeft == null && botMid == null && botRight == null))
                 {
                     tilemap.SetTile(vector, null);
                 }
