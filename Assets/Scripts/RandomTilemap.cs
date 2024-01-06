@@ -459,8 +459,9 @@ public class RandomTilemap : MonoBehaviour
 
     public IEnumerator spawnPlayer()
     {
-        Vector3 playerBeginsHere = GameManager.playerStart;
-        playerBeginsHere.x += 1;
+        Vector3 playerBeginsHere = playerSpawnPos;
+        playerBeginsHere.x += 3;
+        playerBeginsHere.y += 3;
         player.transform.position = playerBeginsHere;
         player.SetActive(false);
         if (spawnEffect != null)
