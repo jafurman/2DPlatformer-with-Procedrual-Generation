@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject spawnSlashPrefab;
 
+    public GameObject extraHopBoxPrefab;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -367,6 +369,7 @@ public class PlayerController : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.TakeDamage(1);
+                StartCoroutine(lilBoxSpawn());
             }
 
             if (enemy.tag == "Barrel")
@@ -413,6 +416,7 @@ public class PlayerController : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.TakeDamage(1);
+                StartCoroutine(lilBoxSpawn());
             }
 
             if (enemy.tag == "Barrel")
@@ -712,6 +716,16 @@ public class PlayerController : MonoBehaviour
         GameObject spawnSlash = Instantiate(spawnSlashPrefab, scythePoint, Quaternion.identity);
         yield return new WaitForSeconds(.5f);
         Destroy(spawnSlash);
+    }
+
+
+    public IEnumerator lilBoxSpawn()
+    {
+        Vector3 lilBoxSpot = gameObject.transform.position;
+        lilBoxSpot.y -= .4f;
+        GameObject box = Instantiate(extraHopBoxPrefab, lilBoxSpot, Quaternion.identity);
+        yield return new WaitForSeconds(.2f);
+        Destroy(box);
     }
 
 
