@@ -481,7 +481,10 @@ public class PlayerController : MonoBehaviour
 
     private void PerformMeleeAttack()
     {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeRange);
+        // take away a soul for its use, but does more damage damage
+        ScoreManager.instance.TakeScore(1);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeRange);
 
             foreach (Collider2D hit in hits)
             {
@@ -500,9 +503,9 @@ public class PlayerController : MonoBehaviour
 
                     if (enemy != null)
                     {
-                        enemy.TakeDamage(2);
-
-                    }
+                        enemy.TakeDamage(3);
+                        
+                }
                 }
             if (hit.CompareTag("Enemy"))
             {

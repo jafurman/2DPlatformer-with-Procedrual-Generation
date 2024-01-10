@@ -8865,6 +8865,151 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4816531660079863723, guid: d3d4cee7d1d054cafb373d6aa5508d5e, type: 3}
   m_PrefabInstance: {fileID: 752341491}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &765523490
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -325.20367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -340.32852
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366457, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178718682366462, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Name
+      value: StartDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 'Bit disorienting isn''t it? Before you ascend a level in hell you must
+        first traverse the outlands. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: The outlands are an everchanging series of tunnels and caverns that
+        lead to the next step toward the surface.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: 'To charge the teslas, simply stand on the color platforms. New climbable
+        items will illuminate the way. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: Don't fall...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071178720053787215, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Try going to the right, and click on me in the bottom right corner if
+        you really need the help when I pop up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830378934990262871, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 320.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830378934990262871, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 418.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 233.74326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 130.17424
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -128.26645
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 119.26148
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -104.09448
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -23.55527
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -119.53577
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -168.26236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 79.21559
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -167.96936
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 232.90276
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445519993873093471, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -164.17615
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25d1d82bcfa8c424dafc95438de7f360, type: 3}
 --- !u!1 &780560456
 GameObject:
   m_ObjectHideFlags: 0
