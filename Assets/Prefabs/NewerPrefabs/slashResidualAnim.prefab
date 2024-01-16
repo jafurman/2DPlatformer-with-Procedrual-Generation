@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1495137979899349314}
   - component: {fileID: 3825742763286116877}
   - component: {fileID: 9074361502192816018}
+  - component: {fileID: 8031042403875943185}
   m_Layer: 0
   m_Name: slashResidualAnim
   m_TagString: Untagged
@@ -212,4 +213,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a8a9c5889fb41dbbaafc319bfa0a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 150
+  spinSpeed: 200
+--- !u!114 &8031042403875943185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728512444323115070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4b8537802f74dfebf47727b69a0c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBeforeDelete: 1

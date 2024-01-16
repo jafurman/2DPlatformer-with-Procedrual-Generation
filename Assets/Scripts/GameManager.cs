@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         thePlayer.theRB2D.drag = 0f;
         PlayerController.freezeOn = false;
         PlayerController.allowAttack = true;
+        Slider.isSliding = false;
 
         GameObject slideIndicator = GameObject.FindGameObjectWithTag("slideIndicator");
 
