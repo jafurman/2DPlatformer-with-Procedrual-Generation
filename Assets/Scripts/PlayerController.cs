@@ -577,7 +577,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    void Jump()
+    public void Jump()
     {
 
         if (grounded && !inDialogueMode && canJump && !isSwinging)
