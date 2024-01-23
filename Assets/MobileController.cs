@@ -8,11 +8,13 @@ public class MobileController : MonoBehaviour
     public static bool mobileControlsEnabled = false;
     public GameObject player;
 
+    public Rigidbody2D playerRB;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,8 +45,7 @@ public class MobileController : MonoBehaviour
     public void jump()
     {
         Debug.Log("CLICKING BUTTTOONNN");
-        // CODE HERE USING PLAYER OBJECT TO DO CONTROLS
-        // COPY PASTE CODE FROM THE PLAYERCONTROLLER
+        playerRB.velocity = new Vector2(playerRB.velocity.x, 4);
     }
 
     public void right()

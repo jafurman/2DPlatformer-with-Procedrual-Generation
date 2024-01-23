@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &1097727584553371666
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &1838530556878777743
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &2056863726006018919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &2748513765655162001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &3445114325982092365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,6 +4300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &7072949342091739181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,6 +5382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &8774712647462170049
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,6 +5587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 8063435099012380058}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &8774712649138895158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileControls: {fileID: 0}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!1 &9143939285675373374
 GameObject:
   m_ObjectHideFlags: 0
