@@ -1028,7 +1028,7 @@ MonoBehaviour:
   percentageAgainstBackTracking: 100
   modulator: 0
   bias: 0
-  spawnPrefab: {fileID: 2205720653353678814, guid: cd2f15b9a63e84c21ad12fa892413e5d, type: 3}
+  spawnPrefab: {fileID: 4309963492909238586, guid: d99128431006a478d8fbb9bd402fe40b, type: 3}
   player: {fileID: 228928499}
   playerSpawnPos: {x: 0, y: 0, z: 0}
   TMcollider: {fileID: 814917754}
