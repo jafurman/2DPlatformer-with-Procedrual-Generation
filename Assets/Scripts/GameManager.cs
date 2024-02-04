@@ -20,7 +20,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerStart = thePlayer.transform.position;
-
+        if (!PlayerPrefs.HasKey("soulScore"))
+        {
+            PlayerPrefs.SetInt("soulScore", 0);
+            PlayerPrefs.Save();
+        }
+        Debug.Log("Start: "+PlayerPrefs.GetInt("soulScore"));
         //spawnEffect = GameObject.FindGameObjectWithTag("SpawnEffect");
     }
 

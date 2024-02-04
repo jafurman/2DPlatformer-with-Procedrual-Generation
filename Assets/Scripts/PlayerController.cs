@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject extraHopBoxPrefab;
 
+    public SoulScoreManager ssm;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -370,6 +372,9 @@ public class PlayerController : MonoBehaviour
             {
                 enemyComponent.TakeDamage(1);
                 StartCoroutine(lilBoxSpawn());
+
+                ssm.addPoints(10);
+
             }
 
             if (enemy.tag == "Barrel")
@@ -417,6 +422,7 @@ public class PlayerController : MonoBehaviour
             {
                 enemyComponent.TakeDamage(1);
                 StartCoroutine(lilBoxSpawn());
+                ssm.addPoints(10);
             }
 
             if (enemy.tag == "Barrel")
