@@ -56,6 +56,9 @@ public class LivesManager : MonoBehaviour
             livesCounter--;
             StartCoroutine(spawnMinusOneAnim());
             PlayerPrefs.SetInt("CurrentLives", livesCounter);
+
+            killManager.instance.addDeathCounter();
+
             if (Weapon.shotsLeft > 0)
             {
                 ScoreManager.instance.TakeScore(soulReduction);

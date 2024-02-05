@@ -28280,6 +28280,10 @@ PrefabInstance:
       propertyPath: livesText
       value: 
       objectReference: {fileID: 8774712647844065310}
+    - target: {fileID: 2504091748937180979, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
+      propertyPath: minusOnePrefab
+      value: 
+      objectReference: {fileID: 8179910863563101153, guid: 5781f6d33252044228880662d4afea1a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f698a6468ad9540388f84e6c760320e0, type: 3}
 --- !u!224 &2519868363945449176
