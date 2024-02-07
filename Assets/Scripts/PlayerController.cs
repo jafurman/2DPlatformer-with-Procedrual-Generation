@@ -549,7 +549,8 @@ public class PlayerController : MonoBehaviour
             speed = 1.5f;
         } else if (!isSwinging && !speedPotion.speedBoostOn)
         {
-            speed = 3;
+            float multiplier = SoulScoreManager.speedMultiplier;
+            speed = 3 * multiplier;
         } else if (!isSwinging && speedPotion.speedBoostOn)
         {
             speed = 4f;

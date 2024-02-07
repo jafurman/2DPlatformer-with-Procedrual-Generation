@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public GameObject theBullet;
     public static float speed = 1.5f;
     public Rigidbody2D rb;
-    public float damage = 3f;
+    public static float damage = 3f;
     public GameObject impactEffect;
 
     public GameObject player; //for the player's info

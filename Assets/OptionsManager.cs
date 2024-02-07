@@ -12,7 +12,7 @@ public class OptionsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //OptionsMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
         //MainOptionsPanel.SetActive(false);
         SaveGamePanel.SetActive(false);
         SkillPanel.SetActive(false);
