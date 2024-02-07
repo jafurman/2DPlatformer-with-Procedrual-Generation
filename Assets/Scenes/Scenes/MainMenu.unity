@@ -736,6 +736,8 @@ MonoBehaviour:
   PCGLEVELNAME: PCGLEVEL
   defaultLives: 5
   defaultScore: 3
+  defaultSoulSlots: 5
+  defaultSoulScore: 0
 --- !u!1 &123334693
 GameObject:
   m_ObjectHideFlags: 0
