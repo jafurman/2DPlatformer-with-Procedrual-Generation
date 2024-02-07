@@ -18,20 +18,23 @@ public class SoulScoreManager : MonoBehaviour
     public Button skill4;
     public Button skill5;
 
-    public static int ASkillNumber;
-    public static int BSkillNumber;
-    public static int MSkillNumber;
-
     // Start is called before the first frame update
     void Start()
     {
+        MainMenu.skillBuys = PlayerPrefs.GetInt("SkillBuys");
+
+        if (PlayerPrefs.GetInt("SkillBuys") >= 5)
+        {
+            skill1.interactable = false;
+            skill2.interactable = false;
+            skill3.interactable = false;
+            skill4.interactable = false;
+            skill5.interactable = false;
+        }
 
         latest = 0;
         speedMultiplier = 1;
 
-        ASkillNumber = 1;
-        BSkillNumber = 0;
-        MSkillNumber = 0;
     }
 
     // Update is called once per frame
@@ -79,57 +82,59 @@ public class SoulScoreManager : MonoBehaviour
 
     public void buyAgilitySlot()
     {
-        addPoints(1000);
-        speedMultiplier = speedMultiplier * 1.1f;
+            addPoints(1000);
+            MainMenu.skillBuys++;
+            speedMultiplier = speedMultiplier * 1.1f;
+            PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
+            PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
+            PlayerPrefs.Save();
 
-        ASkillNumber++;
-        switch (ASkillNumber)
-        {
-            case 1:
-                skill1.interactable = true;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 2:
-                skill1.interactable = false;
-                skill2.interactable = true;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 3:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = true;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 4:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = true;
-                skill5.interactable = false;
-                break;
-            case 5:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = true;
-                break;
-            case 6:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            default:
-                Debug.LogError("Invalid skill number: " + ASkillNumber);
-                break;
+            switch (MainMenu.skillBuys)
+            {
+                case 1:
+                    skill1.interactable = true;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 2:
+                    skill1.interactable = false;
+                    skill2.interactable = true;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 3:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = true;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 4:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = true;
+                    skill5.interactable = false;
+                    break;
+                case 5:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = true;
+                    break;
+                default:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+
+        
         }
         //scythe speed
     }
