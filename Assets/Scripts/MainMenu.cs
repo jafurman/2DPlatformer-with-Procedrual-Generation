@@ -14,18 +14,22 @@ public class MainMenu : MonoBehaviour
 	public int defaultSoulSlots = 5;
 	public int defaultSoulScore = 0;
 	public float defaultspeedMultiplier = 1;
+	public int defaultSoulDamageAddition = 1;
+	public int extraSoulSlots;
 	public static int skillBuys;
 	private void Start() 
 	{
 
-			PlayerPrefs.SetInt("CurrentLives", defaultLives);
-			PlayerPrefs.SetInt("CurrentScore", defaultScore);
-			PlayerPrefs.SetInt("CurrentSoulSlots", defaultSoulSlots);
-			PlayerPrefs.SetInt("soulScore", defaultSoulScore);
-			PlayerPrefs.SetFloat("speedMultiplier", defaultspeedMultiplier);
-
-			skillBuys = 1;
-			PlayerPrefs.SetInt("SkillBuys", skillBuys);
+		PlayerPrefs.SetInt("CurrentLives", defaultLives);
+		PlayerPrefs.SetInt("CurrentScore", defaultScore);
+		PlayerPrefs.SetInt("CurrentSoulSlots", defaultSoulSlots);
+		PlayerPrefs.SetInt("soulScore", defaultSoulScore);
+		PlayerPrefs.SetFloat("speedMultiplier", defaultspeedMultiplier);
+		PlayerPrefs.SetInt("soulDamageAddition", defaultSoulDamageAddition);
+		extraSoulSlots = 0;
+		PlayerPrefs.SetInt("ExtraSoulSlots", extraSoulSlots);
+		skillBuys = 1;
+		PlayerPrefs.SetInt("SkillBuys", skillBuys);
 
 	}
 	public void playGame()

@@ -43,7 +43,7 @@ public class SoulScoreManager : MonoBehaviour
         int currentScore = PlayerPrefs.GetInt("soulScore");
         addedPoints.text = " " + currentScore;
 
-        change.text = " + " + latest;
+        change.text = " : " + latest;
     }
 
 
@@ -66,84 +66,115 @@ public class SoulScoreManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("Change: " + PlayerPrefs.GetInt("soulScore"));
         latest = points;
+
+        skillSlots();
     }
 
+    
     //tie these functions to buttons of this class instance in the HUD.. its a decent system I've set up.
+    //all three are to be used as separate buttons that are pressed after selecting their character build.
+    
     public void buyBulkySlot()
     {
+        addPoints(1000);
+        MainMenu.skillBuys++;
+        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-        subtractPoints(1000);
-        Weapon.shotsLeft++;
-        int currentSlots = Weapon.shotsLeft;
-        PlayerPrefs.SetInt("CurrentSoulSlots", currentSlots);
+        int ess = PlayerPrefs.GetInt("ExtraSoulSlots");
+        ess++;
+        PlayerPrefs.SetInt("ExtraSoulSlots", ess);
         PlayerPrefs.Save();
-        Debug.Log("New soul slot added. Now: " + currentSlots);
+        Debug.Log("New soul slot added. Now: " + (5 + ess));
+        //make sure that the extra slots work
+
+        PlayerPrefs.Save();
+
+        skillSlots();
     }
 
     public void buyAgilitySlot()
     {
-            addPoints(1000);
-            MainMenu.skillBuys++;
-            speedMultiplier = speedMultiplier * 1.1f;
-            PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
-            PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
-            PlayerPrefs.Save();
+        subtractPoints(1000);
+        MainMenu.skillBuys++;
+        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-            switch (MainMenu.skillBuys)
-            {
-                case 1:
-                    skill1.interactable = true;
-                    skill2.interactable = false;
-                    skill3.interactable = false;
-                    skill4.interactable = false;
-                    skill5.interactable = false;
-                    break;
-                case 2:
-                    skill1.interactable = false;
-                    skill2.interactable = true;
-                    skill3.interactable = false;
-                    skill4.interactable = false;
-                    skill5.interactable = false;
-                    break;
-                case 3:
-                    skill1.interactable = false;
-                    skill2.interactable = false;
-                    skill3.interactable = true;
-                    skill4.interactable = false;
-                    skill5.interactable = false;
-                    break;
-                case 4:
-                    skill1.interactable = false;
-                    skill2.interactable = false;
-                    skill3.interactable = false;
-                    skill4.interactable = true;
-                    skill5.interactable = false;
-                    break;
-                case 5:
-                    skill1.interactable = false;
-                    skill2.interactable = false;
-                    skill3.interactable = false;
-                    skill4.interactable = false;
-                    skill5.interactable = true;
-                    break;
-                default:
-                    skill1.interactable = false;
-                    skill2.interactable = false;
-                    skill3.interactable = false;
-                    skill4.interactable = false;
-                    skill5.interactable = false;
-                    break;
+        speedMultiplier = speedMultiplier * 1.1f;
+        PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
 
-        
-        }
+        PlayerPrefs.Save();
         //scythe speed
+
+        skillSlots();
     }
 
     public void buyMagicSlot()
     {
-        subtractPoints(1000);
-        Bullet.damage++;
+        addPoints(1000);
+        MainMenu.skillBuys++;
+        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
+
+
+        int sda = PlayerPrefs.GetInt("soulDamageAddition");
+        sda++;
+        PlayerPrefs.SetInt("soulDamageAddition", sda);
+
+        PlayerPrefs.Save();
+
+        Debug.Log("Soul now does " + (Bullet.damage + sda) + " damage");
+
+        skillSlots();
     }
+
+    private void skillSlots()
+    {
+        switch (MainMenu.skillBuys)
+        {
+            case 1:
+                skill1.interactable = true;
+                skill2.interactable = false;
+                skill3.interactable = false;
+                skill4.interactable = false;
+                skill5.interactable = false;
+                break;
+            case 2:
+                skill1.interactable = false;
+                skill2.interactable = true;
+                skill3.interactable = false;
+                skill4.interactable = false;
+                skill5.interactable = false;
+                break;
+            case 3:
+                skill1.interactable = false;
+                skill2.interactable = false;
+                skill3.interactable = true;
+                skill4.interactable = false;
+                skill5.interactable = false;
+                break;
+            case 4:
+                skill1.interactable = false;
+                skill2.interactable = false;
+                skill3.interactable = false;
+                skill4.interactable = true;
+                skill5.interactable = false;
+                break;
+            case 5:
+                skill1.interactable = false;
+                skill2.interactable = false;
+                skill3.interactable = false;
+                skill4.interactable = false;
+                skill5.interactable = true;
+                break;
+            default:
+                skill1.interactable = false;
+                skill2.interactable = false;
+                skill3.interactable = false;
+                skill4.interactable = false;
+                skill5.interactable = false;
+                break;
+        }
+    }
+
+
 
     public void subtractPointsForDev()
     {

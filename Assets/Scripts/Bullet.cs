@@ -145,7 +145,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             } else
             {
-                enemy.TakeDamage(damage);
+                int sda = PlayerPrefs.GetInt("soulDamageAddition");
+                int combo = (int)(damage + sda);
+                Debug.Log("Enemy is currently taking this much damage: " + combo);
+                enemy.TakeDamage(combo);
+
                 //destroy the gameobject and instantiate impactEffect if it hits the enemy
                 Instantiate(impactEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
@@ -170,7 +174,10 @@ public class Bullet : MonoBehaviour
         }
         else if (hitInfo.gameObject.tag == "Enemy")
         {
-            enemy.TakeDamage(damage);
+            int sda = PlayerPrefs.GetInt("soulDamageAddition");
+            int combo = (int)(damage + sda);
+            Debug.Log("Enemy is currently taking this much damage: " + combo);
+            enemy.TakeDamage(combo);
             //we don't want repetative damage on this
             Destroy(gameObject);
         }
@@ -178,6 +185,7 @@ public class Bullet : MonoBehaviour
         {
             //destroy the gameobject if it hits anything with a solid collider
             Destroy(gameObject);
+            //code for sounds of it running into things
         }
 
 
