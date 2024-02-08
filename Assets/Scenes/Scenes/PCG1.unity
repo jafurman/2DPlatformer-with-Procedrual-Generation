@@ -1007,15 +1007,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 814917751}
   tiles:
-  - {fileID: 11400000, guid: fe5865630ad1840b6b6eb0a83ee766c3, type: 2}
-  - {fileID: 11400000, guid: 2471644d5265944cd93bf8a7e3201fae, type: 2}
-  - {fileID: 11400000, guid: 3da018fdc2d804529b99fd40632613b4, type: 2}
-  - {fileID: 11400000, guid: 0f9270bcccd2e4acea9b28fc3ec169b4, type: 2}
-  - {fileID: 11400000, guid: 386c40245c49c453fa9c95e45cb70dc9, type: 2}
-  - {fileID: 11400000, guid: c807314bf16a24bbfa34073658f0f043, type: 2}
-  - {fileID: 11400000, guid: 36b3accf7fd7e423ebbb165bb00707c8, type: 2}
-  - {fileID: 11400000, guid: d76a9b9ffe1fa4738b5ad379f84fbea8, type: 2}
-  - {fileID: 11400000, guid: 242182ea391ad4d368b85db16f5252ae, type: 2}
+  - {fileID: 11400000, guid: 1e917ef4f554744e0968818744c0db6a, type: 2}
+  - {fileID: 11400000, guid: c679ed375aaed4a48b5bdc9ef2c2a12d, type: 2}
+  - {fileID: 11400000, guid: e3a34135e0319468e89918bc56066925, type: 2}
+  - {fileID: 11400000, guid: ef18be56575084044b7a1f3734367dc4, type: 2}
+  - {fileID: 11400000, guid: 2b7e4c06207364a3aa2bfeadfd294075, type: 2}
+  - {fileID: 11400000, guid: 77a803e26ac994b04b4e9f88d638b369, type: 2}
+  - {fileID: 11400000, guid: f0824e6b8021a4e0383946d1f8c7c495, type: 2}
+  - {fileID: 11400000, guid: ef269dff1b66441ebad3f2ca8e3ffb13, type: 2}
+  - {fileID: 11400000, guid: c72a323b90d6b4b84a254a1091d6d300, type: 2}
   gridSize: {x: 35, y: 35}
   cellSize: 1
   previousStartPos: {x: 0, y: 0, z: 0}
@@ -39247,7 +39247,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349407308}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -50605,7 +50605,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCounter: 0
+  deathCounter: 0
   killText: {fileID: 5901054590315913431}
+  deathText: {fileID: 0}
 --- !u!224 &8151309261928989335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50660,6 +50662,11 @@ MonoBehaviour:
   soulSlot3: {fileID: 1235860229534906504}
   soulSlot4: {fileID: 1097727585269265558}
   soulSlot5: {fileID: 3322156937099963122}
+  soulSlot11: {fileID: 0}
+  soulSlot22: {fileID: 0}
+  soulSlot33: {fileID: 0}
+  soulSlot44: {fileID: 0}
+  soulSlot55: {fileID: 0}
   minusOnePrefab: {fileID: 8179910863563101153, guid: 5781f6d33252044228880662d4afea1a, type: 3}
 --- !u!1 &8199179411777925738
 GameObject:
