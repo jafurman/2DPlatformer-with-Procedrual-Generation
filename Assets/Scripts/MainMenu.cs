@@ -31,6 +31,9 @@ public class MainMenu : MonoBehaviour
 		skillBuys = 1;
 		PlayerPrefs.SetInt("SkillBuys", skillBuys);
 
+		//Make sure player choice is set back to 0 upon restarting the game
+		PlayerPrefs.SetInt("PlayerType", 0);
+
 	}
 	public void playGame()
 	{

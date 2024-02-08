@@ -178,7 +178,6 @@ public class SoulScoreManager : MonoBehaviour
 
     public void subtractPointsForDev()
     {
-
         int currentScore = PlayerPrefs.GetInt("soulScore");
         currentScore -= 10;
         PlayerPrefs.SetInt("soulScore", currentScore);
@@ -186,11 +185,5 @@ public class SoulScoreManager : MonoBehaviour
         Debug.Log("Change: " + PlayerPrefs.GetInt("soulScore"));
         latest = 10;
     }
-
-
-    //CONSIDER USING PLAYER PREFS FOR MAGIC, HP, and AGILITY slots ? 5 upgrades each? subtract player pref avaliable slots when clicking one?
-
-
-
 
 }
