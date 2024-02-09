@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,7 +8,7 @@ public class Bullet : MonoBehaviour
     public GameObject theBullet;
     public static float speed = 1.5f;
     public Rigidbody2D rb;
-    public static float damage = 3f;
+    public static float damage = 1f;
     public GameObject impactEffect;
 
     public GameObject player; //for the player's info
@@ -29,11 +30,19 @@ public class Bullet : MonoBehaviour
 
     public GameObject spawnTailPrefab;
 
+    public static bool tracking = false;
 
+    private GameObject[] enemies;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject[] wardens = GameObject.FindGameObjectsWithTag("Warden");
+        GameObject[] spooders = GameObject.FindGameObjectsWithTag("Spooder");
+        GameObject[] genericEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // Combine the arrays into a single array
+        enemies = wardens.Concat(spooders).Concat(genericEnemies).ToArray();
 
         // gets the start color so I can make changes to the color and revert back
         ren = GetComponent<SpriteRenderer>();
@@ -58,8 +67,36 @@ public class Bullet : MonoBehaviour
 
     }
 
+    GameObject FindNearestEnemy()
+    {
+        GameObject nearestEnemy = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestEnemy = enemy;
+            }
+        }
+
+        return nearestEnemy;
+    }
+
+
     void Update()
     {
+
+        //Get the player prefs for the soul upgrades
+        float factor = PlayerPrefs.GetFloat("TrackingAndSinLevel");
+        if (factor != 0)
+        {
+            tracking = true;
+        }
+
         //HOLDING
         if (PlayerController.freezeOn && !PlayerController.released)
         {
@@ -76,42 +113,7 @@ public class Bullet : MonoBehaviour
         }
         if (!PlayerController.freezeOn && !PlayerController.released)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-
-
-            //if neither action 1 or 2, do this last resort action if P isnt clicked at all
-            rb.isKinematic = false;
-
-            //this is what makes it move
-            rb.velocity = transform.right * speed;
-
-            if (player != null)
-            {
-                if (PlayerController.FacingRight == true)
-                {
-                    player.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-                }
-                else if (PlayerController.FacingRight == false)
-                {
-                    player.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
-                }
-            }
-
-            // decrease the X scale of the game object
-            transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
-
-
-            if (greenPotion.active == true)
-            {
-                //change the color of the soul shot
-                Bullet.ren.color = Color.green;
-            }
-            else
-            {
-                Bullet.ren.color = startingColor;
-            }
-
-            Debug.Log("Rounds are volatile: " + volatileRounds);
+            normalSoulMovement();
         }
 
 
@@ -204,6 +206,62 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void normalSoulMovement()
+    {
+        if (tracking)
+        {
+            StartCoroutine(delayTracking());
+        } else
+        {
+            rb.velocity = transform.right * speed;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+
+        //if neither action 1 or 2, do this last resort action if P isnt clicked at all
+        rb.isKinematic = false;
+
+
+        if (player != null)
+        {
+            if (PlayerController.FacingRight == true)
+            {
+                player.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+            else if (PlayerController.FacingRight == false)
+            {
+                player.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+        }
+
+        // decrease the X scale of the game object
+        transform.localScale -= new Vector3(scaleDecreaseRate * Time.deltaTime, 0f, 0f);
+
+
+        if (greenPotion.active == true)
+        {
+            //change the color of the soul shot
+            Bullet.ren.color = Color.green;
+        }
+        else
+        {
+            Bullet.ren.color = startingColor;
+        }
+    }
+
+    public void trackEnemy(GameObject ne)
+    {
+        Debug.Log("Function called" + ne);
+        if (tracking && ne != null)
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+
+            Vector3 direction = (ne.transform.position - transform.position).normalized;
+            speed += PlayerPrefs.GetInt("TrackingAndSinLevel");
+            rb.velocity = direction * speed;
+
+        }
+    }
+
     //time until the bullet stops
     IEnumerator timeStop()
     {
@@ -245,6 +303,17 @@ public class Bullet : MonoBehaviour
         PlayerController.released = false;
 
         Destroy(gameObject);
+    }
+
+    public IEnumerator delayTracking()
+    {
+        rb.velocity = transform.right * speed;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(2f);
+
+        Bullet.ren.color = Color.yellow;
+        GameObject ne = FindNearestEnemy();
+        trackEnemy(ne);
     }
 
 }

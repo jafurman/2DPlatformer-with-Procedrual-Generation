@@ -385,7 +385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theBullet: {fileID: 7060462145467170951}
   rb: {fileID: 7060462145467170949}
-  damage: 3
   impactEffect: {fileID: 6958707282639067497, guid: 18fd66b41f37a42618222af8d81007cc, type: 3}
   player: {fileID: 0}
   playSound: {fileID: 877208417975367780}

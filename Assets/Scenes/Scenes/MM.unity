@@ -31014,6 +31014,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6226069043495777874, guid: beac2ab2cf2ba4329b770b4a45390c58, type: 3}
+      propertyPath: mainMenu
+      value: MM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226069043495777874, guid: beac2ab2cf2ba4329b770b4a45390c58, type: 3}
       propertyPath: thePlayer
       value: 
       objectReference: {fileID: 1899418155}

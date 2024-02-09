@@ -14,9 +14,10 @@ public class MainMenu : MonoBehaviour
 	public int defaultSoulSlots = 5;
 	public int defaultSoulScore = 0;
 	public float defaultspeedMultiplier = 1;
-	public int defaultSoulDamageAddition = 1;
+	public int defaultSoulDamageAddition = 0;
 	public int extraSoulSlots;
 	public static int skillBuys;
+	public static float defaultTrackingAndSinLevel = 0;
 	private void Start() 
 	{
 
@@ -30,6 +31,7 @@ public class MainMenu : MonoBehaviour
 		PlayerPrefs.SetInt("ExtraSoulSlots", extraSoulSlots);
 		skillBuys = 1;
 		PlayerPrefs.SetInt("SkillBuys", skillBuys);
+		PlayerPrefs.SetFloat("TrackingAndSinLevel", defaultTrackingAndSinLevel);
 
 		//Make sure player choice is set back to 0 upon restarting the game
 		PlayerPrefs.SetInt("PlayerType", 0);

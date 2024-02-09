@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Scenes/LEVEL 1 (finalized).unity
+    path: Assets/Scenes/Scenes/MM.unity
     guid: 1a49aafe923a2469b9ebd4f825cd126e
   - enabled: 1
     path: Assets/Scenes/Scenes/OpenDialogue.unity

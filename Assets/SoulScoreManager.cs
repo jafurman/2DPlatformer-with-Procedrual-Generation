@@ -76,53 +76,85 @@ public class SoulScoreManager : MonoBehaviour
     
     public void buyBulkySlot()
     {
-        addPoints(1000);
-        MainMenu.skillBuys++;
-        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
+        int currentScore = PlayerPrefs.GetInt("soulScore");
+        if ((currentScore - 1000) <= 0)
+        {
+            Debug.Log("You don't hav enof mony");
+        }
+        else
+        {
+            subtractPoints(1000);
+            MainMenu.skillBuys++;
+            PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-        int ess = PlayerPrefs.GetInt("ExtraSoulSlots");
-        ess++;
-        PlayerPrefs.SetInt("ExtraSoulSlots", ess);
-        PlayerPrefs.Save();
-        Debug.Log("New soul slot added. Now: " + (5 + ess));
-        //make sure that the extra slots work
+            int ess = PlayerPrefs.GetInt("ExtraSoulSlots");
+            ess++;
+            PlayerPrefs.SetInt("ExtraSoulSlots", ess);
+            PlayerPrefs.Save();
+            Debug.Log("New soul slot added. Now: " + (5 + ess));
+            //make sure that the extra slots work
 
-        PlayerPrefs.Save();
+            PlayerPrefs.Save();
 
-        skillSlots();
+            skillSlots();
+        }
+
     }
 
     public void buyAgilitySlot()
     {
-        subtractPoints(1000);
-        MainMenu.skillBuys++;
-        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
+        int currentScore = PlayerPrefs.GetInt("soulScore");
+        if ((currentScore - 1000) <= 0)
+        {
+            Debug.Log("You don't hav enof mony");
+        }
+        else
+        {
+            subtractPoints(1000);
+            MainMenu.skillBuys++;
+            PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-        speedMultiplier = speedMultiplier * 1.1f;
-        PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
+            speedMultiplier = speedMultiplier * 1.1f;
+            PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
 
-        PlayerPrefs.Save();
-        //scythe speed
+            PlayerPrefs.Save();
+            //scythe speed
 
-        skillSlots();
+            skillSlots();
+        }
+        
     }
 
     public void buyMagicSlot()
     {
-        addPoints(1000);
-        MainMenu.skillBuys++;
-        PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
+        int currentScore = PlayerPrefs.GetInt("soulScore");
+        if ((currentScore - 1000) <= 0)
+        {
+            Debug.Log("You don't hav enof mony");
+        }
+        else
+        {
+            subtractPoints(1000);
+            MainMenu.skillBuys++;
+            PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
 
-        int sda = PlayerPrefs.GetInt("soulDamageAddition");
-        sda++;
-        PlayerPrefs.SetInt("soulDamageAddition", sda);
+            int sda = PlayerPrefs.GetInt("soulDamageAddition");
+            sda++;
+            PlayerPrefs.SetInt("soulDamageAddition", sda);
 
-        PlayerPrefs.Save();
+            float tasLevel = PlayerPrefs.GetInt("TrackingAndSinLevel");
+            tasLevel += .25f;
+            PlayerPrefs.SetFloat("TrackingAndSinLevel", tasLevel);
+            Bullet.speed += tasLevel;
+            PlayerPrefs.Save();
 
-        Debug.Log("Soul now does " + (Bullet.damage + sda) + " damage");
 
-        skillSlots();
+            Debug.Log("Soul now does " + (Bullet.damage + sda) + " damage");
+
+            skillSlots();
+        }
+        
     }
 
     private void skillSlots()
@@ -185,5 +217,9 @@ public class SoulScoreManager : MonoBehaviour
         Debug.Log("Change: " + PlayerPrefs.GetInt("soulScore"));
         latest = 10;
     }
+
+
+
+
 
 }
