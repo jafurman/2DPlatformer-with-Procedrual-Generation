@@ -18,6 +18,8 @@ public class SoulScoreManager : MonoBehaviour
     public Button skill4;
     public Button skill5;
 
+    public Button skill11, skill22, skill33, skill44, skill55, skill111, skill222, skill333, skill444, skill555;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class SoulScoreManager : MonoBehaviour
 
         latest = 0;
         speedMultiplier = 1;
+        addPoints(50000000);
 
     }
 
@@ -103,17 +106,22 @@ public class SoulScoreManager : MonoBehaviour
 
     public void buyAgilitySlot()
     {
-
+        int currentScore = PlayerPrefs.GetInt("soulScore");
+        if ((currentScore - 1000) <= 0)
+        {
+            Debug.Log("You don't hav enof mony");
+        }
+        else
         {
             subtractPoints(1000);
             MainMenu.skillBuys++;
             PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-            speedMultiplier = speedMultiplier * 1.05f;
+            speedMultiplier = speedMultiplier * 1.005f;
             PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
 
             float slideJumpMultiplier = PlayerPrefs.GetFloat("slideJumpMultiplier");
-            slideJumpMultiplier++;
+            slideJumpMultiplier = slideJumpMultiplier + .2f;
             PlayerPrefs.SetFloat("slideJumpMultiplier", slideJumpMultiplier);
 
             PlayerPrefs.Save();
@@ -158,51 +166,154 @@ public class SoulScoreManager : MonoBehaviour
 
     private void skillSlots()
     {
-        switch (MainMenu.skillBuys)
+        int pt = PlayerPrefs.GetInt("PlayerType");
+        if (pt == 1)
         {
-            case 1:
-                skill1.interactable = true;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 2:
-                skill1.interactable = false;
-                skill2.interactable = true;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 3:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = true;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
-            case 4:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = true;
-                skill5.interactable = false;
-                break;
-            case 5:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = true;
-                break;
-            default:
-                skill1.interactable = false;
-                skill2.interactable = false;
-                skill3.interactable = false;
-                skill4.interactable = false;
-                skill5.interactable = false;
-                break;
+            switch (MainMenu.skillBuys)
+            {
+                case 1:
+                    skill1.interactable = true;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 2:
+                    skill1.interactable = false;
+                    skill2.interactable = true;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 3:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = true;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+                case 4:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = true;
+                    skill5.interactable = false;
+                    break;
+                case 5:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = true;
+                    break;
+                default:
+                    skill1.interactable = false;
+                    skill2.interactable = false;
+                    skill3.interactable = false;
+                    skill4.interactable = false;
+                    skill5.interactable = false;
+                    break;
+            } 
         }
+
+        if (pt == 2)
+        {
+            switch (MainMenu.skillBuys)
+            {
+                case 1:
+                    skill11.interactable = true;
+                    skill22.interactable = false;
+                    skill33.interactable = false;
+                    skill44.interactable = false;
+                    skill55.interactable = false;
+                    break;
+                case 2:
+                    skill11.interactable = false;
+                    skill22.interactable = true;
+                    skill33.interactable = false;
+                    skill44.interactable = false;
+                    skill55.interactable = false;
+                    break;
+                case 3:
+                    skill11.interactable = false;
+                    skill22.interactable = false;
+                    skill33.interactable = true;
+                    skill44.interactable = false;
+                    skill55.interactable = false;
+                    break;
+                case 4:
+                    skill11.interactable = false;
+                    skill22.interactable = false;
+                    skill33.interactable = false;
+                    skill44.interactable = true;
+                    skill55.interactable = false;
+                    break;
+                case 5:
+                    skill11.interactable = false;
+                    skill22.interactable = false;
+                    skill33.interactable = false;
+                    skill44.interactable = false;
+                    skill55.interactable = true;
+                    break;
+                default:
+                    skill11.interactable = false;
+                    skill22.interactable = false;
+                    skill33.interactable = false;
+                    skill44.interactable = false;
+                    skill55.interactable = false;
+                    break;
+            }
+        }
+
+        if (pt == 3)
+        {
+            switch (MainMenu.skillBuys)
+            {
+                case 1:
+                    skill111.interactable = true;
+                    skill222.interactable = false;
+                    skill333.interactable = false;
+                    skill444.interactable = false;
+                    skill555.interactable = false;
+                    break;
+                case 2:
+                    skill111.interactable = false;
+                    skill222.interactable = true;
+                    skill333.interactable = false;
+                    skill444.interactable = false;
+                    skill555.interactable = false;
+                    break;
+                case 3:
+                    skill111.interactable = false;
+                    skill222.interactable = false;
+                    skill333.interactable = true;
+                    skill444.interactable = false;
+                    skill555.interactable = false;
+                    break;
+                case 4:
+                    skill111.interactable = false;
+                    skill222.interactable = false;
+                    skill333.interactable = false;
+                    skill444.interactable = true;
+                    skill555.interactable = false;
+                    break;
+                case 5:
+                    skill111.interactable = false;
+                    skill222.interactable = false;
+                    skill333.interactable = false;
+                    skill444.interactable = false;
+                    skill555.interactable = true;
+                    break;
+                default:
+                    skill111.interactable = false;
+                    skill222.interactable = false;
+                    skill333.interactable = false;
+                    skill444.interactable = false;
+                    skill555.interactable = false;
+                    break;
+            }
+        }
+
     }
 
 
