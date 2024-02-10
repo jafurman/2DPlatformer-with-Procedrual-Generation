@@ -103,19 +103,18 @@ public class SoulScoreManager : MonoBehaviour
 
     public void buyAgilitySlot()
     {
-        int currentScore = PlayerPrefs.GetInt("soulScore");
-        if ((currentScore - 1000) <= 0)
-        {
-            Debug.Log("You don't hav enof mony");
-        }
-        else
+
         {
             subtractPoints(1000);
             MainMenu.skillBuys++;
             PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-            speedMultiplier = speedMultiplier * 1.1f;
+            speedMultiplier = speedMultiplier * 1.05f;
             PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
+
+            float slideJumpMultiplier = PlayerPrefs.GetFloat("slideJumpMultiplier");
+            slideJumpMultiplier++;
+            PlayerPrefs.SetFloat("slideJumpMultiplier", slideJumpMultiplier);
 
             PlayerPrefs.Save();
             //scythe speed

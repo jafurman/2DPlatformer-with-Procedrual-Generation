@@ -80,7 +80,9 @@ public class Slider : MonoBehaviour
                 if ((Input.GetKey(KeyCode.A) && !PlayerController.FacingRight) || (Input.GetKey(KeyCode.D) && PlayerController.FacingRight))
                 {
                     StartCoroutine(setActiveCollider());
-                    rbi.velocity = new Vector3(-5f, 5f, 10f);
+                    float slideJumpIncrease = PlayerPrefs.GetFloat("slideJumpMultiplier");
+                    rbi.velocity = new Vector3(-5f, (5f + slideJumpIncrease), 10f);
+                    Debug.Log("Slide jump increase: " + (slideJumpIncrease));
                 }
 
                 isSliding = false;
