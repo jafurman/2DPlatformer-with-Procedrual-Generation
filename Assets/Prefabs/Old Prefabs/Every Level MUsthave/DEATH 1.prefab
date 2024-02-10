@@ -47,6 +47,21 @@ MonoBehaviour:
   soulSlots: 0
   addedPoints: {fileID: 0}
   change: {fileID: 0}
+  skill1: {fileID: 0}
+  skill2: {fileID: 0}
+  skill3: {fileID: 0}
+  skill4: {fileID: 0}
+  skill5: {fileID: 0}
+  skill11: {fileID: 0}
+  skill22: {fileID: 0}
+  skill33: {fileID: 0}
+  skill44: {fileID: 0}
+  skill55: {fileID: 0}
+  skill111: {fileID: 0}
+  skill222: {fileID: 0}
+  skill333: {fileID: 0}
+  skill444: {fileID: 0}
+  skill555: {fileID: 0}
 --- !u!1 &1621335954496195882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1840,7 @@ GameObject:
   - component: {fileID: 8173726927807973535}
   m_Layer: 0
   m_Name: slideIndicator
-  m_TagString: Untagged
+  m_TagString: slideIndicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

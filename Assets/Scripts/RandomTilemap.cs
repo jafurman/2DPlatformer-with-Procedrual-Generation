@@ -41,8 +41,6 @@ public class RandomTilemap : MonoBehaviour
 
     public List<Vector3Int> topSpaces = new List<Vector3Int>();
 
-    public static Color tmColor;
-
     public GameObject levelStartPrefab;
     public GameObject leverEnderPrefab;
 
@@ -74,23 +72,8 @@ public class RandomTilemap : MonoBehaviour
 
         bias = Random.Range(0, 4);
 
-        Color randomColor = GetRandomBrightColor();
-
-        tilemap.color = randomColor;
-        tmColor = randomColor;
         
     }
-
-    private Color GetRandomBrightColor()
-    {
-        float randomHue = Random.Range(0f, 1f);
-        float saturation = 1f;
-        float brightness = 1f;
-        Color randomColor = Color.HSVToRGB(randomHue, saturation, brightness);
-
-        return randomColor;
-    }
-
     void GenerateLevel()
     {
         for (int x = 0; x < gridSize.x; x++)

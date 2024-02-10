@@ -13,22 +13,8 @@ public class BackgroundColorController : MonoBehaviour
     {
         backgrounds = GameObject.FindGameObjectsWithTag("BACKGROUND");
 
-        if (randomBgColor && RandomTilemap.tmColor != null)
-        {
-            changeBgColor();
-        }
     }
 
-
-    public void changeBgColor()
-    {
-        Color matchColor = RandomTilemap.tmColor;
-        foreach(GameObject go in backgrounds)
-        {
-            SpriteRenderer goSprite = go.GetComponent<SpriteRenderer>();
-            goSprite.color = matchColor;
-        }
-    }
 
 
 }
