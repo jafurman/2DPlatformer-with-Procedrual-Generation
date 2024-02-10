@@ -117,12 +117,16 @@ public class SoulScoreManager : MonoBehaviour
             MainMenu.skillBuys++;
             PlayerPrefs.SetInt("SkillBuys", MainMenu.skillBuys);
 
-            speedMultiplier = speedMultiplier * 1.005f;
+            speedMultiplier = speedMultiplier * 1.05f;
             PlayerPrefs.SetFloat("speedMultiplier", speedMultiplier);
 
             float slideJumpMultiplier = PlayerPrefs.GetFloat("slideJumpMultiplier");
             slideJumpMultiplier = slideJumpMultiplier + .2f;
             PlayerPrefs.SetFloat("slideJumpMultiplier", slideJumpMultiplier);
+
+            float decrementThis = PlayerPrefs.GetFloat("ScytheRateIncrease");
+            decrementThis = decrementThis - .25f;
+            PlayerPrefs.SetFloat("ScytheRateIncrease", decrementThis);
 
             PlayerPrefs.Save();
             //scythe speed

@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour
 	public int extraSoulSlots;
 	public static int skillBuys;
 	public static float defaultTrackingAndSinLevel = 0;
-	public static float defaultSlideIncrease = 0; 
+	public static float defaultSlideIncrease = 0;
+	public static float defaultScytheSpeedIncrease;
 	private void Start() 
 	{
 
@@ -36,6 +37,7 @@ public class MainMenu : MonoBehaviour
 		PlayerPrefs.SetFloat("slideJumpMultiplier", defaultSlideIncrease);
 		//Make sure player choice is set back to 0 upon restarting the game
 		PlayerPrefs.SetInt("PlayerType", 0);
+		PlayerPrefs.SetFloat("ScytheRateIncrease", 0);
 
 	}
 	public void playGame()

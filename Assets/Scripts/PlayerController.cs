@@ -170,7 +170,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.O) && Slider.isSliding == false)
             {
-                nextScytheTime = Time.time + 1f / ScytheRate;
+                float speedIncrease = PlayerPrefs.GetFloat("ScytheRateIncrease");
+                nextScytheTime = Time.time + 1f / (ScytheRate - speedIncrease);
 
                 if (!hasSwung)
                 {
