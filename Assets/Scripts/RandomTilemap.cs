@@ -185,8 +185,8 @@ public class RandomTilemap : MonoBehaviour
         SetPlayerSpawnArea();
         SetEndArea();
         cleanUpMap(true);
-        spawnTopSpaces();
         cleanUpMap(false);
+        spawnTopSpaces();
 
 
 
@@ -429,6 +429,7 @@ public class RandomTilemap : MonoBehaviour
                 mageSpawnPos.y += 2.5f;
                 mageSpawnPos.z += 2.5f;
                 GameObject mage = Instantiate(magePrefab, mageSpawnPos, Quaternion.identity);
+                Debug.Log("Dropping mage on " + newPos);
             }
 
             if (chance == 17 || chance == 6)
@@ -436,6 +437,7 @@ public class RandomTilemap : MonoBehaviour
                 Vector3 newPos = vector;
                 newPos.y += 1.4f;
                 GameObject skellyHands = Instantiate(skellyHandsPrefab, newPos, Quaternion.identity);
+                Debug.Log("Dropping skelly hands on " + newPos);
             }
         }
     }
@@ -446,6 +448,7 @@ public class RandomTilemap : MonoBehaviour
         playerBeginsHere.x += 3;
         playerBeginsHere.y += 3;
         player.transform.position = playerBeginsHere;
+        GameManager.playerStart = playerBeginsHere;
         player.SetActive(false);
         if (spawnEffect != null)
         {
