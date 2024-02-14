@@ -36,6 +36,7 @@ public class RandomTilemap : MonoBehaviour
     public GameObject spawnEffect;
     public GameObject magePrefab;
     public GameObject skellyHandsPrefab;
+    public GameObject eyeballSpawnerPrefab;
 
     public List<Vector3Int> tilesOnField = new List<Vector3Int>();
 
@@ -197,6 +198,11 @@ public class RandomTilemap : MonoBehaviour
             {
 
                 GameObject prefab = Instantiate(spawnPrefab, vector, Quaternion.identity);
+            }
+
+            if (randInt <= 50 && randInt >= 45)
+            {
+                GameObject eyeballSpawner = Instantiate(eyeballSpawnerPrefab, vector, Quaternion.identity);
             }
         }
 
@@ -406,9 +412,6 @@ public class RandomTilemap : MonoBehaviour
             {
                 tilemap.SetTile(vector, tiles[4]);
             }
-
-
-
 
         }
         tilemap.RefreshAllTiles();

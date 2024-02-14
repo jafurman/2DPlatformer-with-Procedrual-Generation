@@ -74,6 +74,7 @@ MonoBehaviour:
   spawnEffect: {fileID: 8331108276904658689, guid: ad0d9f0bc60c94c8fbb6f769b43abb0e, type: 3}
   magePrefab: {fileID: 24536515532897709, guid: f2adbffe3c995417eb13d6c3d1dbeddd, type: 3}
   skellyHandsPrefab: {fileID: 7622198677878238871, guid: c99c75a5a22fd41c0b3c982d6ffceb7c, type: 3}
+  eyeballSpawnerPrefab: {fileID: 2600142241046573219, guid: d331ca4de09604f19b53144dc33b5ee0, type: 3}
   tilesOnField: []
   topSpaces: []
   levelStartPrefab: {fileID: 6386596580924404626, guid: 3abaa46e3a5c54e5bbc3bd66c8d4fa50, type: 3}

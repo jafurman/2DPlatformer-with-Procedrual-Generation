@@ -9,6 +9,10 @@ public class OptionsManager : MonoBehaviour
     public GameObject SaveGamePanel;
     public GameObject SkillPanel;
     public GameObject ControlsPanel;
+    public GameObject agilityB;
+    public GameObject soulB;
+    public GameObject bulkyB;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,4 +39,5 @@ public class OptionsManager : MonoBehaviour
 
     public void openControlsPanel() { ControlsPanel.SetActive(true);}
     public void closeControlsPanel() { ControlsPanel.SetActive(false);}
+
 }
