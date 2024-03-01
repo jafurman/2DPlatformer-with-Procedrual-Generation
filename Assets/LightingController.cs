@@ -16,12 +16,18 @@ public class LightingController : MonoBehaviour
         
         foreach (Light2D light in lights)
         {
-            if (!light.gameObject.CompareTag("Player"))
+            if (!light.gameObject.CompareTag("Player") || (!light.gameObject.CompareTag("Spooder"))
+                || (!light.gameObject.CompareTag("Souls"))
+                || (!light.gameObject.CompareTag("Enemy"))
+                || (!light.gameObject.CompareTag("Warden"))
+                || (!light.gameObject.CompareTag("soul"))
+                || (!light.gameObject.CompareTag("slideIndicator"))
+                || (!light.gameObject.CompareTag("Danger")))
             {
                 light.intensity = darknessIntensity;
             } else
             {
-                light.intensity = darknessIntensity + 10;
+                light.intensity = darknessIntensity + 8;
             }
         }
     }

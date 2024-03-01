@@ -12484,6 +12484,9 @@ MonoBehaviour:
   SaveGamePanel: {fileID: 7451679113347024996}
   SkillPanel: {fileID: 691946167604334565}
   ControlsPanel: {fileID: 3631643164813378538}
+  agilityB: {fileID: 0}
+  soulB: {fileID: 0}
+  bulkyB: {fileID: 0}
 --- !u!1 &7277699014088131527
 GameObject:
   m_ObjectHideFlags: 0

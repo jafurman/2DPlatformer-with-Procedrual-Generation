@@ -200,7 +200,7 @@ public class RandomTilemap : MonoBehaviour
                 GameObject prefab = Instantiate(spawnPrefab, vector, Quaternion.identity);
             }
 
-            if (randInt <= 50 && randInt >= 45)
+            if (randInt <= 50 && randInt >= 47)
             {
                 GameObject eyeballSpawner = Instantiate(eyeballSpawnerPrefab, vector, Quaternion.identity);
             }
