@@ -36,7 +36,6 @@ public class SoulScoreManager : MonoBehaviour
 
         latest = 0;
         speedMultiplier = 1;
-        addPoints(50000000);
 
     }
 
