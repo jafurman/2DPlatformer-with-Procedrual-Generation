@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         if ( healthBar != null)
         {
             // Set the initial health bar size
-            healthBar.transform.localScale = new Vector3(1f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBar.transform.localScale = new Vector3(currentHealth / 10, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }
 
         
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (healthBar != null)
         {
             // Calculate and set the new health bar size
-            float proportionalDamage = damage / maxHealth;
+            float proportionalDamage = damage / 10;
             float newHealthSize = healthBar.transform.localScale.x - proportionalDamage;
             healthBar.transform.localScale = new Vector3(newHealthSize, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }

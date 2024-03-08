@@ -12,7 +12,11 @@ public class spawnCMage : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            cMage.SetActive(true);
+            if (cMage != null)
+            {
+                cMage.SetActive(true);
+            }
         }
+            
     }
 }
