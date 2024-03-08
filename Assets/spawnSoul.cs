@@ -20,5 +20,6 @@ public class spawnSoul : MonoBehaviour
         yield return new WaitForSeconds(.75f); //length of the animaiton
         Destroy(spawnedObject);
         GameObject newSoul = Instantiate(soulPrefab, spawnPos, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
