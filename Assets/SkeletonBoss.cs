@@ -37,6 +37,8 @@ public class SkeletonBoss : MonoBehaviour
 
     private bool bossDead = false;
 
+    public GameObject cameraManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -99,10 +101,7 @@ public class SkeletonBoss : MonoBehaviour
             }
         } else if (phase2Enabled)
         {
-            //once the health goes to a point where I want the chracter and boss to drop, I'm going to destroy specified prefabs/GOs
-            Destroy(itemsToDestroy);
-
-            bossAnimator.SetTrigger("SecondPhase");
+            StartCoroutine(destroyItemsWithDelay());
         }
 
         }
@@ -185,4 +184,14 @@ public class SkeletonBoss : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public IEnumerator destroyItemsWithDelay()
+    {
+        bossFightCamera cameraInstance = cameraManager.GetComponent<bossFightCamera>();
+        cameraInstance.BackToPlayerCamera();
+        yield return new WaitForSeconds(2f);
+        //once the health goes to a point where I want the chracter and boss to drop, I'm going to destroy specified prefabs/GOs
+        Destroy(itemsToDestroy);
+
+        bossAnimator.SetTrigger("SecondPhase");
+    }
 }
