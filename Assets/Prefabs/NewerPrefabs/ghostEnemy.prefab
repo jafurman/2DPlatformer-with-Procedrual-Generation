@@ -259,10 +259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentHealth: 0
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 4056822846752121015, guid: bdebf45c7eb974b48bbf070ddc5902fb, type: 3}
   healthBar: {fileID: 2205720652705304215}
   deathSound: {fileID: 8700086235440621252}
-  soulValue: 2
+  soulValue: 0
 --- !u!61 &2205720653353678808
 BoxCollider2D:
   m_ObjectHideFlags: 0

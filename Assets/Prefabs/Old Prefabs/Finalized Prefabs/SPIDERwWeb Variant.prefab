@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 7197621507995776525, guid: 9e877b3ec789a477ebe39f060d99ccb4, type: 3}
       propertyPath: deathEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4056822846752121015, guid: bdebf45c7eb974b48bbf070ddc5902fb, type: 3}
     - target: {fileID: 7197621507995776525, guid: 9e877b3ec789a477ebe39f060d99ccb4, type: 3}
       propertyPath: inputtedHealth
       value: 0.5
