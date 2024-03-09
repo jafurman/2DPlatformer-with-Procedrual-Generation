@@ -8912,6 +8912,8 @@ MonoBehaviour:
   skill333: {fileID: 495459471225103652}
   skill444: {fileID: 6629390521187998410}
   skill555: {fileID: 4716626220889300478}
+  player: {fileID: 0}
+  pointsAbovePlayer: {fileID: 2635696737765921945, guid: b9fe69b941b0c4c2286695abfafe6ec5, type: 3}
 --- !u!1 &5368258826555160321
 GameObject:
   m_ObjectHideFlags: 0

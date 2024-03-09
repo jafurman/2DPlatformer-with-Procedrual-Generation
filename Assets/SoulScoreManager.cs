@@ -20,9 +20,13 @@ public class SoulScoreManager : MonoBehaviour
 
     public Button skill11, skill22, skill33, skill44, skill55, skill111, skill222, skill333, skill444, skill555;
 
+    public GameObject player;
+    public GameObject pointsAbovePlayer;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         MainMenu.skillBuys = PlayerPrefs.GetInt("SkillBuys");
 
         if (PlayerPrefs.GetInt("SkillBuys") >= 5)
@@ -51,6 +55,8 @@ public class SoulScoreManager : MonoBehaviour
 
     public void addPoints(int points)
     {
+        StartCoroutine(addedPointsAbovePlayer(points));
+
         int currentScore = PlayerPrefs.GetInt("soulScore");
         currentScore += points;
         PlayerPrefs.SetInt("soulScore", currentScore);
@@ -333,6 +339,13 @@ public class SoulScoreManager : MonoBehaviour
 
 
 
-
+    public IEnumerator addedPointsAbovePlayer(int points)
+    {
+        Vector3 playerSpawnPos = player.transform.position;
+        playerSpawnPos.y += .5f;
+        GameObject pointsAdded = Instantiate(pointsAbovePlayer, playerSpawnPos, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        Destroy(pointsAdded);
+    }
 
 }
