@@ -10,14 +10,6 @@ public class Spider : MonoBehaviour
     private Rigidbody2D rb;
 
     private bool FacingDown = true;
-
-    public static float health = .5f;
-
-    public GameObject deathEffect;
-
-    public AudioSource playSound;
-
-    public GameObject healthBar;
     
     public float knockbackDuration = 0.1f;
     public float knockbackForce = 10f;
@@ -25,7 +17,6 @@ public class Spider : MonoBehaviour
     [SerializeField]
     public bool isOnBackground;
 
-    //Can make changeable through inspector tab later but for now 5
     public int TopBGSpiderLenght = 5;
     public int BottomBGSpiderLength = -5;
 
@@ -46,7 +37,6 @@ public class Spider : MonoBehaviour
             if (col.gameObject.tag == "Player" && !isOnBackground)
             {
                 useForBackground = true;
-                playSound.Play();
              
                 ScoreManager.instance.TakeScore(1);
                 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342502995104360905}
   - component: {fileID: 8546207083625577734}
+  - component: {fileID: 2792042368921319762}
   m_Layer: 0
   m_Name: addedPointsPrefab
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.8396226, g: 0.2732734, b: 0.7557188, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,6 +82,22 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2792042368921319762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635696737765921945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c326703841754477bb7ed1c898ed42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayScore: 10
+  score10: {fileID: 6780889897459521794, guid: 5fff14e4d580943d2a1e243dbcb98c8c, type: 3}
+  score50: {fileID: 8544905848282485986, guid: 189de0c690a4f4a048826dceee1dd4ff, type: 3}
+  score100: {fileID: 128429755907717100, guid: 79264c18e3aed42b8bb6973b16560a68, type: 3}

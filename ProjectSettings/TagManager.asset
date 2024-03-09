@@ -35,6 +35,7 @@ TagManager:
   - FlashInstance
   - BACKGROUND
   - soulScore
+  - soulScoreManager
   layers:
   - Default
   - TransparentFX

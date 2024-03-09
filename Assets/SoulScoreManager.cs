@@ -47,9 +47,9 @@ public class SoulScoreManager : MonoBehaviour
     void Update()
     {
         int currentScore = PlayerPrefs.GetInt("soulScore");
-        addedPoints.text = " " + currentScore;
+        addedPoints.text = "Soul Score: " + "[" +currentScore + "]";
 
-        change.text = " : " + latest;
+        change.text = "Latest change: " + "[" + latest + "]";
     }
 
 
@@ -73,7 +73,7 @@ public class SoulScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("soulScore", currentScore);
         PlayerPrefs.Save();
         Debug.Log("Change: " + PlayerPrefs.GetInt("soulScore"));
-        latest = points;
+        latest = -points;
 
         skillSlots();
     }
@@ -342,9 +342,12 @@ public class SoulScoreManager : MonoBehaviour
     public IEnumerator addedPointsAbovePlayer(int points)
     {
         Vector3 playerSpawnPos = player.transform.position;
-        playerSpawnPos.y += .5f;
-        GameObject pointsAdded = Instantiate(pointsAbovePlayer, playerSpawnPos, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
+        playerSpawnPos.y += .15f;
+        GameObject pointsAdded = pointsAbovePlayer;
+        OnScreenSoulScoreDisplayManager scriptInstance = pointsAdded.GetComponent<OnScreenSoulScoreDisplayManager>();
+        scriptInstance.displayScore = points;
+        Instantiate(pointsAdded, playerSpawnPos, Quaternion.identity);
+        yield return new WaitForSeconds(.9f);
         Destroy(pointsAdded);
     }
 

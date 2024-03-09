@@ -392,6 +392,7 @@ public class PlayerController : MonoBehaviour
                 lineAtPlayer lap = enemy.GetComponent<lineAtPlayer>();
                 if (lap != null)
                 {
+                    ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
                 }
             }
@@ -423,6 +424,7 @@ public class PlayerController : MonoBehaviour
             {
                 enemyComponent.TakeDamage(1);
                 StartCoroutine(lilBoxSpawn());
+
                 ssm.addPoints(10);
             }
 
@@ -439,6 +441,7 @@ public class PlayerController : MonoBehaviour
                 lineAtPlayer lap = enemy.GetComponent<lineAtPlayer>();
                 if (lap != null)
                 {
+                    ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
                 }
             }
@@ -503,6 +506,7 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 enemyPosition = hit.transform.position;
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
+                ssm.addPoints(10);
                 Destroy(hit.gameObject);
             }
             //ideally it should only be enemy
@@ -515,7 +519,9 @@ public class PlayerController : MonoBehaviour
                     if (enemy != null)
                     {
                         enemy.TakeDamage(3);
-                        
+
+                        ssm.addPoints(10);
+
                 }
                 }
             if (hit.CompareTag("Enemy"))
@@ -524,6 +530,7 @@ public class PlayerController : MonoBehaviour
                 lineAtPlayer lap = hit.GetComponent<lineAtPlayer>();
                 if (lap != null)
                 {
+                    ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
                 }
             }

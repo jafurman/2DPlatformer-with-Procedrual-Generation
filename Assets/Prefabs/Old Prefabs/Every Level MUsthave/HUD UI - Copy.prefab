@@ -3438,10 +3438,10 @@ RectTransform:
   m_Father: {fileID: 6019484932995885895}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -176.6, y: -3.5}
-  m_SizeDelta: {x: 84.5178, y: 15.674999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 236.5, y: -26.4}
+  m_SizeDelta: {x: 157.32, y: 15.675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2444952309823599437
 CanvasRenderer:
@@ -3464,7 +3464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.53768694, g: 0.31278923, b: 0.6698113, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3473,12 +3473,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 10
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -8862,7 +8862,7 @@ GameObject:
   - component: {fileID: 4053404455471594677}
   m_Layer: 0
   m_Name: SoulScoreManager
-  m_TagString: Untagged
+  m_TagString: soulScoreManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16365,10 +16365,10 @@ RectTransform:
   m_Father: {fileID: 6019484932995885895}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232.17543, y: -3.1178818}
-  m_SizeDelta: {x: 45.8492, y: 15.674999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 236.27972, y: -14.4}
+  m_SizeDelta: {x: 157.7596, y: 16.057}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6189070689835243490
 CanvasRenderer:
@@ -16391,7 +16391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.53768694, g: 0.31278923, b: 0.6698113, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16405,13 +16405,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Skill Points
+  m_Text: soul score
 --- !u!1 &8754527005381818643
 GameObject:
   m_ObjectHideFlags: 0

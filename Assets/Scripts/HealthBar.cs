@@ -16,12 +16,4 @@ public class HealthBar : MonoBehaviour
         localScale = transform.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        Debug.Log("OUCH");
-        localScale.x = Spider.health;
-        transform.localScale = localScale; 
-    }
 }

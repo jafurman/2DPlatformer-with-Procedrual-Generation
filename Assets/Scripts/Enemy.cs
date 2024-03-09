@@ -13,8 +13,10 @@ public class Enemy : MonoBehaviour
     private Animator theAnim;
     private bool isDead;
     public static bool isInvincible = false;
+    public SoulScoreManager ssm;
     private void Start()
     {
+        ssm = GameObject.FindGameObjectWithTag("soulScoreManager").GetComponent<SoulScoreManager>();
         theAnim = GetComponent<Animator>();
         currentHealth = maxHealth;
 
@@ -69,6 +71,7 @@ public class Enemy : MonoBehaviour
                 spider.enabled = false;
             }
 
+            ssm.addPoints(50);
             ScoreManager.instance.ChangeScore(soulValue);
             Die();
         }
@@ -78,7 +81,11 @@ public class Enemy : MonoBehaviour
     {
         killManager.instance.addKillCounter();
 
-        deathSound.Play();
+        if (deathSound != null)
+        {
+            deathSound.Play();
+        }
+
         isDead = true;
 
         SinusoidalMove sinMov = GetComponent<SinusoidalMove>();

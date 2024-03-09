@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
 		}
 		else
 		{
-			Weapon.shotsLeft -= soulReduction;
+            Weapon.shotsLeft -= soulReduction;
 			StartCoroutine(spawnMinusOneAnim());
 
 		}

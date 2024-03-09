@@ -16,11 +16,10 @@ public class lineAtPlayer : MonoBehaviour
     public GameObject player;
 
     public float yVal, xVal;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         //Vector3 positions of the player and the spawnPoint
