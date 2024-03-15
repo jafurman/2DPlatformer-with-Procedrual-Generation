@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenBarrel: {fileID: 850320292378151413, guid: 1b8ce2057b9344f3d999b626be4e5a65, type: 3}
+  soul: {fileID: 4309963492909238586, guid: d99128431006a478d8fbb9bd402fe40b, type: 3}
+  lifePotion: {fileID: 8910059472241969591, guid: 7cf3a37bc88664c88be712f86e736b0b, type: 3}

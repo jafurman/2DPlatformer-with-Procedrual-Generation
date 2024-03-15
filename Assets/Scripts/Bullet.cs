@@ -34,9 +34,13 @@ public class Bullet : MonoBehaviour
 
     private GameObject[] enemies;
 
+    public SoulScoreManager ssm;
+
     // Start is called before the first frame update
     void Start()
     {
+        ssm = GameObject.FindGameObjectWithTag("soulScoreManager").GetComponent<SoulScoreManager>();
+
         GameObject[] wardens = GameObject.FindGameObjectsWithTag("Warden");
         GameObject[] spooders = GameObject.FindGameObjectsWithTag("Spooder");
         GameObject[] genericEnemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -143,6 +147,7 @@ public class Bullet : MonoBehaviour
                 GameObject radialExplosion = impactEffect;
                 float doubleDamage = damage * 4;
                 enemy.TakeDamage(doubleDamage);
+                ssm.addPoints(50);
                 Instantiate(radialExplosion, transform.position, transform.rotation);
                 Destroy(gameObject);
             } else
@@ -152,6 +157,7 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Enemy is currently taking this much damage: " + combo);
                 enemy.TakeDamage(combo);
 
+                ssm.addPoints(10);
                 //destroy the gameobject and instantiate impactEffect if it hits the enemy
                 Instantiate(impactEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
@@ -180,6 +186,7 @@ public class Bullet : MonoBehaviour
             int combo = (int)(damage + sda);
             Debug.Log("Enemy is currently taking this much damage: " + combo);
             enemy.TakeDamage(combo);
+            ssm.addPoints(10);
             //we don't want repetative damage on this
             Destroy(gameObject);
         }

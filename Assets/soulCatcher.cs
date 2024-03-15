@@ -9,15 +9,18 @@ public class soulCatcher : MonoBehaviour
     public bool active;
 
     public GameObject player;
-    private UnityEngine.Rendering.Universal.Light2D light2D; // Reference to the Light2D component
-    private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
+    private UnityEngine.Rendering.Universal.Light2D light2D;
+    private SpriteRenderer spriteRenderer; 
 
     public GameObject spawnTagPrefab;
 
+    public SoulScoreManager ssm;
 
     // Start is called before the first frame update
     void Start()
     {
+        ssm = GameObject.FindGameObjectWithTag("soulScoreManager").GetComponent<SoulScoreManager>();
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         anim = GetComponent<Animator>();
@@ -58,8 +61,8 @@ public class soulCatcher : MonoBehaviour
 
             StartCoroutine(spawntheTag());
 
-
-
+            ssm.addPoints(10);
+            
             // Set the active value to true
             active = true;
 

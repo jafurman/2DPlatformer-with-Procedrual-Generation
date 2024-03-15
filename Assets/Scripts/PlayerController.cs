@@ -380,7 +380,7 @@ public class PlayerController : MonoBehaviour
 
             if (enemy.tag == "Barrel")
             {
-        
+                ssm.addPoints(10);
                 Vector3 enemyPosition = enemy.transform.position;
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
@@ -430,6 +430,7 @@ public class PlayerController : MonoBehaviour
 
             if (enemy.tag == "Barrel")
             {
+                ssm.addPoints(10);
                 Vector3 enemyPosition = enemy.transform.position;
                 BarrelScriptInstance.spawnBarrel(enemyPosition);
                 Destroy(enemy.gameObject);
