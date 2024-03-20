@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 145.23694, y: -107}
+  m_AnchoredPosition: {x: 190, y: -107}
   m_SizeDelta: {x: -2633.8105, y: 207.83508}
   m_Pivot: {x: 0.3, y: 0.5}
 --- !u!95 &14196297
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -138, y: -271}
-  m_SizeDelta: {x: 526.3389, y: 79.282}
+  m_AnchoredPosition: {x: -138, y: -184}
+  m_SizeDelta: {x: 291.428, y: 79.282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329188150
 MonoBehaviour:
@@ -643,11 +643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 941.5623
+      value: 348.0623
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 106.5
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.z
@@ -797,7 +797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397037848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 960, y: 492.5, z: -7.5}
+  m_LocalPosition: {x: 366.5, y: 404, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5981,8 +5981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -91, y: 363}
-  m_SizeDelta: {x: 617.5232, y: 106.61304}
+  m_AnchoredPosition: {x: -31.410797, y: 302.08658}
+  m_SizeDelta: {x: 736.7017, y: 228.4399}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780148547
 MonoBehaviour:
@@ -6115,7 +6115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134, y: -395}
+  m_AnchoredPosition: {x: -134, y: -342}
   m_SizeDelta: {x: 397.012, y: 64.7403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &797875707
@@ -6249,8 +6249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -787, y: -270}
-  m_SizeDelta: {x: 524.8781, y: 79.282}
+  m_AnchoredPosition: {x: -483, y: -182}
+  m_SizeDelta: {x: 355.2203, y: 69.4941}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832894043
 MonoBehaviour:
@@ -6573,8 +6573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 529, y: -272}
-  m_SizeDelta: {x: 531.9293, y: 79.282}
+  m_AnchoredPosition: {x: 206, y: -185}
+  m_SizeDelta: {x: 342.6956, y: 72.7567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072587420
 MonoBehaviour:
@@ -6790,7 +6790,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1201132311}
   - component: {fileID: 1201132313}
-  - component: {fileID: 1201132312}
   m_Layer: 5
   m_Name: DialogueAndChoicePanel
   m_TagString: Untagged
@@ -6817,39 +6816,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.31726, y: 73.87378}
-  m_SizeDelta: {x: -770.7529, y: -618.5028}
+  m_AnchoredPosition: {x: -27.317383, y: 122.869385}
+  m_SizeDelta: {x: -770.7529, y: -716.494}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1201132312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201132310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0.5019608}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1201132313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11741,7 +11710,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' [T] To START GAME'
+  m_Text: 
 --- !u!222 &1391910190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12573,8 +12542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 26.101196, y: -3}
+  m_SizeDelta: {x: 1083.2001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4071178718794013165
 GameObject:
@@ -12765,17 +12734,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.5
+    m_LineSpacing: 1.25
   m_Text: CONTENT
 --- !u!222 &4071178719651786416
 CanvasRenderer:
@@ -12878,7 +12847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.72401375, g: 0.4009434, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12898,9 +12867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mage Of MAdness
-
-'
+  m_Text: CHOOSE YOUR PLAYER PREFERNCE
 --- !u!224 &4071178720462607587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12918,8 +12885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 16, y: -84.8811}
-  m_SizeDelta: {x: 593.0543, y: 63.8151}
+  m_AnchoredPosition: {x: -4.2214, y: -64}
+  m_SizeDelta: {x: 964.7571, y: 56.1742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4071178720462607596
 GameObject:
@@ -13174,24 +13141,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Mage Of Madness
+    name: CHOOSE YOUR PLAYER PREFERNCE
     sentences:
-    - Hey yes hello...
-    - My name is Mage of Madness, I'm going to be helping you throughout this game.
-    - You will get used to the controls, but beware as they are wonky.
-    - 'You''re going to be playing as an incarnation of Death. You know, the Reaper
-      hooded one? '
-    - Use WASD to move, O to attack, and M and P for abilities. The bottom left HUD
-      keeps track of all the relevant information you need. If you get confused,
-      look at the controls in the options menu.
-    - Below you is a choice. I understand users will be of different preference,
-      so use F, G, and H to choose between your skillset increasing by agility, soul
-      power, or bulkiness respectively.
-    - 'That''s the main core of controls and you''ll learn the most as you play.
-      Use the options menu if you''re really stuck or click on me/ press I for information
-      when I pop up. '
-    - 'Enjoy the journey, gamer. Welcome to level 1: Can''t Escape. Beware of everything,
-      but especially the moving white hand spores. '
+    - '-THIS CHOICE IS PERMANENT AND ONLY AFFECTS YOUR UPGRADE SYSTEM
+
+
+      -THE
+      GAME IS VERY PLAYABLE WITHOUT UPGRADES
+
+
+      -USE [WASD] TO MOVE AND [OPM]
+      FOR OTHER VARIOUS CONTROLS
+
+
+      -WHEN SATISFIED WITH YOUR CHOICE PRESS [T]
+      TO START YOUR JOURNEY'
   popUpSound: {fileID: 0}
   nextDialogueSound: {fileID: 0}
   isOpeningScene: 1
