@@ -7,6 +7,7 @@ public class StartBossFight : MonoBehaviour
 {
 
     public GameObject boss;
+    public Enemy enemy;
     public CinemachineVirtualCamera cam;
     public float newFOV = 60f;
 
@@ -17,6 +18,7 @@ public class StartBossFight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         hpBar = boss.GetComponent<BossHPBar>();
 
         if (boss != null)
@@ -72,9 +74,9 @@ public class StartBossFight : MonoBehaviour
         hpBar.HC7.SetActive(true);
         bossFightStarted = true;
 
-
+        Debug.Log("STARTING BOSS HEALTH: " + enemy.currentHealth);
         //Boss Fight Starting Method Calls
-        LightingController.turnBright();
+        //LightingController.turnBright();
     }
 
     public IEnumerator DesObj()

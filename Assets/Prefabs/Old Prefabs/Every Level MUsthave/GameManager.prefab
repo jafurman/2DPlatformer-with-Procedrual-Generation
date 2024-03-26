@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab29a359abc33425cba2de2efa8c5308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: MainMenu
+  mainMenu: MM
   thePlayer: {fileID: 0}
   thePumpkin: {fileID: 0}
-  theSpider: {fileID: 0}
   victoryScreen: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  spawnEffect: {fileID: 0}

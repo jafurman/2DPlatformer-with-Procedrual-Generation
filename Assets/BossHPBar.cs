@@ -37,7 +37,7 @@ public class BossHPBar : MonoBehaviour
         {
             bossHp = enemy.currentHealth;
 
-            if (bossHp > 37 && bossHp <= 40)
+            if (bossHp >= 30 && bossHp <= 32)
             {
                 HC1.SetActive(true);
                 HC2.SetActive(true);
@@ -47,7 +47,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 37 && bossHp > 34)
+            if (bossHp <= 27 && bossHp >= 29)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(true);
@@ -57,7 +57,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 34 && bossHp > 31)
+            if (bossHp <= 24 && bossHp >= 26)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);
@@ -67,7 +67,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 31 && bossHp > 28)
+            if (bossHp <= 21 && bossHp >= 23)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);
@@ -77,7 +77,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 28 && bossHp > 25)
+            if (bossHp <= 18 && bossHp > 20)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);
@@ -87,7 +87,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 25 && bossHp > 22)
+            if (bossHp <= 15 && bossHp > 17)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);
@@ -97,7 +97,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(true);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 22 && bossHp > 19)
+            if (bossHp <= 12 && bossHp > 14)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);
@@ -107,7 +107,7 @@ public class BossHPBar : MonoBehaviour
                 HC6.SetActive(false);
                 HC7.SetActive(true);
             }
-            if (bossHp <= 19)
+            if (bossHp <= 11)
             {
                 HC1.SetActive(false);
                 HC2.SetActive(false);

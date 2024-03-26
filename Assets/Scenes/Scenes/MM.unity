@@ -14234,7 +14234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9-Dungeon
+  m_text: AScent10n
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -19384,6 +19384,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathSound: {fileID: 0}
   soulValue: 0
+  ssm: {fileID: 0}
 --- !u!114 &1554511964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19396,9 +19397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f9e5f8f69094a1b84668fd3c2a7c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 0}
-  playSound: {fileID: 0}
-  healthBar: {fileID: 0}
   knockbackDuration: 0.1
   knockbackForce: 10
   isOnBackground: 0
@@ -20815,7 +20813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9-Dungeon
+  m_text: Ascent10n
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -22112,6 +22110,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathSound: {fileID: 0}
   soulValue: 1
+  ssm: {fileID: 0}
 --- !u!50 &1791467405
 Rigidbody2D:
   serializedVersion: 4
@@ -23979,8 +23978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: OpenDialogue
   PCGLEVELNAME: PCGLEVEL
-  defaultLives: 5
-  defaultScore: 3
+  defaultLives: 10
+  defaultScore: 5
   defaultSoulSlots: 5
   defaultSoulScore: 0
   defaultspeedMultiplier: 1
