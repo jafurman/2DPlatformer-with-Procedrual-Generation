@@ -6499,6 +6499,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1554511961}
     m_Modifications:
+    - target: {fileID: 2165949447369074032, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: gm
       value: 
@@ -6507,6 +6511,10 @@ PrefabInstance:
       propertyPath: lm
       value: 
       objectReference: {fileID: 1780356624}
+    - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: playSound
       value: 
@@ -6519,9 +6527,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPIDERwWeb Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443225, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: healthBar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: deathSound
@@ -6530,6 +6546,14 @@ PrefabInstance:
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: deathEffect
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443228, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443228, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443230, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: m_RootOrder
@@ -30365,6 +30389,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2165949447369074032, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: gm
       value: 
@@ -30378,6 +30406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443216, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: playSound
       value: 
       objectReference: {fileID: 1197170979}
@@ -30389,9 +30421,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPIDERwWeb
       objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443225, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: healthBar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: deathSound
@@ -30400,6 +30440,14 @@ PrefabInstance:
     - target: {fileID: 5534908648688443226, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: deathEffect
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443228, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534908648688443228, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5534908648688443230, guid: 482db7045ac3046eb914b8898b8ae894, type: 3}
       propertyPath: m_RootOrder
