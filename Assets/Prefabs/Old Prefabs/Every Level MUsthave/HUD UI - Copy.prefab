@@ -3435,13 +3435,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6019484932995885895}
-  m_RootOrder: 3
+  m_Father: {fileID: 2591961479680155160}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 236.5, y: -26.4}
-  m_SizeDelta: {x: 157.32, y: 15.675}
+  m_AnchoredPosition: {x: 85.9, y: -15.9}
+  m_SizeDelta: {x: 157.32, y: 7.8374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2444952309823599437
 CanvasRenderer:
@@ -4533,8 +4533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.4, y: -0.44514}
-  m_SizeDelta: {x: 194, y: 16}
+  m_AnchoredPosition: {x: 35.4, y: -0.2381}
+  m_SizeDelta: {x: 194, y: 26.3543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2353017386689227129
 CanvasRenderer:
@@ -4591,8 +4591,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8677,8 +8677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322.19, y: -0.6999817}
-  m_SizeDelta: {x: 139.4, y: 15.11}
+  m_AnchoredPosition: {x: -327.78137, y: -0.000099658966}
+  m_SizeDelta: {x: 151.8253, y: 31.213}
   m_Pivot: {x: 0.55, y: 0.5}
 --- !u!222 &7602652912265015369
 CanvasRenderer:
@@ -9669,13 +9669,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6019484932995885895}
-  m_RootOrder: 4
+  m_Father: {fileID: 3694890229214154113}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208.00005, y: -1.2000093}
-  m_SizeDelta: {x: 54.2615, y: 9.4576}
+  m_AnchoredPosition: {x: 21.0244, y: 0.0000104904175}
+  m_SizeDelta: {x: 34.538, y: 8.3116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4374720466024903456
 CanvasRenderer:
@@ -10565,14 +10565,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3986214377436470118}
   m_Father: {fileID: 6019484932995885895}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 161.70001, y: -1.3}
-  m_SizeDelta: {x: 115.1234, y: 8.3116}
+  m_AnchoredPosition: {x: 269.9, y: 4.1}
+  m_SizeDelta: {x: 11.2508, y: 8.3116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &24165330335581954
 CanvasRenderer:
@@ -10615,7 +10616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lifetime Kills: '
+  m_Text: 'K: '
 --- !u!1 &6040068057705750140
 GameObject:
   m_ObjectHideFlags: 0
@@ -11181,13 +11182,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6019484932995885895}
-  m_RootOrder: 6
+  m_Father: {fileID: 8248218711434184534}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 323, y: -0.8}
-  m_SizeDelta: {x: 54.2615, y: 9.4576}
+  m_AnchoredPosition: {x: -30.63, y: -1.1000233}
+  m_SizeDelta: {x: 35.2908, y: 9.4576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2941270751642528964
 CanvasRenderer:
@@ -11879,13 +11880,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7738850526564470267}
   m_Father: {fileID: 6019484932995885895}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 276.7, y: -0.89993286}
+  m_AnchoredPosition: {x: 322.09995, y: -5.399956}
   m_SizeDelta: {x: 115.1234, y: 8.3116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5280340762518283455
@@ -11929,7 +11931,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lifetime Deaths: '
+  m_Text: 'D:'
 --- !u!1 &6680477534045004587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13614,10 +13616,7 @@ RectTransform:
   - {fileID: 6718475692988537718}
   - {fileID: 4864820069819213969}
   - {fileID: 2591961479680155160}
-  - {fileID: 2131879704081544460}
-  - {fileID: 3986214377436470118}
   - {fileID: 3694890229214154113}
-  - {fileID: 7738850526564470267}
   - {fileID: 8248218711434184534}
   m_Father: {fileID: 8774712648121476073}
   m_RootOrder: 9
@@ -13648,7 +13647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.44705883}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16361,14 +16360,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2131879704081544460}
   m_Father: {fileID: 6019484932995885895}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 236.27972, y: -14.4}
-  m_SizeDelta: {x: 157.7596, y: 16.057}
+  m_AnchoredPosition: {x: 634.6, y: -12.3}
+  m_SizeDelta: {x: 139.048, y: 16.057}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6189070689835243490
 CanvasRenderer:
@@ -16400,7 +16400,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 12
+    m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -17413,7 +17413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.37408534, g: 0, b: 0.4528302, a: 0.28235295}
+  m_Color: {r: 0.70267, g: 0.059407253, b: 0.8396226, a: 0.05882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

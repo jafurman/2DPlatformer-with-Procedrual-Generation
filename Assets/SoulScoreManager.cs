@@ -49,7 +49,7 @@ public class SoulScoreManager : MonoBehaviour
         int currentScore = PlayerPrefs.GetInt("soulScore");
         addedPoints.text = "Soul Score: " + "[" +currentScore + "]";
 
-        change.text = "Latest change: " + "[" + latest + "]";
+        change.text = "Latest change: " + " [" + latest + "]";
     }
 
 

@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197621507995776526, guid: 9e877b3ec789a477ebe39f060d99ccb4, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Spooder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e877b3ec789a477ebe39f060d99ccb4, type: 3}
