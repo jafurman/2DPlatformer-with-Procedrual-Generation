@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thePlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerStart = thePlayer.transform.position;
         if (!PlayerPrefs.HasKey("soulScore"))
         {
@@ -42,10 +43,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() 
     {
-
-    		gameOverScreen.SetActive(true);
-    		thePlayer.gameObject.SetActive(false);
+          if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(true);
+            thePlayer.gameObject.SetActive(false);
             StartCoroutine("GameReset");
+        } else
+        {
+            thePlayer.gameObject.SetActive(false);
+            StartCoroutine("GameReset");
+        }
+
 
     }
 

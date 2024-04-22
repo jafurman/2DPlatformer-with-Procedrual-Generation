@@ -8,6 +8,7 @@ public class SoulScoreManager : MonoBehaviour
     public int soulSlots;
     public Text addedPoints;
     public Text change;
+    public Text levelDisplay;
     public static float speedMultiplier;
     public static int latest;
     public static SoulScoreManager instance;
@@ -22,6 +23,8 @@ public class SoulScoreManager : MonoBehaviour
 
     public GameObject player;
     public GameObject pointsAbovePlayer;
+    public GameObject XPBar;
+    public int level;
 
     // Start is called before the first frame update
     void Start()
@@ -38,18 +41,64 @@ public class SoulScoreManager : MonoBehaviour
             skill5.interactable = false;
         }
 
+        PlayerPrefs.SetInt("currentXP", PlayerPrefs.GetInt("soulScore"));
+
+        level = Mathf.FloorToInt((float)PlayerPrefs.GetInt("currentXP") / 1000f);
+        PlayerPrefs.SetInt("PlayerLevel", level);
+
+        if (PlayerPrefs.GetInt("currentXP") > 1000)
+        {
+            PlayerPrefs.SetInt("currentXP", PlayerPrefs.GetInt("currentXP") % 1000);
+        }
+        PlayerPrefs.Save();
+        UpdateXPBar();
+
         latest = 0;
         speedMultiplier = 1;
+
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        PlayerPrefs.SetInt("currentXP", PlayerPrefs.GetInt("soulScore"));
+        level = Mathf.FloorToInt((float)PlayerPrefs.GetInt("currentXP") / 1000f);
+
         int currentScore = PlayerPrefs.GetInt("soulScore");
         addedPoints.text = "Soul Score: " + "[" +currentScore + "]";
-
         change.text = "Latest change: " + " [" + latest + "]";
+
+
+        level = Mathf.FloorToInt((float)PlayerPrefs.GetInt("currentXP") / 1000f);
+        PlayerPrefs.SetInt("PlayerLevel", level);
+        int currentLevel = PlayerPrefs.GetInt("PlayerLevel");
+
+        if (levelDisplay != null)
+        {
+            levelDisplay.text = "Level: [" + currentLevel + "] ";
+        }
+
+        PlayerPrefs.SetInt("currentXP", PlayerPrefs.GetInt("soulScore"));
+        if (PlayerPrefs.GetInt("currentXP") > 1000)
+        {
+            PlayerPrefs.SetInt("currentXP", PlayerPrefs.GetInt("currentXP") % 1000);
+        }
+
+        PlayerPrefs.Save();
+        UpdateXPBar();
+    }
+
+    public void UpdateXPBar()
+    {
+        float currentXP = PlayerPrefs.GetInt("currentXP");
+        float scaleX = currentXP / 1000;
+        if (XPBar != null)
+        {
+            XPBar.GetComponent<RectTransform>().pivot = new Vector2(0, 0.5f);
+            XPBar.transform.localScale = new Vector3(scaleX, XPBar.transform.localScale.y, XPBar.transform.localScale.z);
+        }
     }
 
 
@@ -63,6 +112,7 @@ public class SoulScoreManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("Change: " + PlayerPrefs.GetInt("soulScore"));
         latest = points;
+
     }
 
     public void subtractPoints(int points)

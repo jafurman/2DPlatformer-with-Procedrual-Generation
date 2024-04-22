@@ -9,7 +9,7 @@ public class dropperSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(RandomDropWave());
+        StartCoroutine(RandomDropWave(10));
     }
 
     public void RandomPositionDrop()
@@ -87,13 +87,13 @@ public class dropperSpawner : MonoBehaviour
     }
 
     //Picks A Random Drop for 5 Drops Worth
-    public IEnumerator RandomDropWave()
+    public IEnumerator RandomDropWave(int times)
     {
         int counter = 0;
         foreach (GameObject go in positions)
         {
             counter += 1;
-            if (counter >= 5)
+            if (counter >= times)
             {
                 break;
             }
