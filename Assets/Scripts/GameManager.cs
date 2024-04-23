@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
 
     public void Reset() 
     {
-    		victoryScreen.SetActive(false);
     		gameOverScreen.SetActive(false);
     		thePlayer.gameObject.SetActive(false);
 
