@@ -27,12 +27,20 @@ public class DialogueTrigger : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.I))
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            popUpSound.PlayOneShot(popUpSound.clip);
+            if (popUpSound != null)
+            {
+                popUpSound.PlayOneShot(popUpSound.clip);
+            }
+
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
-            nextDialogueSound.PlayOneShot(nextDialogueSound.clip);
+            if (nextDialogueSound != null)
+            {
+                nextDialogueSound.PlayOneShot(nextDialogueSound.clip);
+            }
+
         }
 
     }
