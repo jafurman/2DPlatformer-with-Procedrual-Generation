@@ -58,7 +58,7 @@ public class leverScript : MonoBehaviour
 
     		
     		
-    		if (Input.GetKey(KeyCode.O))
+    		if (Input.GetMouseButton(0))
     		{
     			//flip switch
     			transform.localScale = new Vector2(transform.localScale.x, -transform.localScale.y);

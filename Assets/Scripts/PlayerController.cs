@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time >= nextScytheTime)
         {
-            if (Input.GetKeyDown(KeyCode.O) && Slider.isSliding == false)
+            if (Input.GetMouseButtonDown(0) && Slider.isSliding == false)
             {
                 float speedIncrease = PlayerPrefs.GetFloat("ScytheRateIncrease");
                 nextScytheTime = Time.time + 1f / (ScytheRate - speedIncrease);
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
         if (canUseP == true)
         {
             //logic code for holding the bullets in kinematic if held
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetMouseButton(1))
             {
                 //freeze the player in their current position fully
                 theRB2D.gravityScale = .2f;
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(holdFalseTimer());
 
             }
-            if (Input.GetKeyUp(KeyCode.P))
+            if (Input.GetMouseButtonUp(1))
             {
                 StartCoroutine(destroyAnim());
 
@@ -264,14 +264,13 @@ public class PlayerController : MonoBehaviour
 
         if (canUseM == true)
         {
-            //Hold M to do the slice feature is implemented here
-            if (Input.GetKeyDown(KeyCode.M) && meleeTimer == 0f && Slider.isSliding == false)
+            if (Input.GetKey(KeyCode.LeftShift) && meleeTimer == 0f && !Slider.isSliding)
             {
                 meleeTimer = 0.01f;
                 animator.SetBool("HoldSlice", true);
             }
 
-            if (Input.GetKeyUp(KeyCode.M) && allowAttack)
+            if (!Input.GetKey(KeyCode.LeftShift) && allowAttack)
             {
                 meleeTimer = 0;
                 animator.SetBool("HoldSlice", false);

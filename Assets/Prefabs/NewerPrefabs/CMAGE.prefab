@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24536515374645822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0079, y: 0.1469, z: 0}
+  m_LocalPosition: {x: -1.0999987, y: -0.82999897, z: 0.84599996}
   m_LocalScale: {x: 1.3180003, y: 1.2939565, z: 1.1615409}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -250,6 +250,7 @@ MonoBehaviour:
   healthBar: {fileID: 790404577220833974}
   deathSound: {fileID: 1176590281582612547}
   soulValue: 3
+  ssm: {fileID: 0}
 --- !u!82 &1176590281582612547
 AudioSource:
   m_ObjectHideFlags: 0
