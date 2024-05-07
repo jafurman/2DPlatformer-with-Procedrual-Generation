@@ -6,20 +6,19 @@ public class dropperSpawner : MonoBehaviour
 {
     public GameObject droppedItem;
     public GameObject[] positions;
-    // Start is called before the first frame update
+
     void Start()
     {
-        StartCoroutine(RandomDropWave(10));
+        // StartCoroutine(RandomDropWave(5));
     }
 
     public void RandomPositionDrop()
     {
-        // randomly choose 10 to drop from above
-        foreach(GameObject go in positions)
+        foreach (GameObject go in positions)
         {
             Vector2 pos = go.transform.position;
             int chanceToSpawn = Random.Range(0, 10);
-            if (chanceToSpawn < 4 )
+            if (chanceToSpawn < 4)
             {
                 Instantiate(droppedItem, pos, Quaternion.identity);
             }
@@ -86,7 +85,6 @@ public class dropperSpawner : MonoBehaviour
         }
     }
 
-    //Picks A Random Drop for 5 Drops Worth
     public IEnumerator RandomDropWave(int times)
     {
         int counter = 0;
@@ -113,7 +111,7 @@ public class dropperSpawner : MonoBehaviour
                 RandomPositionDrop();
                 yield return new WaitForSeconds(5f);
             }
-            else if (random  == 4)
+            else if (random == 4)
             {
                 StartCoroutine(LeftWipeDrop());
                 yield return new WaitForSeconds(6.2f);
@@ -155,7 +153,7 @@ public class dropperSpawner : MonoBehaviour
                 Instantiate(droppedItem, pos, Quaternion.identity);
             }
 
-        }       
+        }
     }
 
     public IEnumerator RightWipeDrop()
@@ -177,9 +175,4 @@ public class dropperSpawner : MonoBehaviour
             }
         }
     }
-
-
-
-
-
 }
