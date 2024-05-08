@@ -33,8 +33,15 @@ public class dropperSpawner : MonoBehaviour
             counter++;
             if (counter % 2 == 0)
             {
-                Vector2 pos = go.transform.position;
-                Instantiate(droppedItem, pos, Quaternion.identity);
+                if (counter == 12)
+                {
+                    continue;
+                }
+                else
+                {
+                    Vector2 pos = go.transform.position;
+                    Instantiate(droppedItem, pos, Quaternion.identity);
+                }
             }
 
         }

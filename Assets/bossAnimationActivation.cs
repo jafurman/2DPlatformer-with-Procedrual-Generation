@@ -41,4 +41,14 @@ public class bossAnimationActivation : MonoBehaviour
     {
         dpi.RandomPositionDrop();
     }
+
+    public void wipeLeft()
+    {
+        StartCoroutine(dpi.LeftWipeDrop());
+    }
+
+    public void RightLeft()
+    {
+        StartCoroutine(dpi.RightWipeDrop());
+    }
 }
