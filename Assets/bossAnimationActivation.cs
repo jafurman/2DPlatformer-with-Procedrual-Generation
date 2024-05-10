@@ -5,6 +5,8 @@ using UnityEngine;
 public class bossAnimationActivation : MonoBehaviour
 {
     public dropperSpawner dpi;
+    public GameObject eyeballPrefab;
+    public Transform p1, p2, p3;
 
 
     public void everyOtherTop()
@@ -50,5 +52,20 @@ public class bossAnimationActivation : MonoBehaviour
     public void RightLeft()
     {
         StartCoroutine(dpi.RightWipeDrop());
+    }
+
+    public void spawnEyesP1()
+    {
+        GameObject eyeball = Instantiate(eyeballPrefab, p1.position, Quaternion.identity);
+    }
+
+    public void spawnEyesP2()
+    {
+        GameObject eyeball = Instantiate(eyeballPrefab, p2.position, Quaternion.identity);
+    }
+
+    public void spawnEyesP3()
+    {
+        GameObject eyeball = Instantiate(eyeballPrefab, p3.position, Quaternion.identity);
     }
 }
