@@ -9924,6 +9924,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4089442265009117408, guid: 77d0bc01dae89419187996ab7388e1cc, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 2020703943}
     - target: {fileID: 7003182716680345965, guid: 77d0bc01dae89419187996ab7388e1cc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -24827,6 +24831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11d9da3976944b04ab97e3653ebf7e4, type: 3}
+--- !u!82 &2020703943 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2362294332915092976, guid: 77d0bc01dae89419187996ab7388e1cc, type: 3}
+  m_PrefabInstance: {fileID: 825888748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2032236438
 GameObject:
   m_ObjectHideFlags: 0

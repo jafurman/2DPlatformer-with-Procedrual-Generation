@@ -107,6 +107,9 @@ public class PlayerController : MonoBehaviour
 
     public SoulScoreManager ssm;
 
+    public bool soundPlayed;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -594,13 +597,16 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-
         if (grounded && !inDialogueMode && canJump && !isSwinging)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
-                jumpSound.PlayOneShot(jumpSound.clip);
+                if (!soundPlayed)
+                {
+                    jumpSound.PlayOneShot(jumpSound.clip);
+                    soundPlayed = true;
+                }
             }
         }
 
@@ -621,6 +627,7 @@ public class PlayerController : MonoBehaviour
         if (grounded)
         {
             airTimeCounter = airTime;
+            soundPlayed = false; // Reset the soundPlayed variable when grounded
         }
 
         theAnimator.SetBool("Grounded", grounded);

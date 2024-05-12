@@ -47,6 +47,7 @@ MonoBehaviour:
   soulSlots: 0
   addedPoints: {fileID: 0}
   change: {fileID: 0}
+  levelDisplay: {fileID: 0}
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
@@ -64,6 +65,8 @@ MonoBehaviour:
   skill555: {fileID: 0}
   player: {fileID: 0}
   pointsAbovePlayer: {fileID: 2635696737765921945, guid: b9fe69b941b0c4c2286695abfafe6ec5, type: 3}
+  XPBar: {fileID: 0}
+  level: 0
 --- !u!1 &1621335954496195882
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +598,8 @@ MonoBehaviour:
   col: {fileID: 8621962483755086037}
   slideIndicator: {fileID: 8511988138181313957}
   slideIndAnim: {fileID: 0}
+  soundPlayed: 0
+  jumpSound: {fileID: 2362294332915092976}
 --- !u!61 &8621962483755086037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2704,6 +2709,7 @@ MonoBehaviour:
   spawnSlashPrefab: {fileID: 3728512444323115070, guid: f4d1325e90d994206b9e188f4a73df3b, type: 3}
   extraHopBoxPrefab: {fileID: 8066644192267868671, guid: d23f7e895a10f44e5a096084862e48c1, type: 3}
   ssm: {fileID: 546209622789368713}
+  soundPlayed: 0
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4

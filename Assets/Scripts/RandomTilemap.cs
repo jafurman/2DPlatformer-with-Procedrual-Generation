@@ -428,8 +428,8 @@ public class RandomTilemap : MonoBehaviour
                 Vector3 mageSpawnPos = tilemap.transform.position;
                 mageSpawnPos.x = vector.x;
                 mageSpawnPos.y = vector.y;
-                mageSpawnPos.x += .5f;
-                mageSpawnPos.y += 1.25f;
+                mageSpawnPos.x += 1.5f;
+                mageSpawnPos.y += 2.5f;
                 GameObject mage = Instantiate(magePrefab, mageSpawnPos, Quaternion.identity);
                 Debug.Log("Dropping mage on " + newPos);
             }

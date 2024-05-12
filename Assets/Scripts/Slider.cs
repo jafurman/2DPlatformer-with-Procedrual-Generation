@@ -18,6 +18,8 @@ public class Slider : MonoBehaviour
 
     public GameObject slideIndicator;
     public Animator slideIndAnim;
+    public bool soundPlayed;
+    public AudioSource jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -70,30 +72,33 @@ public class Slider : MonoBehaviour
     //while leaving the slide
     void OnTriggerExit2D(Collider2D col)
     {
-            if (col.gameObject.tag == "bullet")
+        if (col.gameObject.tag == "bullet")
+        {
+            //do nothing
+        }
+        else if (col.gameObject.tag == "sliders")
+        {
+            PlayerController.canJump = true;
+            if ((Input.GetKey(KeyCode.A) && !PlayerController.FacingRight) || (Input.GetKey(KeyCode.D) && PlayerController.FacingRight))
             {
-                //do nothing
-            }
-            else if (col.gameObject.tag == "sliders")
-            {
-                PlayerController.canJump = true;
-                if ((Input.GetKey(KeyCode.A) && !PlayerController.FacingRight) || (Input.GetKey(KeyCode.D) && PlayerController.FacingRight))
+                StartCoroutine(setActiveCollider());
+                float slideJumpIncrease = PlayerPrefs.GetFloat("slideJumpMultiplier");
+                rbi.velocity = new Vector3(-5f, (5f + slideJumpIncrease), 10f);
+                Debug.Log("Slide jump increase: " + (slideJumpIncrease));
+                if (!soundPlayed)
                 {
-                    StartCoroutine(setActiveCollider());
-                    float slideJumpIncrease = PlayerPrefs.GetFloat("slideJumpMultiplier");
-                    rbi.velocity = new Vector3(-5f, (5f + slideJumpIncrease), 10f);
-                    Debug.Log("Slide jump increase: " + (slideJumpIncrease));
+                    jumpSound.PlayOneShot(jumpSound.clip);
+                    soundPlayed = true;
                 }
-
-                isSliding = false;
-                slidingAudio.enabled = false;
-                animator.SetBool("Sliding", false);
-                rbi.drag = 0f;
-                rbi.angularDrag = 0f;
             }
 
-        
-        
+            isSliding = false;
+            slidingAudio.enabled = false;
+            animator.SetBool("Sliding", false);
+            rbi.drag = 0f;
+            rbi.angularDrag = 0f;
+            soundPlayed = false; // Reset the soundPlayed variable when leaving the slide
+        }
     }
 
 
