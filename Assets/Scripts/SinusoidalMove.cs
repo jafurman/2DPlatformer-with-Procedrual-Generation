@@ -30,6 +30,7 @@ public class SinusoidalMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckWhereToFace();
         pos = transform.position;
 
         localScale = transform.localScale;
@@ -39,23 +40,19 @@ public class SinusoidalMove : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-    	CheckWhereToFace();
-
-    	if(facingRight)
-    	{
-    		MoveRight();
-    	} else
-    	{
-    		Debug.Log("turning left");
-    		//Flip();
-    		MoveLeft();
-    	} 
-    	
-        
+        if (facingRight)
+        {
+            MoveRight();
+            transform.rotation = Quaternion.LookRotation(Vector3.right);
+        }
+        else
+        {
+            Debug.Log("turning left");
+            MoveLeft();
+            transform.rotation = Quaternion.LookRotation(Vector3.left);
+        }
     }
 
     void CheckWhereToFace()
