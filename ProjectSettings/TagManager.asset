@@ -36,6 +36,7 @@ TagManager:
   - BACKGROUND
   - soulScore
   - soulScoreManager
+  - Cat
   layers:
   - Default
   - TransparentFX
