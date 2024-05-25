@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &93724479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1611,11 +1611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 524.5623
+      value: 483.0623
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 108
+      value: -122
       objectReference: {fileID: 0}
     - target: {fileID: 7605312896399186201, guid: e6645d85faca84def9a3fa0c59035406, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1842,7 +1842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397037848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 543, y: 494, z: -7.5}
+  m_LocalPosition: {x: 501.5, y: 264, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15019,11 +15019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.437842
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.721776
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 5431514170615047654, guid: d84a58b08300648cca4ae6d68226d388, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17111,11 +17111,12 @@ MonoBehaviour:
       GAME IS VERY PLAYABLE WITHOUT UPGRADES
 
 
-      -USE [WASD] TO MOVE AND [OPM]
-      FOR OTHER VARIOUS CONTROLS
+      -USE [WASD], THE MOUSE, AND
+      SHIFT FOR OTHER VARIOUS CONTROLS
 
 
-      -WHEN SATISFIED WITH YOUR CHOICE PRESS [T] '
+      -WHEN SATISFIED WITH YOUR CHOICE PRESS
+      [T] '
   popUpSound: {fileID: 0}
   nextDialogueSound: {fileID: 0}
   isOpeningScene: 1

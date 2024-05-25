@@ -68,7 +68,7 @@ public class dropperSpawner : MonoBehaviour
         foreach (GameObject go in positions)
         {
             counter++;
-            if (counter >= 11)
+            if (counter >= 12)
             {
                 Vector2 pos = go.transform.position;
                 Instantiate(droppedItem, pos, Quaternion.identity);
@@ -149,7 +149,7 @@ public class dropperSpawner : MonoBehaviour
         foreach (GameObject go in positions)
         {
             counter += 1;
-            if (counter == 12)
+            if (counter == 12 || counter == 11)
             {
                 continue;
             }
@@ -170,7 +170,7 @@ public class dropperSpawner : MonoBehaviour
             GameObject go = positions[i];
             int counter = positions.Length - i;
 
-            if (counter == 10)
+            if (counter == 12 || counter == 11)
             {
                 continue;
             }
