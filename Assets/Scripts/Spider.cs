@@ -38,7 +38,7 @@ public class Spider : MonoBehaviour
             {
                 useForBackground = true;
              
-                ScoreManager.instance.TakeScore(1);
+                //ScoreManager.instance.TakeScore(1);
                 
                 
             }

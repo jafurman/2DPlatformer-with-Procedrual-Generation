@@ -7,6 +7,7 @@ public class catMoveTowardsPlayer : StateMachineBehaviour
 
     private float timeInRadius = 0f;
     private bool isIdling = false;
+    private float speed = 1.4f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,7 +24,7 @@ public class catMoveTowardsPlayer : StateMachineBehaviour
 
         float distance = Vector2.Distance(cat.transform.position, player.transform.position);
 
-        if (distance > 1.0f)
+        if (distance > 1.2f)
         {
             // Reset the timer and idling flag when the cat is moving
             timeInRadius = 0f;
@@ -31,7 +32,7 @@ public class catMoveTowardsPlayer : StateMachineBehaviour
 
             Vector2 direction = (player.transform.position - cat.transform.position).normalized;
             direction.y = 0; // This line ensures that the NPC only moves along the x-axis
-            cat.transform.position += new Vector3(direction.x, 0, 0) * Time.deltaTime; // Here we also ensure that the NPC only moves along the x-axis
+            cat.transform.position += new Vector3(direction.x, 0, 0) * Time.deltaTime * speed; // Here we also ensure that the NPC only moves along the x-axis
 
             if (player.transform.position.x < cat.transform.position.x)
             {

@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
     public bool soundPlayed;
 
+    private bool scoreTaken = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -643,9 +644,20 @@ public class PlayerController : MonoBehaviour
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other);
             }
 
-            //if the player gets hit by any tag enemy then they will take damage
-            ScoreManager.instance.TakeScore(1);
+            if (!scoreTaken)
+            {
+                ScoreManager.instance.TakeScore(1);
+                scoreTaken = true;
+            }
             StartCoroutine(flashSprite());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spooder")
+        {
+            scoreTaken = false;
         }
     }
 
