@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
+    [SerializeField] public float maxHealth;
     [SerializeField] public float currentHealth;
     public GameObject deathEffect;
     public GameObject healthBar;
@@ -14,11 +14,22 @@ public class Enemy : MonoBehaviour
     private bool isDead;
     public static bool isInvincible = false;
     public SoulScoreManager ssm;
+    public GameObject otherBoss;
+    public bool isBossOne, isBossTwo;
+    public float boss1Hp, boss2Hp;
     private void Start()
     {
+        if (otherBoss != null)
+        {
+            currentHealth = maxHealth + otherBoss.GetComponent<Enemy>().maxHealth;
+        } else 
+        {
+            currentHealth = maxHealth;
+            boss1Hp = currentHealth;
+            boss2Hp = currentHealth;
+        }
         ssm = GameObject.FindGameObjectWithTag("soulScoreManager").GetComponent<SoulScoreManager>();
         theAnim = GetComponent<Animator>();
-        currentHealth = maxHealth;
 
         if ( healthBar != null)
         {
@@ -32,7 +43,15 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
+        if (isBossOne)
+            {
+                boss1Hp = currentHealth;
+            }
+        if (isBossTwo)
+            {
+                boss2Hp = currentHealth;
+            }
+        
         if (gameObject.tag != "Enemy" || gameObject.tag != "Spooder")
         {
             theAnim.SetTrigger("takeDamage");
@@ -45,6 +64,8 @@ public class Enemy : MonoBehaviour
             // Calculate and set the new health bar size
             float proportionalDamage = damage / 10;
             float newHealthSize = healthBar.transform.localScale.x - proportionalDamage;
+            
+
             healthBar.transform.localScale = new Vector3(newHealthSize, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }
 

@@ -37,6 +37,7 @@ TagManager:
   - soulScore
   - soulScoreManager
   - Cat
+  - Boss
   layers:
   - Default
   - TransparentFX
