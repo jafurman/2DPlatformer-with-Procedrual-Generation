@@ -10,8 +10,9 @@ public class combinationOfHealth : MonoBehaviour
 
     void Start()
     {
-
+        
         maxHealth = Boss1.GetComponent<Enemy>().maxHealth + Boss2.GetComponent<Enemy>().maxHealth;
+
     }
 
     void Update()
@@ -22,7 +23,6 @@ public class combinationOfHealth : MonoBehaviour
 
 
         float combinedHealth = healthOne + healthTwo;
-
 
         if (healthBar != null)
         {

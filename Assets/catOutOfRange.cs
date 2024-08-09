@@ -14,11 +14,12 @@ public class catOutOfRange : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        distanceToPlayer = Vector3.Distance(player.transform.position, animator.transform.position);
+        distanceToPlayer = Vector2.Distance(player.transform.position, animator.transform.position);
 
         if (distanceToPlayer > 1.5f)
         {
             animator.SetTrigger("walkingCat");
+            Debug.Log("Switching");
         }
     }
 }
