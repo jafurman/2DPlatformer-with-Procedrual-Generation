@@ -16,7 +16,7 @@ public class catOutOfRange : StateMachineBehaviour
     {
         distanceToPlayer = Vector2.Distance(player.transform.position, animator.transform.position);
 
-        if (distanceToPlayer > 1.5f)
+        if (distanceToPlayer > 3.5f)
         {
             animator.SetTrigger("walkingCat");
             Debug.Log("Switching");

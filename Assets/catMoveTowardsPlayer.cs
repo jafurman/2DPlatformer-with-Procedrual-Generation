@@ -24,7 +24,7 @@ public class catMoveTowardsPlayer : StateMachineBehaviour
 
         float distance = Vector2.Distance(cat.transform.position, player.transform.position);
 
-        if (distance > 1.2f)
+        if (distance > 3.5f)
         {
             // Reset the timer and idling flag when the cat is moving
             timeInRadius = 0f;

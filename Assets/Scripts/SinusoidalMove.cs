@@ -40,20 +40,7 @@ public class SinusoidalMove : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if (facingRight)
-        {
-            MoveRight();
-            transform.rotation = Quaternion.LookRotation(Vector3.right);
-        }
-        else
-        {
-            Debug.Log("turning left");
-            MoveLeft();
-            transform.rotation = Quaternion.LookRotation(Vector3.left);
-        }
-    }
+
 
     void CheckWhereToFace()
     {

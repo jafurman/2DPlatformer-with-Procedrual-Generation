@@ -15,7 +15,6 @@ public class RandomSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
-        // Instantiate the objectToSpawn at the position of the spawner
         Instantiate(objectToSpawn, transform.position, Quaternion.identity);
     }
 
