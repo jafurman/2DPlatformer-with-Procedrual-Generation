@@ -134,3 +134,5 @@ MonoBehaviour:
   target: {fileID: 0}
   offset: {x: 0, y: 0, z: -10}
   smoothFactor: 6.44
+  uiElement1: {fileID: 0}
+  uiElement2: {fileID: 0}
