@@ -7,10 +7,21 @@ public class spawnSoul : MonoBehaviour
 
     public GameObject spawningPrefab;
     public GameObject soulPrefab;
+
+    public AudioSource se;
+    public AudioClip clip;
+
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnStart());
+
+                    if ((clip) != null && se != null)
+                {
+                    //once hit this sound will play
+                    se.PlayOneShot(clip);
+                }
     }
 
     public IEnumerator spawnStart()
@@ -23,3 +34,4 @@ public class spawnSoul : MonoBehaviour
         Destroy(gameObject);
     }
 }
+

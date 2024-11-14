@@ -2710,6 +2710,8 @@ MonoBehaviour:
   extraHopBoxPrefab: {fileID: 8066644192267868671, guid: d23f7e895a10f44e5a096084862e48c1, type: 3}
   ssm: {fileID: 546209622789368713}
   soundPlayed: 0
+  se: {fileID: 5790486722083378641}
+  clip: {fileID: 8300000, guid: ef2c7f44fc4f24789b9956933f6ee6c9, type: 3}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4
@@ -2780,7 +2782,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7357926426040291414, guid: aa3dff7fe3b0840fd9e4c17c7cf8af25, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.512
   m_Pitch: 1
   Loop: 0
   Mute: 0

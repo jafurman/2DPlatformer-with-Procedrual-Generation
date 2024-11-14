@@ -15,6 +15,8 @@ public class Soul : MonoBehaviour
     private void Start()
     {
         ssm = GameObject.FindGameObjectWithTag("soulScoreManager").GetComponent<SoulScoreManager>();
+
+        playSound = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

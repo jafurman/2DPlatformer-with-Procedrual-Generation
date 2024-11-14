@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24536515374645822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9640007, y: -1.165, z: -0.03}
+  m_LocalPosition: {x: -1.079998, y: -0.840003, z: 1.33}
   m_LocalScale: {x: 1.3180003, y: 1.2939565, z: 1.1615409}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -251,6 +251,13 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   soulValue: 0
   ssm: {fileID: 0}
+  otherBoss: {fileID: 0}
+  isBossOne: 0
+  isBossTwo: 0
+  boss1Hp: 0
+  boss2Hp: 0
+  se: {fileID: 1176590281582612547}
+  clip: {fileID: 8300000, guid: 3eb61102e6bb04576b4b36cde2db3504, type: 3}
 --- !u!82 &1176590281582612547
 AudioSource:
   m_ObjectHideFlags: 0
@@ -261,7 +268,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ef2c7f44fc4f24789b9956933f6ee6c9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3eb61102e6bb04576b4b36cde2db3504, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
     public bool soundPlayed;
 
     private bool scoreTaken = false;
+    public AudioSource se;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     private void Start()
@@ -652,6 +654,12 @@ public class PlayerController : MonoBehaviour
                 scoreTaken = true;
             }
             StartCoroutine(flashSprite());
+    
+            if ((clip) != null && se != null)
+                {
+                    //once hit this sound will play
+                    se.PlayOneShot(clip);
+                }
         }
     }
 

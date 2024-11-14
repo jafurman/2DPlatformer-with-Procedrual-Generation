@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public GameObject otherBoss;
     public bool isBossOne, isBossTwo;
     public float boss1Hp, boss2Hp;
+    public AudioSource se;
+    public AudioClip clip;
     private void Start()
     {
         if (otherBoss != null)
@@ -55,6 +57,11 @@ public class Enemy : MonoBehaviour
         if (gameObject.tag != "Enemy" || gameObject.tag != "Spooder")
         {
             theAnim.SetTrigger("takeDamage");
+            if ((clip) != null && se != null)
+                {
+                    //once hit this sound will play
+                    se.PlayOneShot(clip);
+                }
         }
         StartCoroutine(flashSprite());
 

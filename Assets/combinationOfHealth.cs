@@ -10,24 +10,36 @@ public class combinationOfHealth : MonoBehaviour
 
     void Start()
     {
-        
-        maxHealth = Boss1.GetComponent<Enemy>().maxHealth + Boss2.GetComponent<Enemy>().maxHealth;
-
+        maxHealth = 30f; // Or the total max health of both bosses combined
     }
 
     void Update()
     {
+        if (Boss1 != null)
+        {
+            healthOne = Boss1.GetComponent<Enemy>().boss1Hp;
+        }
+        else
+        {
+            healthOne = 0;
+        }
 
-        healthOne = Boss1.GetComponent<Enemy>().boss1Hp;
-        healthTwo = Boss2.GetComponent<Enemy>().boss2Hp;
-
+        if (Boss2 != null)
+        {
+            healthTwo = Boss2.GetComponent<Enemy>().boss2Hp;
+        }
+        else
+        {
+            healthTwo = 0;
+        }
 
         float combinedHealth = healthOne + healthTwo;
 
         if (healthBar != null)
         {
-            float newHealthSize = combinedHealth / maxHealth * 10; 
-            healthBar.transform.localScale = new Vector3(newHealthSize, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            // Adjust the value to make sure the health bar scales correctly
+            float newHealthSize = combinedHealth / maxHealth;
+            healthBar.transform.localScale = new Vector3(newHealthSize * 6, .2f, 1);
         }
     }
 }
