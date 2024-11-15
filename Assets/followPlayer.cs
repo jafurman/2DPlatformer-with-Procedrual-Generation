@@ -23,8 +23,12 @@ public class followPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = (player.transform.position - eyeballRb.transform.position).normalized;
-        eyeballRb.MovePosition(eyeballRb.position + direction * speed * Time.deltaTime);
+        if (player != null)
+        {
+            Vector2 direction = (player.transform.position - eyeballRb.transform.position).normalized;
+            eyeballRb.MovePosition(eyeballRb.position + direction * speed * Time.deltaTime);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D col)
