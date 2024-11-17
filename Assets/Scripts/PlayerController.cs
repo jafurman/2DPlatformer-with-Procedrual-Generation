@@ -216,6 +216,9 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetMouseButtonUp(1))
             {
+                //play sound here
+                jumpSound.PlayOneShot(jumpSound.clip);
+                
                 StartCoroutine(destroyAnim());
 
                 animator.SetTrigger("ReleaseSoul");
@@ -401,6 +404,11 @@ public class PlayerController : MonoBehaviour
                 {
                     ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
+                    if ((clip) != null && se != null)
+                    {
+                        //once hit this sound will play
+                        se.PlayOneShot(clip);
+                    }
                 }
             }
         }
@@ -451,6 +459,11 @@ public class PlayerController : MonoBehaviour
                 {
                     ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
+                    if ((clip) != null && se != null)
+                    {
+                        //once hit this sound will play
+                        se.PlayOneShot(clip);
+                    }
                 }
             }
 
@@ -540,6 +553,11 @@ public class PlayerController : MonoBehaviour
                 {
                     ssm.addPoints(100);
                     lap.MageShotSpeed = -lap.MageShotSpeed;
+                    if ((clip) != null && se != null)
+                    {
+                        //once hit this sound will play
+                        se.PlayOneShot(clip);
+                    }
                 }
             }
         }

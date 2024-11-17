@@ -2711,7 +2711,7 @@ MonoBehaviour:
   ssm: {fileID: 546209622789368713}
   soundPlayed: 0
   se: {fileID: 5790486722083378641}
-  clip: {fileID: 8300000, guid: ef2c7f44fc4f24789b9956933f6ee6c9, type: 3}
+  clip: {fileID: 8300000, guid: 3eb61102e6bb04576b4b36cde2db3504, type: 3}
 --- !u!50 &9113520220635006285
 Rigidbody2D:
   serializedVersion: 4
