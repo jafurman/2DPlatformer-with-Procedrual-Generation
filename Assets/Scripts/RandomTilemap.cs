@@ -91,7 +91,7 @@ public class RandomTilemap : MonoBehaviour
 
     public IEnumerator DestroyTilesFromMiddle()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         while (startPos.x < maxX && startPos.y > 0 && startPos.y < maxY && startPos.x > 0)
         {
             if (startPos.x >= maxX - 2 || startPos.y <= 2 || startPos.y >= maxY - 2 || startPos.x <= 2)
@@ -454,9 +454,9 @@ public class RandomTilemap : MonoBehaviour
         player.SetActive(false);
         if (spawnEffect != null)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(.5f);
             GameObject effectInstance = Instantiate(spawnEffect, player.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.5f);
             Destroy(effectInstance);
             player.SetActive(true);
         }

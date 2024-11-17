@@ -7,6 +7,9 @@ public class dropperSpawner : MonoBehaviour
     public GameObject droppedItem;
     public GameObject[] positions;
 
+    public AudioSource audsrc;
+    public AudioClip daClip;
+
     void Start()
     {
         // StartCoroutine(RandomDropWave(5));
@@ -14,6 +17,9 @@ public class dropperSpawner : MonoBehaviour
 
     public void RandomPositionDrop()
     {
+        //audio
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
         foreach (GameObject go in positions)
         {
             Vector2 pos = go.transform.position;
@@ -27,6 +33,9 @@ public class dropperSpawner : MonoBehaviour
 
     public void DropEveryOther()
     {
+        //audio
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
         int counter = 0;
         foreach (GameObject go in positions)
         {
@@ -49,6 +58,11 @@ public class dropperSpawner : MonoBehaviour
 
     public void DropEveryThird()
     {
+
+        //audio
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
+
         int counter = 0;
         foreach (GameObject go in positions)
         {
@@ -64,6 +78,11 @@ public class dropperSpawner : MonoBehaviour
 
     public void DropRightHalf()
     {
+
+        //audio
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
+
         int counter = 0;
         foreach (GameObject go in positions)
         {
@@ -79,6 +98,10 @@ public class dropperSpawner : MonoBehaviour
 
     public void DropLeftHalf()
     {
+        //audio
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
+
         int counter = 0;
         foreach (GameObject go in positions)
         {
@@ -97,6 +120,8 @@ public class dropperSpawner : MonoBehaviour
         int counter = 0;
         foreach (GameObject go in positions)
         {
+
+
             counter += 1;
             if (counter >= times)
             {
@@ -145,6 +170,7 @@ public class dropperSpawner : MonoBehaviour
 
     public IEnumerator LeftWipeDrop()
     {
+
         int counter = 0;
         foreach (GameObject go in positions)
         {
@@ -158,6 +184,8 @@ public class dropperSpawner : MonoBehaviour
                 Vector2 pos = go.transform.position;
                 yield return new WaitForSeconds(.2f);
                 Instantiate(droppedItem, pos, Quaternion.identity);
+                //audio
+                    if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
             }
 
         }
@@ -165,6 +193,9 @@ public class dropperSpawner : MonoBehaviour
 
     public IEnumerator RightWipeDrop()
     {
+
+
+
         for (int i = positions.Length - 1; i >= 0; i--)
         {
             GameObject go = positions[i];
@@ -179,6 +210,8 @@ public class dropperSpawner : MonoBehaviour
                 Vector2 pos = go.transform.position;
                 yield return new WaitForSeconds(.2f);
                 Instantiate(droppedItem, pos, Quaternion.identity);
+                //audio
+                    if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
             }
         }
     }

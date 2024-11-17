@@ -8,6 +8,8 @@ public class bossAnimationActivation : MonoBehaviour
     public GameObject eyeballPrefab;
     public Transform p1, p2, p3;
 
+    public AudioSource audsrc;
+    public AudioClip daClip;
 
     public void everyOtherTop()
     {
@@ -57,15 +59,21 @@ public class bossAnimationActivation : MonoBehaviour
     public void spawnEyesP1()
     {
         GameObject eyeball = Instantiate(eyeballPrefab, p1.position, Quaternion.identity);
+        //audio
+            if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
     }
 
     public void spawnEyesP2()
     {
         GameObject eyeball = Instantiate(eyeballPrefab, p2.position, Quaternion.identity);
+        //audio
+            if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
     }
 
     public void spawnEyesP3()
     {
         GameObject eyeball = Instantiate(eyeballPrefab, p3.position, Quaternion.identity);
+        //audio
+            if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
     }
 }

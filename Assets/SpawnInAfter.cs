@@ -17,7 +17,7 @@ public class SpawnInAfter : MonoBehaviour
 
     IEnumerator SpawnAfta()
     {
-        yield return new WaitForSeconds(4.61f);
+        yield return new WaitForSeconds(11f);
 
         player.GetComponent<SpriteRenderer>().enabled = true;
         Boss1.SetActive(true);

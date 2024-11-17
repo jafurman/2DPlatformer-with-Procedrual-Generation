@@ -9,7 +9,7 @@ public class delete : MonoBehaviour
 
     private float startingRadius = 0.1f;
     private float targetRadius = 1.5f;
-    private float duration = 0.2f;
+    private float duration = 0.3f;
     private float elapsedTime = 0f;
 
 

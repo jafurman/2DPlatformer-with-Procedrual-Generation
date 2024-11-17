@@ -14,7 +14,6 @@ public class Bullet : MonoBehaviour
     public GameObject player; //for the player's info
 
     public AudioSource playSound;
-
     private float scaleDecreaseRate = 0.05f; // rate at which to decrease the scale of the game object
 
     public static float timeDuration = 4;
@@ -35,7 +34,6 @@ public class Bullet : MonoBehaviour
     private GameObject[] enemies;
 
     public SoulScoreManager ssm;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -174,6 +172,8 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D hitInfo)
     {
+
+
         Enemy enemy = hitInfo.collider.GetComponent<Enemy>();
 
         if (hitInfo.gameObject.tag == "Player")
