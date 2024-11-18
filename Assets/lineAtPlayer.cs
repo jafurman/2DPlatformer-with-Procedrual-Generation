@@ -16,10 +16,16 @@ public class lineAtPlayer : MonoBehaviour
     public GameObject player;
 
     public float yVal, xVal;
+
+    public AudioSource audsrc;
+
+    public AudioClip daClip;
     // Start is called before the first frame update
     void Start()
     {
         
+        if (audsrc != null && daClip != null) { audsrc.PlayOneShot(daClip); }
+
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         //Vector3 positions of the player and the spawnPoint

@@ -21,6 +21,12 @@ public class DisableManager : MonoBehaviour
 
         disabledP.SetActive(false);
         disabledM.SetActive(false);
+
+        // Set the scale to (1, 1, 1)
+        disabledP.transform.localScale = new Vector3(.35f, .35f, .35f);
+        disabledM.transform.localScale = new Vector3(.35f, .35f, .35f);
+
+
     }
 
     public IEnumerator DisableP()
@@ -38,7 +44,6 @@ public class DisableManager : MonoBehaviour
         disabledP.SetActive(false);
         pAnim.enabled = false;
         Weapon.canShoot = true;
-
     }
 
     public IEnumerator DisableM()
@@ -57,7 +62,14 @@ public class DisableManager : MonoBehaviour
 
     public void Update()
     {
-       if (!player.gameObject.activeSelf)
+
+        // Position disabledP to the right of the player
+        disabledP.transform.position = new Vector3(player.transform.position.x + .4f, player.transform.position.y, 0);
+        // Position disabledM to the left of the player
+        disabledM.transform.position = new Vector3(player.transform.position.x - .4f, player.transform.position.y, 0);
+
+
+        if (!player.gameObject.activeSelf)
         {
             // M code
             PlayerController.canUseM = true;

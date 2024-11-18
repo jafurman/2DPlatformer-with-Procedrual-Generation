@@ -38,10 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenes/Playtime 6.unity
     guid: 6fb8bd15414c64dd2a92eee09da8578b
-  - enabled: 1
-    path: Assets/Scenes/Scenes/FinalAscent.unity
-    guid: 2d1e449836c6e46158b4f53c4775149d
-  - enabled: 1
-    path: Assets/Scenes/Scenes/END.unity
-    guid: 00e4433d8478545df804a136db936135
   m_configObjects: {}

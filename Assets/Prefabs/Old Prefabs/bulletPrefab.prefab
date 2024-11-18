@@ -395,8 +395,6 @@ MonoBehaviour:
     m_Bits: 128
   spawnTailPrefab: {fileID: 1031697751761014047, guid: f379f8a7d077044b0828d8505a738d4c, type: 3}
   ssm: {fileID: 0}
-  audsrc: {fileID: 4105339553057772300}
-  daClip: {fileID: 8300000, guid: 3c9f9f81d19ae407bb2ee9704e4049f4, type: 3}
 --- !u!95 &3808838508396564093
 Animator:
   serializedVersion: 4
@@ -555,8 +553,8 @@ MonoBehaviour:
   isBossTwo: 0
   boss1Hp: 0
   boss2Hp: 0
-  se: {fileID: 0}
-  clip: {fileID: 0}
+  se: {fileID: 4105339553057772300}
+  clip: {fileID: 8300000, guid: 3c9f9f81d19ae407bb2ee9704e4049f4, type: 3}
 --- !u!82 &4105339553057772300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -569,7 +567,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.304
   m_Pitch: 1
   Loop: 0
   Mute: 0
