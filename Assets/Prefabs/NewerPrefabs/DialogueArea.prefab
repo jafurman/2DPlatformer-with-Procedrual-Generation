@@ -1575,7 +1575,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: < Talk To Mage [I]>
+  m_Text: <Talk?>
 --- !u!1 &4071178719972782843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1655,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "MAGE OF MADNESS \n"
+  m_Text: 'Death
+
+'
 --- !u!1 &4071178720053787218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,8 +1698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -123.09491, y: 103.91806}
-  m_SizeDelta: {x: 246.1894, y: 207.8351}
+  m_AnchoredPosition: {x: -101.1734, y: 103.91806}
+  m_SizeDelta: {x: 202.3464, y: 207.8351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071178720053787214
 CanvasRenderer:
@@ -1727,7 +1729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c82331412d064eb385e595cfb0842de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 751f7236746e34c3ab16e389332a210b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1806,7 +1808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Mage of Madness
+    name: Death
     sentences:
     - Hey, you!
     - 'Yeah, you the player, who else? '
